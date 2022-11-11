@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  FaTh,
-  FaUserAlt,
-  FaRegChartBar,
-  FaCommentAlt,
-  FaShoppingBag,
-  FaThList,
-} from "react-icons/fa";
+import HomeIcon from "@mui/icons-material/HomeOutlined";
+import ContactIcon from "@mui/icons-material/CallOutlined";
+import SearchIcon from "@mui/icons-material/SearchOutlined";
+import MediaIcon from "@mui/icons-material/CameraAltOutlined";
+import MapIcon from "@mui/icons-material/MapOutlined";
+import UsefulLink from "@mui/icons-material/AttachFileOutlined";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
@@ -14,40 +12,37 @@ const Sidebar = ({ children }) => {
     {
       path: "/",
       name: "Главная",
-      icon: <FaTh />,
+      icon: <HomeIcon />,
     },
     {
       path: "/map",
       name: "Карта метрополитена",
-      icon: <FaUserAlt />,
+      icon: <MapIcon />,
     },
     {
       path: "/media",
       name: "Медиа",
-      icon: <FaRegChartBar />,
+      icon: <MediaIcon />,
     },
     {
       path: "/resources",
       name: "Интернет-ресурсы",
-      icon: <FaCommentAlt />,
+      icon: <UsefulLink />,
     },
     {
       path: "/contacts",
       name: "Контакты",
-      icon: <FaShoppingBag />,
+      icon: <ContactIcon />,
     },
     {
       path: "/search",
       name: "Поиск по сайту",
-      icon: <FaThList />,
+      icon: <SearchIcon />,
     },
   ];
   return (
     <div className="container">
       <div className="sidebar">
-        <div className="top_section">
-          <h1 className="logo">Logo</h1>
-        </div>
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}

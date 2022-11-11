@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home/Home.jsx";
 import Map from "./pages/Map.jsx";
 import Media from "./pages/Media.jsx";
 import Resources from "./pages/Resources.jsx";

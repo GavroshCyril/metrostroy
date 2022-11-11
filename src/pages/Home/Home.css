@@ -1,0 +1,39 @@
+.Home {
+  background: url("../../Assets/Images/kavalskaya.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 44%;
+}
+
+.Home-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 333px;
+  background-color: rgba(0, 0, 0, 0.532);
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.Home-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 25%;
+}
+
+.Home-title span {
+  font-weight: 400;
+  font-style: italic;
+}
