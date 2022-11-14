@@ -10,7 +10,7 @@ const Home = () => {
           <img src={logoMetro} className="logo" alt="" />
         </div>
         <span className="Home-title">
-          Веб-приложение <span> Минского метрополитена</span>
+          Вирутальный музей <span> Минского метрополитена</span>
         </span>
       </div>
     </div>

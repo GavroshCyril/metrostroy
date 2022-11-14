@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Search = () => {
-    return (
-        <div>
-            <h1>product list page</h1>
-        </div>
-    );
+  return <div className="f">hello</div>;
 };
 
 export default Search;

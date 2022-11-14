@@ -1,0 +1,27 @@
+.Map {
+  background: url("../../Assets/Images/kavalskaya.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.Map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.587);
+  padding: 20px 0;
+}
+
+.Map-title {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 32px;
+  color: #ffff;
+}
+
+.Map-img {
+  width: 800px;
+  height: 590px;
+}

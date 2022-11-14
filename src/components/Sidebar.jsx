@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/SearchOutlined";
 import MediaIcon from "@mui/icons-material/CameraAltOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import UsefulLink from "@mui/icons-material/AttachFileOutlined";
+import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
@@ -38,6 +39,11 @@ const Sidebar = ({ children }) => {
       path: "/search",
       name: "Поиск по сайту",
       icon: <SearchIcon />,
+    },
+    {
+      path: "/auth",
+      name: "Личный кабинет администратора",
+      icon: <UserIcon />,
     },
   ];
   return (

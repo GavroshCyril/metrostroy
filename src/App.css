@@ -16,10 +16,10 @@ main {
   width: 100%;
 }
 .sidebar {
-  padding-top: 45px;
+  padding-top: 20px;
   background-color: gray;
   color: #fff;
-  height: 100vh;
+  height: 97.2vh;
   width: 230px;
   transition: all 0.5s;
 }
