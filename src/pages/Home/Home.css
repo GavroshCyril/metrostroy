@@ -10,8 +10,8 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
-  width: 400px;
+  align-items: center; /* 
+  width: 400px; */
   height: 333px;
   background-color: rgba(0, 0, 0, 0.532);
   max-height: 44%;
@@ -24,16 +24,24 @@
 }
 
 .Home-title {
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 30px;
   font-weight: 700;
   text-align: center;
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 25%;
+  margin-bottom: 20px;
 }
 
 .Home-title span {
   font-weight: 400;
   font-style: italic;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 500px;
+  flex-grow: 2;
 }

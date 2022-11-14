@@ -52,7 +52,7 @@ main {
 }
 
 .link:last-child {
-  border-top: 3px solid rgb(255, 255, 255);
+  border-top: 4px solid rgb(255, 255, 255);
   padding-top: 10px;
 }
 
