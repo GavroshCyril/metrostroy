@@ -16,10 +16,9 @@ main {
   width: 100%;
 }
 .sidebar {
-  padding-top: 20px;
   background-color: gray;
   color: #fff;
-  height: 97.2vh;
+  height: 100vh;
   width: 230px;
   transition: all 0.5s;
 }
@@ -31,6 +30,7 @@ main {
 }
 
 .link {
+  margin-top: 15px;
   width: 100%;
   height: 80px;
   list-style: none;
@@ -50,6 +50,12 @@ main {
   -o-transition: 0.2s;
   text-align: center;
 }
+
+.link:last-child {
+  border-top: 3px solid rgb(255, 255, 255);
+  padding-top: 10px;
+}
+
 .link:hover {
   cursor: pointer;
   background-color: rgb(104, 104, 104);

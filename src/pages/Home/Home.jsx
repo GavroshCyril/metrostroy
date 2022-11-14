@@ -7,7 +7,7 @@ const Home = () => {
     <div className="Home">
       <div className="Home-container">
         <div className="main-img">
-          <img src={logoMetro} className="logo" alt="" />
+          <img src={logoMetro} className="logo" alt="Misk Metro Logo" />
         </div>
         <span className="Home-title">
           Вирутальный музей <span> Минского метрополитена</span>
