@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home/Home.jsx";
 import Map from "./pages/Map/Map.jsx";
-import Media from "./pages/Media.jsx";
-import Resources from "./pages/Resources.jsx";
-import Contacts from "./pages/Contacts.jsx";
-import Search from "./pages/Search.jsx";
+import Media from "./pages/Media/Media.jsx";
+import Resources from "./pages/Resources/Resources.jsx";
+import Contacts from "./pages/Contacts/Contacts.jsx";
+import Search from "./pages/Search/Search.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
 
 const App = () => {
