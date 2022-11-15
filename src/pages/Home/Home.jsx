@@ -22,8 +22,8 @@ const Home = () => {
         </span>
 
         <div className="card-container">
-          <Link href="/" underline="none">
-            <Card sx={{ maxWidth: 500 }}>
+          <Link href="/" underline="none" className="Link">
+            <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -39,8 +39,7 @@ const Home = () => {
                     Московская линия (1-я линия) - первая линия Минского
                     метрополитена, открыта 30 июня 1984г. Линия длиной 19,2 км
                     включает пятнадцать станций. Московская линия почти целиком
-                    проходит под главной магистралью города, проспектом
-                    Независимости
+                    проходит под главной магистралью города
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -48,7 +47,7 @@ const Home = () => {
           </Link>
 
           <Link href="/" underline="none">
-            <Card sx={{ maxWidth: 500 }}>
+            <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -71,7 +70,7 @@ const Home = () => {
             </Card>
           </Link>
           <Link href="/" underline="none">
-            <Card sx={{ maxWidth: 500 }}>
+            <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
                   component="img"
