@@ -16,10 +16,14 @@ main {
   width: 100%;
 }
 .sidebar {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+
   background-color: gray;
   color: #fff;
   height: 100vh;
-  width: 230px;
+  width: 220px;
   transition: all 0.5s;
 }
 

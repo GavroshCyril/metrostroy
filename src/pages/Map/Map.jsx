@@ -1,7 +1,7 @@
 import React from "react";
-import "./Map.css";
-import MapImg from "../../Assets/Images/mapMetro.jpg";
-import MapLabel from "../../Assets/Images/mapLabel.png";
+import "./Map.css"; /* 
+import MapImg from "../../Assets/Images/mapMetro.jpg"; */
+import MapLabel from "../../Assets/Images/shema.jpg";
 
 const Map = () => {
   return (
@@ -9,13 +9,13 @@ const Map = () => {
       <div className="Map">
         <div className="Map-container">
           <h2 className="Map-title">
-            Схема линий метро Минского метрополитена
+            Схема развития минского метрополитена и рельсового транспорта до
+            2050 года
           </h2>
         </div>
       </div>
       <div className="Map-info">
-        <img src={MapLabel} alt="" className="Map-label" />
-        <img src={MapImg} alt="" className="Map-img" />
+        <img src={MapLabel} alt="" className="Map-img" />
       </div>
     </div>
   );

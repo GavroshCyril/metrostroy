@@ -2,7 +2,7 @@ import React from "react";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import ContactIcon from "@mui/icons-material/CallOutlined";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
-import MediaIcon from "@mui/icons-material/CameraAltOutlined";
+import MediaIcon from "@mui/icons-material/MenuBook";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import UsefulLink from "@mui/icons-material/AttachFileOutlined";
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -16,15 +16,16 @@ const Sidebar = ({ children }) => {
       icon: <HomeIcon />,
     },
     {
+      path: "/media",
+      name: "История развития метрополитена",
+      icon: <MediaIcon />,
+    },
+    {
       path: "/map",
       name: "Карта метрополитена",
       icon: <MapIcon />,
     },
-    {
-      path: "/media",
-      name: "Медиа",
-      icon: <MediaIcon />,
-    },
+
     {
       path: "/resources",
       name: "Интернет-ресурсы",

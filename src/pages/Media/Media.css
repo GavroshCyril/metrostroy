@@ -1,0 +1,34 @@
+.Media-content {
+  margin: 25px;
+  text-align: justify;
+}
+
+.content-span {
+  margin-bottom: 10px;
+}
+
+.Media-description {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.Media-paragraph {
+  width: 600px;
+}
+
+.Media-paragraph span {
+  font-size: 48px;
+}
+
+.Media-desc {
+  margin: 20px 0;
+}
+
+.links {
+  margin-top: 20px;
+}
+
+main {
+  margin-left: 14%;
+}
