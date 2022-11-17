@@ -1,6 +1,6 @@
 import React from "react";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
-import ContactIcon from "@mui/icons-material/CallOutlined";
+import ContactIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
 import MediaIcon from "@mui/icons-material/MenuBook";
 import MapIcon from "@mui/icons-material/MapOutlined";
@@ -33,7 +33,7 @@ const Sidebar = ({ children }) => {
     },
     {
       path: "/contacts",
-      name: "Контакты",
+      name: "Информация",
       icon: <ContactIcon />,
     },
     {

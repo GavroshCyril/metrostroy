@@ -1,4 +1,4 @@
-.Media-content {
+.content {
   margin: 25px;
   text-align: justify;
 }
@@ -7,7 +7,7 @@
   margin-bottom: 10px;
 }
 
-.Media-description {
+.description {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;

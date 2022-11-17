@@ -15,11 +15,11 @@ const Media = () => {
     <div className="Media-container">
       <div className="Map">
         <div className="Map-container">
-          <h2 className="Map-title">История развития минского метрополитена</h2>
+          <h2 className="title">История развития минского метрополитена</h2>
         </div>
       </div>
-      <div className="Media-content">
-        <div className="Media-description">
+      <div className="content">
+        <div className="description">
           <p className="Media-paragraph">
             <span> П </span>остановление о строительстве метрополитена в столице
             БССР городе Минске было принято Советом Министров СССР 4 февраля

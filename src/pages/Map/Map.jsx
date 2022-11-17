@@ -8,7 +8,7 @@ const Map = () => {
     <div className="MapWrapper">
       <div className="Map">
         <div className="Map-container">
-          <h2 className="Map-title">
+          <h2 className="title">
             Схема развития минского метрополитена и рельсового транспорта до
             2050 года
           </h2>
