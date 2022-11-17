@@ -39,7 +39,7 @@ const Media = () => {
           <YoutubeEmbed embedId="K0ytyKc1vwE" />
         </div>
         <Stack direction="row" spacing={1} className="content-span">
-          <Chip label="Архивные изображения строительства метрополитена" />
+          <Chip label="Архивные изображения строительства метрополитена:" />
         </Stack>
         <ImagesList />
         <p className="Media-desc">

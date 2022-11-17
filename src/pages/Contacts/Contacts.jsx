@@ -99,6 +99,9 @@ const Contacts = () => {
           </Box>
         </div>
         <div className="wrapper">
+          <Stack direction="row" spacing={1} className="content-span">
+            <Chip label="Изображения музея минского метрополитена:" />
+          </Stack>
           <ImagesListMuseum />
         </div>
         <Stack direction="row" spacing={2} className="links">
