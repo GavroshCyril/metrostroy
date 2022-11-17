@@ -3,12 +3,14 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./Auth.css";
+import { useTranslation } from "react-i18next";
 
 const Search = () => {
+  const [t] = useTranslation();
   return (
     <div className="auth-form">
       <Typography variant="h3" component="div">
-        Авторизируйтесь
+        {t("login.title")}
       </Typography>
       <Typography
         variant="subtitle1"
@@ -16,18 +18,18 @@ const Search = () => {
         component="div"
         className="auth-form__subtitle"
       >
-        чтобы получить доступ к кабинету администратора
+        {t("login.subTitle")}
       </Typography>
       <form className="auth-form__form">
         <TextField
-          label="Логин"
+          label={t("login.login")}
           fullWidth={true}
           size="small"
           margin="normal"
           className="auth-form__input"
         />
         <TextField
-          label="Пароль"
+          label={t("login.password")}
           fullWidth={true}
           size="small"
           margin="normal"
@@ -43,7 +45,7 @@ const Search = () => {
             marginTop: 2,
           }}
         >
-          Войти в личный кабинет
+          {t("login.logIn")}
         </Button>
       </form>
     </div>

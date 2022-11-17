@@ -43,6 +43,13 @@ export const enLang = {
       "on the basis of preliminary applications received by e-mail. mail mail@metropoliten.by",
     label: "Images of the Minsk Metro Museum:",
   },
+  login: {
+    title: "Log in",
+    subTitle: "to get access to the administrator's office",
+    login: "Login",
+    password: "Password",
+    logIn: "Login to your personal account",
+  },
   printMaterial: "Print material",
   downloadMaterial: "Download material in Word format",
 };
