@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
@@ -9,22 +9,25 @@ import Resources from "./pages/Resources/Resources.jsx";
 import Contacts from "./pages/Contacts/Contacts.jsx";
 import Search from "./pages/Search/Search.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
+import "./i18n";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Sidebar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/auth" element={<Auth />} />
-        </Routes>
-      </Sidebar>
-    </BrowserRouter>
+    <Suspense fallback="Loading...">
+      <BrowserRouter>
+        <Sidebar>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/auth" element={<Auth />} />
+          </Routes>
+        </Sidebar>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 

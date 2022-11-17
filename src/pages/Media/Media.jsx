@@ -10,6 +10,7 @@ import PrintIcon from "@mui/icons-material/Print";
 import Stack from "@mui/material/Stack";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 import { useTranslation } from "react-i18next";
+import Link from "@mui/material/Link";
 
 const Media = () => {
   const [t] = useTranslation();
@@ -39,10 +40,21 @@ const Media = () => {
           {t("media.infoSubtitle")}
         </Alert>
         <Stack direction="row" spacing={2} className="links">
-          <Button variant="outlined" startIcon={<PrintIcon />}>
+          <Link
+            href="../../Assets/documents/history.docx"
+            variant="outlined"
+            startIcon={<PrintIcon />}
+            download
+          >
+            {/* <Button > */}
             {t("printMaterial")}
-          </Button>
-          <Button variant="contained" endIcon={<DownloadIcon />}>
+            {/* </Button> */}
+          </Link>
+          <Button
+            onClick={() => window.print()}
+            variant="contained"
+            endIcon={<DownloadIcon />}
+          >
             {t("downloadMaterial")}
           </Button>
         </Stack>
