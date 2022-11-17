@@ -19,6 +19,7 @@ import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
 import { useTranslation } from "react-i18next";
+import Link from "@mui/material/Link";
 
 const Contacts = () => {
   const [t] = useTranslation();
@@ -102,10 +103,21 @@ const Contacts = () => {
         </div>
         <Stack direction="row" spacing={2} className="links">
           <Button variant="outlined" startIcon={<PrintIcon />}>
-            {t("printMaterial")}
+            <Link
+              href="https://metropoliten.by/o_metropolitene/museum/?print=y"
+              underline="none"
+            >
+              {t("printMaterial")}
+            </Link>
           </Button>
-          <Button variant="contained" endIcon={<DownloadIcon />}>
-            {t("downloadMaterial")}
+          <Button variant="outlined" endIcon={<DownloadIcon />}>
+            <Link
+              href="../../Assets/documents/info.docx"
+              underline="none"
+              download
+            >
+              {t("downloadMaterial")}
+            </Link>
           </Button>
         </Stack>
       </div>

@@ -40,26 +40,24 @@ const Media = () => {
           {t("media.infoSubtitle")}
         </Alert>
         <Stack direction="row" spacing={2} className="links">
-          <Link
-            href="../../Assets/documents/history.docx"
-            variant="outlined"
-            startIcon={<PrintIcon />}
-            download
-          >
-            {/* <Button > */}
-            {t("printMaterial")}
-            {/* </Button> */}
-          </Link>
-          <Button
-            onClick={() => window.print()}
-            variant="contained"
-            endIcon={<DownloadIcon />}
-          >
-            {t("downloadMaterial")}
+          <Button variant="outlined" startIcon={<PrintIcon />}>
+            <Link
+              href="https://metropoliten.by/o_metropolitene/history_of_the_development/?print=y"
+              underline="none"
+            >
+              {t("printMaterial")}
+            </Link>
+          </Button>
+          <Button variant="outlined" endIcon={<DownloadIcon />}>
+            <Link
+              href="../../Assets/documents/history.docx"
+              underline="none"
+              download
+            >
+              {t("downloadMaterial")}
+            </Link>
           </Button>
         </Stack>
-        {/* 
-        <button onclick={window.print()}>Распечатать информацию</button> */}
       </div>
     </div>
   );

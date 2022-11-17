@@ -45,6 +45,6 @@ export const ruLang = {
     password: "Пароль",
     logIn: "Войти в личный кабинет",
   },
-  printMaterial: "Распечатать материал",
+  printMaterial: "Версия для печати",
   downloadMaterial: "Скачать материал в формате Word",
 };

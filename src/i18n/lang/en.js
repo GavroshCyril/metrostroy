@@ -50,6 +50,6 @@ export const enLang = {
     password: "Password",
     logIn: "Login to your personal account",
   },
-  printMaterial: "Print material",
+  printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
 };
