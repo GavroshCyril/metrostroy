@@ -1,4 +1,7 @@
 export const enLang = {
+  nav: {
+    home: "Home",
+  },
   home: {
     title: "Virtual Museum of the",
     subtitle: "Minsk Metro",
@@ -24,6 +27,21 @@ export const enLang = {
       "With the launch of the subway, the urgent transport problem was solved",
     infoSubtitle:
       "Back in the days of the existence of the USSR, about 150 large plants, factories and trusts were located in Minsk. It was extremely difficult for ground public transport to solve communication issues in the capital. Since the launch of the Minsk metro, this problem has been successfully solved, and the metro has become the most popular type of public transport. Already in the first year, more than 80 million people used its services.",
+  },
+  contact: {
+    title: "Information",
+    name: "Exhibition exposition",
+    free: "Is free",
+    infoText:
+      "Excursions are conducted only for organized groups (from 5 to 20 people) by appointment. The exposition areas are located at the level of the station ticket halls, the entrance is behind the control line.",
+    locate: "Location of the museum: Partizansky avenue, 149B",
+    writeInfo:
+      "Registration for a tour of the exhibition exposition is carried out:",
+    numberPhone:
+      "by phone (8017) 219-60-67 from 15:00 to 16:15 on Mon, Wed and Fri",
+    email:
+      "on the basis of preliminary applications received by e-mail. mail mail@metropoliten.by",
+    label: "Images of the Minsk Metro Museum:",
   },
   printMaterial: "Print material",
   downloadMaterial: "Download material in Word format",

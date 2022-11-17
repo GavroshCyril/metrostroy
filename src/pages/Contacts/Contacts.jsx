@@ -18,13 +18,15 @@ import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
 import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
+import { useTranslation } from "react-i18next";
 
 const Contacts = () => {
+  const [t] = useTranslation();
   return (
     <div className="ContactsWrapper">
       <div className="Contacts">
         <div className="Map-container">
-          <h2 className="title">Информация</h2>
+          <h2 className="title">{t("contact.title")}</h2>
         </div>
       </div>
       <div className="content">
@@ -42,32 +44,26 @@ const Contacts = () => {
               <Grid container alignItems="center">
                 <Grid item xs>
                   <Typography gutterBottom variant="h4" component="div">
-                    Выставочная экспозиция
+                    {t("contact.name")}
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography gutterBottom variant="h6" component="div">
-                    бесплатно
+                    {t("contact.free")}
                   </Typography>
                 </Grid>
               </Grid>
               <Typography color="text.secondary" variant="body2">
-                Экскурсии проводятся только для организованных групп (от 5 до 20
-                человек) по предварительной записи. Экспозиционные площади
-                расположены на уровне кассовых залов станции, вход находится за
-                линией контроля.
+                {t("contact.infoText")}
               </Typography>
               <Stack direction="row" spacing={1} className="info-desc">
-                <Chip
-                  color="info"
-                  label="Местонахождение музея: Партизанский просп., 149В"
-                />
+                <Chip color="info" label={t("contact.locate")} />
               </Stack>
             </Box>
             <Divider variant="middle" />
             <Box sx={{ m: 2 }}>
               <Typography gutterBottom variant="body1">
-                Запись на экскурсию по выставочной экспозиции осуществляется:
+                {t("contact.writeInfo")}
               </Typography>
               <List
                 sx={{
@@ -82,7 +78,7 @@ const Contacts = () => {
                       <ImageIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText secondary="по телефону (8017) 219-60-67 с 15:00 до 16:15 по пн, ср и пт" />
+                  <ListItemText secondary={t("contact.numberPhone")} />
                 </ListItem>
 
                 <Divider1 variant="inset" component="li" />
@@ -92,7 +88,7 @@ const Contacts = () => {
                       <BeachAccessIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText secondary="на основании предварительных заявок, поступивших на эл. почту mail@metropoliten.by" />
+                  <ListItemText secondary={t("contact.email")} />
                 </ListItem>
               </List>
             </Box>
@@ -100,16 +96,16 @@ const Contacts = () => {
         </div>
         <div className="wrapper">
           <Stack direction="row" spacing={1} className="content-span">
-            <Chip label="Изображения музея минского метрополитена:" />
+            <Chip label={t("contact.label")} />
           </Stack>
           <ImagesListMuseum />
         </div>
         <Stack direction="row" spacing={2} className="links">
           <Button variant="outlined" startIcon={<PrintIcon />}>
-            Распечатать материал
+            {t("printMaterial")}
           </Button>
           <Button variant="contained" endIcon={<DownloadIcon />}>
-            Скачать информацию в формате Word
+            {t("downloadMaterial")}
           </Button>
         </Stack>
       </div>
