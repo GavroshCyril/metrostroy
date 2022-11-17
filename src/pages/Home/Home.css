@@ -62,3 +62,9 @@
   -ms-transform: translateY(-20px);
   -o-transform: translateY(-20px);
 }
+
+.input-lang {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
