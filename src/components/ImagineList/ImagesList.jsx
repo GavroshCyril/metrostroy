@@ -7,8 +7,9 @@ import profileImg from "../../Assets/Images/minsk-metro-logo.png";
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${size *
-      rows}&fit=crop&auto=format&dpr=2 2x`,
+    srcSet: `${image}?w=${size * cols}&h=${
+      size * rows
+    }&fit=crop&auto=format&dpr=2 2x`,
   };
 }
 
@@ -76,39 +77,36 @@ export default function ImagesList() {
 
 const itemData = [
   {
-    img:
-      "https://metropoliten.by/images/history_M/1.%20%D0%9F%D0%B5%D1%80%D0%B2%D0%B0%D1%8F%20%D1%81%D0%B2%D0%B0%D1%8F.jpg",
+    img: "https://metropoliten.by/images/history_M/1.%20%D0%9F%D0%B5%D1%80%D0%B2%D0%B0%D1%8F%20%D1%81%D0%B2%D0%B0%D1%8F.jpg",
     title: "01",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/3.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-3.jpg",
+    img: "https://metropoliten.by/images/history_M/3.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-3.jpg",
     title: "02",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/4.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-4.jpg",
+    img: "https://metropoliten.by/images/history_M/4.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-4.jpg",
     title: "03",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/10.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-10.jpg",
+    img: "https://metropoliten.by/images/history_M/10.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-10.jpg",
     title: "04",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/12.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-12.jpg",
+    img: "https://metropoliten.by/images/history_M/12.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-12.jpg",
     title: "05",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/16.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-16.jpg",
+    img: "https://metropoliten.by/images/history_M/16.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-16.jpg",
     title: "06",
   },
   {
-    img:
-      "https://metropoliten.by/images/history_M/17.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-17.jpg",
+    img: "https://metropoliten.by/images/history_M/17.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-17.jpg",
     title: "07",
+  },
+  {
+    img: "https://metropoliten.by/images/history_M/18.%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-18.jpg",
+    title: "08",
   },
 ];
 
@@ -138,8 +136,8 @@ const pattern = [
     cols: 2,
   },
   {
-    rows: 2,
-    cols: 2,
+    rows: 1,
+    cols: 1,
   },
   {
     rows: 1,
