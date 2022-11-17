@@ -14,6 +14,10 @@ import Avatar from "@mui/material/Avatar";
 import ImageIcon from "@mui/icons-material/LocalPhone";
 import BeachAccessIcon from "@mui/icons-material/AttachEmail";
 import Divider1 from "@mui/material/Divider";
+import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
+import Button from "@mui/material/Button";
+import DownloadIcon from "@mui/icons-material/Download";
+import PrintIcon from "@mui/icons-material/Print";
 
 const Contacts = () => {
   return (
@@ -94,6 +98,17 @@ const Contacts = () => {
             </Box>
           </Box>
         </div>
+        <div className="wrapper">
+          <ImagesListMuseum />
+        </div>
+        <Stack direction="row" spacing={2} className="links">
+          <Button variant="outlined" startIcon={<PrintIcon />}>
+            Распечатать материал
+          </Button>
+          <Button variant="contained" endIcon={<DownloadIcon />}>
+            Скачать информацию в формате Word
+          </Button>
+        </Stack>
       </div>
     </div>
   );

@@ -5,7 +5,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea } from "@mui/material"; /* 
+import { CSSTransition } from "react-transition-group"; */
 
 import Link from "@mui/material/Link";
 
@@ -22,6 +23,7 @@ const Home = () => {
         </span>
 
         <div className="card-container">
+          {/* <CSSTransition timeout={300} classNames="alert" unmountOnExit> */}
           <Link href="/" underline="none" className="Link">
             <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
@@ -43,6 +45,8 @@ const Home = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+
+              {/* </CSSTransition> */}
             </Card>
           </Link>
 
