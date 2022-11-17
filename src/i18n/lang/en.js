@@ -12,4 +12,19 @@ export const enLang = {
     zelenoluzskayaSubTitle:
       "Zelenoluzhskaya line (3rd line) - the third line of the Minsk Metro, opened on November 6, 2020. Now the 3.53 km long line includes four stations and will cross Minsk from south to north",
   },
+  media: {
+    title: "The history of the development of the Minsk metro",
+    let: "The",
+    description01:
+      "decision on the construction of a subway in the capital of the BSSR, the city of Minsk, was adopted by the Council of Ministers of the USSR on February 4, 1977. On May 3, 1977, the construction of the metro began, and on November 4, 1977, tunneling work began from the construction site of the future Park Chelyuskintsev station. On June 29, 1984, on the eve of the 40th anniversary of the liberation of Minsk from Nazi invaders during the Great Patriotic War, the regular movement of trains of the Minsk Metro began. The first line was launched from the Institute of Culture station to the Moskovskaya station, 7.84 kilometers long with eight stations and the Moskovskoye electric depot. The operation of the first section of the metro line showed the need to extend the branch, and in 1986 a section from the Moskovskaya station to the Vostok station with a length of 1.71 kilometers was put into operation.",
+    label: "Archival images of the construction of the subway:",
+    description02:
+      "A distinctive feature of the construction of the Minsk metro was the shallow depth of the stations. Due to the high level of groundwater rise, the stations had to be placed literally under the earth's surface, at a depth of only 10-17 meters. The deepest station today is Yubileinaya Ploshchad, located at a depth of more than 25 meters. The operation of the first section of the metro line showed the need to extend the branch, and in 1986 a section from the Moskovskaya station to the Vostok station with a length of 1.71 kilometers was put into operation. Since 1985, the construction of the first section of the second metro line from the Traktorny Zavod station to the Frunzenskaya station has begun. Its length was 6.12 kilometers. In 1990, the first six stations of the Avtozavodskaya line were put into permanent operation.",
+    infoTitle:
+      "With the launch of the subway, the urgent transport problem was solved",
+    infoSubtitle:
+      "Back in the days of the existence of the USSR, about 150 large plants, factories and trusts were located in Minsk. It was extremely difficult for ground public transport to solve communication issues in the capital. Since the launch of the Minsk metro, this problem has been successfully solved, and the metro has become the most popular type of public transport. Already in the first year, more than 80 million people used its services.",
+  },
+  printMaterial: "Print material",
+  downloadMaterial: "Download material in Word format",
 };
