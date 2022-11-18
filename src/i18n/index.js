@@ -4,6 +4,7 @@ import { initReactI18next } from "react-i18next";
 
 import { enLang } from "./lang/en";
 import { ruLang } from "./lang/ru";
+import { belLang } from "./lang/bel";
 
 i18n
   .use(initReactI18next)
@@ -20,6 +21,9 @@ i18n
       },
       ru: {
         translation: ruLang,
+      },
+      bel: {
+        translation: belLang,
       },
     },
   });

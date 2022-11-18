@@ -34,6 +34,9 @@ const Home = () => {
           <Button onClick={() => changeLanguage("en")} variant="contained">
             ENG
           </Button>
+          <Button onClick={() => changeLanguage("bel")} variant="contained">
+            БЕЛ
+          </Button>
           <Button
             color="primary"
             onClick={() => changeLanguage("ru")}
