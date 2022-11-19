@@ -24,18 +24,9 @@
   margin: 0 15px;
 }
 
-.Card {
-  margin: 0 5px;
-  width: 420px;
-  height: 400px;
-  transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-}
-
-.Card:hover {
+.brach-card:hover {
+  cursor: pointer;
+  width: 600px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transform: translateY(-20px);
   -webkit-transform: translateY(-20px);

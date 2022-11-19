@@ -1,11 +1,19 @@
 import React from "react";
 import "./HomeFirstBranch.css";
-
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 import Slider from "../../../components/ImageSlider/Slider";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+
+import Grushevka from "../../../Assets/Images/BlueBranch/grushevka/grushevka02.jpg";
+import Malinovka from "../../../Assets/Images/BlueBranch/malinovka/malinovka02.jpg";
+import Petrowshcina from "../../../Assets/Images/BlueBranch/petrowshcina/petrowshcina01.jpg";
+import Michalowo from "../../../Assets/Images/BlueBranch/michalowo/michalowo-01.jpg";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -33,7 +41,81 @@ const Home = () => {
           РУС
         </Button>
       </Stack>
-      <div className="content">{t("contact.label")}</div>
+
+      <div className="content">
+        {t("contact.label")}
+        <div className="description">
+          <Card sx={{ maxWidth: 300 }} className="brach-card">
+            <CardMedia
+              component="img"
+              height="150"
+              image={Malinovka}
+              alt="Малиновка"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Малиновка
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Находится на пересечении проспекта Дзержинского и улицы Есенина
+                рядом с микрорайонами Малиновка и Брилевичи
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Card sx={{ maxWidth: 300 }} className="brach-card">
+            <CardMedia
+              component="img"
+              height="150"
+              image={Petrowshcina}
+              alt="Петровщина"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Петровщина
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Находится на пересечении проспекта Дзержинского и улицы Голубева
+                в микрорайоне Юго-Запад
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Card sx={{ maxWidth: 300 }} className="brach-card">
+            <CardMedia
+              component="img"
+              height="150"
+              image={Michalowo}
+              alt="Михалово"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Михалово
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Находится на пересечении улицы Гурского и проспекта Дзержинского
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Card sx={{ maxWidth: 300 }} className="brach-card">
+            <CardMedia
+              component="img"
+              height="150"
+              image={Grushevka}
+              alt="Грушевка"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Грушевка
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Находится под пересечением улицы Щорса с проспектом Дзержинского
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 };
