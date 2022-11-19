@@ -46,7 +46,7 @@ const Home = () => {
           </Button>
         </Stack>
         <div className="card-container">
-          <Link href="/firstbranchhome" underline="none" className="Link">
+          <Link href="/bluebranch" underline="none" className="Link">
             <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
@@ -67,7 +67,7 @@ const Home = () => {
             </Card>
           </Link>
 
-          <Link href="/" underline="none">
+          <Link href="/redbranch" underline="none">
             <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
@@ -87,7 +87,7 @@ const Home = () => {
               </CardActionArea>
             </Card>
           </Link>
-          <Link href="/" underline="none">
+          <Link href="/greenbranch" underline="none">
             <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia

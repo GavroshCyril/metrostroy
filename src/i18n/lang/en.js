@@ -64,6 +64,20 @@ export const enLang = {
     grushSubTitle:
       "It is located under the intersection of Shchorsa Street with Dzerzhinsky Avenue",
   },
+  sBranch: {
+    kamTitle: "Kamennaya gorka",
+    kamSubTitle:
+      "Entrances to the station are located in the underground passages under the intersection of the street. Pritytsky, Kuntsevshchina and Lobanka",
+    sportTitle: "Sportivnaya",
+    sportSubTitle:
+      "It is located in the western part of the city at the intersection of Pritytskogo and Zhudro streets",
+    frunzTitle: "Frunzenskaya",
+    frunzSubTitle:
+      "Entrances to the station are located in underground passages under the intersection of Romanovskaya Sloboda, Melnikayte, Kalvariyskaya, Rakovskaya, Sukhoi and Yubileinaya squares",
+    partizTitle: "Partisanskaya",
+    partizSubTitle:
+      "Located at the intersection of Partizansky Avenue and Kozlova Street",
+  },
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
 };
