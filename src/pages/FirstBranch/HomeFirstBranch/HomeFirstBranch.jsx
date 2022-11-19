@@ -33,8 +33,7 @@ const Home = () => {
           РУС
         </Button>
       </Stack>
-
-      <div className="card-">{t("contact.label")}</div>
+      <div className="content">{t("contact.label")}</div>
     </div>
   );
 };
