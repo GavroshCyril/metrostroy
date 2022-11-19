@@ -43,22 +43,20 @@ const Home = () => {
       </Stack>
 
       <div className="content">
-        {t("contact.label")}
         <div className="description">
           <Card sx={{ maxWidth: 300 }} className="brach-card">
             <CardMedia
               component="img"
-              height="150"
+              height="250"
               image={Malinovka}
               alt="Малиновка"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Малиновка
+                {t("fBranch.malTitle")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Находится на пересечении проспекта Дзержинского и улицы Есенина
-                рядом с микрорайонами Малиновка и Брилевичи
+                {t("fBranch.malSubTitle")}
               </Typography>
             </CardContent>
           </Card>
@@ -66,17 +64,16 @@ const Home = () => {
           <Card sx={{ maxWidth: 300 }} className="brach-card">
             <CardMedia
               component="img"
-              height="150"
+              height="250"
               image={Petrowshcina}
               alt="Петровщина"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Петровщина
+                {t("fBranch.petroTitle")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Находится на пересечении проспекта Дзержинского и улицы Голубева
-                в микрорайоне Юго-Запад
+                {t("fBranch.petroSubTitle")}
               </Typography>
             </CardContent>
           </Card>
@@ -84,16 +81,16 @@ const Home = () => {
           <Card sx={{ maxWidth: 300 }} className="brach-card">
             <CardMedia
               component="img"
-              height="150"
+              height="250"
               image={Michalowo}
               alt="Михалово"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Михалово
+                {t("fBranch.michTitle")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Находится на пересечении улицы Гурского и проспекта Дзержинского
+                {t("fBranch.michSubTitle")}
               </Typography>
             </CardContent>
           </Card>
@@ -101,16 +98,16 @@ const Home = () => {
           <Card sx={{ maxWidth: 300 }} className="brach-card">
             <CardMedia
               component="img"
-              height="150"
+              height="250"
               image={Grushevka}
               alt="Грушевка"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Грушевка
+                {t("fBranch.grushTitle")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Находится под пересечением улицы Щорса с проспектом Дзержинского
+                {t("fBranch.grushSubTitle")}
               </Typography>
             </CardContent>
           </Card>

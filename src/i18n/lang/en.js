@@ -50,6 +50,20 @@ export const enLang = {
     password: "Password",
     logIn: "Login to your personal account",
   },
+  fBranch: {
+    malTitle: "Malinovka",
+    malSubTitle:
+      "Located at the intersection of Dzerzhinsky Avenue and Yesenin Street near the Malinovka and Brilevichi microdistricts",
+    petroTitle: "Petrovshchina",
+    petroSubTitle:
+      "Located at the intersection of Dzerzhinsky Avenue and Golubev Street in the Yugo-Zapad microdistrict",
+    michTitle: "Michalovo",
+    michSubTitle:
+      "Located at the intersection of Gursky Street and Dzerzhinsky Avenue",
+    grushTitle: "Grushevka",
+    grushSubTitle:
+      "It is located under the intersection of Shchorsa Street with Dzerzhinsky Avenue",
+  },
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
 };
