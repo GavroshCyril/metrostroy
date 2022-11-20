@@ -11,6 +11,7 @@ import Search from "./pages/Search/Search.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
 import FisrtBranch from "./pages/FirstBranch/HomeFirstBranch/HomeFirstBranch.jsx";
 import SecondBranch from "./pages/SecondBranch/HomeSecondBranch/HomeSecondBranch.jsx";
+import ThirdBranch from "./pages/ThirdBranch/HomeThirdBranch/HomeThirdBranch.jsx";
 import "./i18n";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/auth" element={<Auth />} />
             <Route path="/bluebranch" element={<FisrtBranch />} />
             <Route path="/redbranch" element={<SecondBranch />} />
+            <Route path="/greenbranch" element={<ThirdBranch />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>
