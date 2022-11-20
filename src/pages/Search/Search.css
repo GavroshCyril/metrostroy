@@ -1,0 +1,59 @@
+.Search {
+  background: url("../../Assets/Images/tonnel.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.project-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.project-label {
+  margin-top: 10px;
+}
+
+.project-img img {
+  width: 90%;
+}
+
+.project-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-paragraph {
+  display: block;
+  width: 90%;
+}
+
+.first-description-info {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-img {
+  width: 500px;
+  height: 500px;
+  margin-left: 50px;
+}
+
+.second-description-info {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.second-info-img {
+  width: 66%;
+}
