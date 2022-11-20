@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { red, blue, green } from "@mui/material/colors";
+import Lang from "../../components/Lang";
 
 const Map = () => {
   const RedBranch = styled(Button)(({ theme }) => ({
@@ -40,6 +41,7 @@ const Map = () => {
         <div className="Map-container">
           <h2 className="title">Схема минского метрополитена</h2>
         </div>
+        <Lang />
       </div>
       <Stack direction="row" spacing={2}>
         <RedBranch

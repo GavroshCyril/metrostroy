@@ -7,17 +7,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import Lang from "../../components/Lang";
+
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
 
 const Home = () => {
   const [t] = useTranslation();
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
 
   return (
     <div className="Home">
@@ -29,22 +24,8 @@ const Home = () => {
           {t("home.title")} <br />
           <span>{t("home.subtitle")} </span>
         </span>
+        <Lang />
 
-        <Stack className="input-lang" spacing={2} direction="row">
-          <Button onClick={() => changeLanguage("en")} variant="contained">
-            ENG
-          </Button>
-          <Button onClick={() => changeLanguage("bel")} variant="contained">
-            БЕЛ
-          </Button>
-          <Button
-            color="primary"
-            onClick={() => changeLanguage("ru")}
-            variant="contained"
-          >
-            РУС
-          </Button>
-        </Stack>
         <div className="card-container">
           <Link href="/bluebranch" underline="none" className="Link">
             <Card sx={{ maxWidth: 500 }} className="Card">

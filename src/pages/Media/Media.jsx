@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 import { useTranslation } from "react-i18next";
 import Link from "@mui/material/Link";
+import Lang from "../../components/Lang";
 const Media = () => {
   const [t] = useTranslation();
 
@@ -20,6 +21,7 @@ const Media = () => {
         <div className="Map-container">
           <h2 className="title">{t("media.title")}</h2>
         </div>
+        <Lang />
       </div>
       <div className="content">
         <div className="description">

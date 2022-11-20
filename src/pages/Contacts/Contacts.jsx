@@ -20,6 +20,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
 import { useTranslation } from "react-i18next";
 import Link from "@mui/material/Link";
+import Lang from "../../components/Lang";
 
 const Contacts = () => {
   const [t] = useTranslation();
@@ -29,6 +30,7 @@ const Contacts = () => {
         <div className="Map-container">
           <h2 className="title">{t("contact.title")}</h2>
         </div>
+        <Lang />
       </div>
       <div className="content">
         <div className="description">

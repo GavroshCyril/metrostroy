@@ -1,9 +1,18 @@
 import React from "react";
+import "./Resources.css";
+import { useTranslation } from "react-i18next";
+import Lang from "../../components/Lang";
 
 const Resources = () => {
+  const [t] = useTranslation();
   return (
-    <div>
-      <h1>Интернет-ресурсы</h1>
+    <div className="ContactsWrapper">
+      <div className="Resources">
+        <div className="Map-container">
+          <h2 className="title">Интернет-ресурсы</h2>
+        </div>
+        <Lang />
+      </div>
     </div>
   );
 };
