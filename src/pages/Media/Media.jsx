@@ -11,7 +11,6 @@ import Stack from "@mui/material/Stack";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 import { useTranslation } from "react-i18next";
 import Link from "@mui/material/Link";
-
 const Media = () => {
   const [t] = useTranslation();
 
@@ -35,6 +34,9 @@ const Media = () => {
         </Stack>
         <ImagesList />
         <p className="Media-desc"> {t("media.description02")}</p>
+        <p className="Media-desc"> {t("media.description03")}</p>
+        <p className="Media-desc"> {t("media.description04")}</p>
+
         <Alert severity="info">
           <AlertTitle>{t("media.infoTitle")}</AlertTitle>
           {t("media.infoSubtitle")}

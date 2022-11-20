@@ -5,6 +5,13 @@
   background-size: cover;
 }
 
+.MapImg {
+  background: url("../../Assets/Images/Vakzalnaja.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .Map-container {
   background-color: rgba(0, 0, 0, 0.587);
   width: 100%;
@@ -13,9 +20,13 @@
 
 .title {
   text-align: center;
-  font-size: 42px;
-  padding: 10px 0;
+  font-size: 38px;
+  padding: 10px;
   color: #ffff;
+}
+
+.MapWrapper {
+  position: relative;
 }
 
 .Map-info {
@@ -24,10 +35,31 @@
   background-position: center center;
   background-size: cover; */
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
 }
 
-.Map-img {
-  width: 45%;
+.content-img {
+  width: 60%;
+}
+
+.branch {
+  z-index: 99;
+}
+
+.redBranch {
+  position: absolute;
+  top: 50px;
+  left: 220px;
+}
+
+.blueBranch {
+  position: absolute;
+  right: -50%;
+  top: 15px;
+}
+
+.greenBranch {
+  position: absolute;
+  right: -17%;
+  top: 483px;
 }

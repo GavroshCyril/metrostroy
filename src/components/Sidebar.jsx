@@ -1,7 +1,7 @@
 import React from "react";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import ContactIcon from "@mui/icons-material/Info";
-import SearchIcon from "@mui/icons-material/SearchOutlined";
+import SearchIcon from "@mui/icons-material/AccountTree";
 import MediaIcon from "@mui/icons-material/MenuBook";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import UsefulLink from "@mui/icons-material/AttachFileOutlined";
@@ -15,9 +15,15 @@ const Sidebar = ({ children }) => {
       name: "Главная",
       icon: <HomeIcon />,
     },
+
+    {
+      path: "/search",
+      name: "Проекты Минского метро (1969-1977)",
+      icon: <SearchIcon />,
+    },
     {
       path: "/media",
-      name: "История развития метрополитена",
+      name: "Первая очередь (1977-1984)",
       icon: <MediaIcon />,
     },
     {
@@ -27,20 +33,16 @@ const Sidebar = ({ children }) => {
     },
 
     {
+      path: "/contacts",
+      name: "Выставочная экспозиция",
+      icon: <ContactIcon />,
+    },
+    {
       path: "/resources",
       name: "Интернет-ресурсы",
       icon: <UsefulLink />,
     },
-    {
-      path: "/contacts",
-      name: "Информация",
-      icon: <ContactIcon />,
-    },
-    {
-      path: "/search",
-      name: "Поиск по сайту",
-      icon: <SearchIcon />,
-    },
+
     {
       path: "/auth",
       name: "Личный кабинет администратора",
