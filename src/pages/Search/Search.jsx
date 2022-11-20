@@ -10,6 +10,10 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import Button from "@mui/material/Button";
+import DownloadIcon from "@mui/icons-material/Download";
+import PrintIcon from "@mui/icons-material/Print";
+import Link from "@mui/material/Link";
 
 const Search = () => {
   const [t] = useTranslation();
@@ -107,7 +111,11 @@ const Search = () => {
             Совет Министров СССР для рассмотрения его председателем А.
             Косыгиным. В конце концов, намеченная цель была достигнута, и 4
             февраля 1977 года Совет Министров СССР издал распоряжение о начале
-            строительства метрополитена в Минске.
+            строительства метрополитена в Минске. 3 мая 1977 года множество
+            минчан собралось у парка Челюскинцев, чтобы стать свидетелями
+            исторического события. В торжественной обстановке экскаватором был
+            извлечён первый ковш земли, положив начало строительству Минского
+            метрополитена.
           </p>
           <img
             className="info-img"
@@ -133,6 +141,25 @@ const Search = () => {
             />
           </Stack>
         </div>
+        <Stack direction="row" spacing={2} className="links">
+          <Button variant="outlined" startIcon={<PrintIcon />}>
+            <Link
+              href="https://metropoliten.by/o_metropolitene/history_of_the_development/?print=y"
+              underline="none"
+            >
+              {t("printMaterial")}
+            </Link>
+          </Button>
+          <Button variant="outlined" endIcon={<DownloadIcon />}>
+            <Link
+              href="../../Assets/documents/history.docx"
+              underline="none"
+              download
+            >
+              {t("downloadMaterial")}
+            </Link>
+          </Button>
+        </Stack>
       </div>
     </div>
   );
