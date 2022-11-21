@@ -78,6 +78,48 @@ export const enLang = {
     partizSubTitle:
       "Located at the intersection of Partizansky Avenue and Kozlova Street",
   },
+  search: {
+    title: "Minsk metro projects (1969-1977)",
+    description01:
+      "The second half of the 20th century was marked by rapid construction and industrial growth for Minsk. The city, which until recently was almost wiped off the face of the earth during the war years, developed rapidly: new plants and factories, educational and cultural institutions appeared, new residential areas were built. By the beginning of the 70s, about 140 enterprises worked in Minsk, including the flagships of the industry of the republic and the Union: a tractor and automobile plant, bearing, motor, gear plants, machine-tool plants, electronic computers and many others. Against the backdrop of the rapid development of Minsk, more and more people flocked to the metropolis.",
+    leninprosp: "Leninsky Prospekt (now Independence Avenue) in the 1960s",
+    description02:
+      "At the same time, this state of affairs has led to an increase in the volume of passenger traffic, average travel distances and a rapidly increasing load on the transport system in the city, to the point that the most significant city streets have exhausted their capacity. The main city highway - Leninsky Prospekt - did not escape this either.",
+    description03:
+      "In 1969, the main design organization of the city 'Minskproekt' developed a comprehensive scheme for the development of urban transport. Three options were considered to improve the challenging traffic environment: express bus, light rail and subway. As shown by simple calculations, the expansion of the tram and trolleybus network, as well as a significant replenishment of the ground transport fleet, will not be able to solve the problem. In a big city, with its complex and diverse economy, the load on land transport increases, and its speed inevitably decreases. Taking into account these circumstances and the specific development of Minsk, the option of introducing express buses directly to solve the transport problem could not be applied.",
+    alertTitle: "In a word, Minsk needed the subway, and only it.",
+    alertDesc01:
+      "But only the desire of the townspeople and the justification of the design institute was not enough. Such a project was supposed to receive support from the republican party bodies, and then be approved by the top leadership of the USSR. In addition, according to unspoken Soviet standards, only a city that reached the mark of 1 million inhabitants could apply for the metro. At that time, the population of Minsk was about 900 thousand. There were rumors that in order to achieve the coveted number, it was decided to artificially increase the number of inhabitants in the city - to attract people from the Belarusian regions, primarily young people to enter educational institutions, as well as military families. How these assumptions correspond to the truth is difficult to say, but the fact remains:",
+    alertDesc02:
+      "in 1972, the millionth resident was officially born in Minsk.",
+    description04:
+      "On July 6, 1976, the Council of Ministers of the USSR issued an order approving the technical design of the first section of the Minsk Metro from eight stations: Moskovskaya (Institute of Culture), Lenin Square, Central Square (Oktyabrskaya), Victory Square, Yakub Square Kolas, Academic (Academy of Sciences), Park Chelyuskintsev, Volgograd (Moscow). The estimated cost of the project amounted to 119.3 million rubles, including the equity participation of the Minsk City Executive Committee - 9.64 million rubles. However, the start date for construction has not been determined.",
+    description04bold: "Thanks to the initiative of Peter Masherov",
+    description05:
+      "as well as the First Secretary of the Central Committee of the Communist Party of Belarus Tikhon Yakovlev, on behalf of the Council of Ministers of the Byelorussian SSR and the Central Committee of the Communist Party of Belarus, an application was again submitted with a request to develop working drawings in 1976, the beginning of the construction itself in 1977, as well as the allocation of public funds in the current five-year plan. Letters were sent to the Council of Ministers of the USSR for consideration by its chairman A. Kosygin. In the end, the intended goal was achieved, and on February 4, 1977, the Council of Ministers of the USSR issued an order to begin construction of the metro in Minsk. On May 3, 1977, many Minskers gathered near Chelyuskintsev Park to witness the historic event. In a solemn atmosphere, the first bucket of earth was extracted by an excavator, marking the beginning of the construction of the Minsk Metro.",
+    perspectiva:
+      "Perspective scheme of the Minsk metro on the eve of the start of construction",
+  },
+  map: {
+    title: "Minsk metro scheme",
+    redbranch: "Avtozavodskaya line",
+    bluebranch: "Moskovskaya line",
+    greenbranch: "Zelenoluzhskaya line",
+  },
+  tBranch: {
+    vokzTitle: "Vokzalnaya",
+    vokzSubTitle:
+      "It is located at the intersection of Druzhnaya and Vokzalnaya streets. It is a transfer to the Moscow line ('Lenin Square')",
+    bogushTitle: "Frantishek Bogushevich Square",
+    bogushSubTitle:
+      "The square is located at the intersection of Dzerzhinsky Avenue, Klara Zetkin and Nemiga streets in the historical district of Pleschanka",
+    yubileyTitle: "Yubileynaya Square",
+    yubileySubTitle:
+      "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Dry and Kalvariyskaya streets",
+    slobodaTitle: "Kovalskaya Sloboda",
+    slobodaSubTitle:
+      "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Zhukovsky and Voronyansky streets",
+  },
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
 };
