@@ -1,5 +1,6 @@
 import React from "react";
 import "./Map.css";
+import { useTranslation } from "react-i18next";
 import MapImg from "../../Assets/Images/shemaMetro02.png";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
@@ -8,6 +9,8 @@ import { red, blue, green } from "@mui/material/colors";
 import Lang from "../../components/Lang";
 
 const Map = () => {
+  const [t] = useTranslation();
+
   const RedBranch = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(red[500]),
     fontSize: 12,
@@ -39,7 +42,7 @@ const Map = () => {
     <div className="MapWrapper">
       <div className="MapImg">
         <div className="Map-container">
-          <h2 className="title">Схема минского метрополитена</h2>
+          <h2 className="title">{t("map.title")}</h2>
         </div>
         <Lang />
       </div>
@@ -49,14 +52,14 @@ const Map = () => {
           variant="contained"
           href="/redbranch"
         >
-          Автозаводская линия
+          {t("map.redbranch")}
         </RedBranch>
         <BlueBranch
           className="blueBranch branch"
           variant="contained"
           href="/bluebranch"
         >
-          Московская линия
+          {t("map.bluebranch")}
         </BlueBranch>
 
         <GreenBranch
@@ -64,7 +67,7 @@ const Map = () => {
           variant="contained"
           href="/greenbranch"
         >
-          Зеленолужская линия
+          {t("map.greenbranch")}
         </GreenBranch>
       </Stack>
 
