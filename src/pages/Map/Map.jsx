@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { red, blue, green } from "@mui/material/colors";
-import Lang from "../../components/Lang";
+import Lang from "../../components/HeaderOptions";
 
 const Map = () => {
   const [t] = useTranslation();

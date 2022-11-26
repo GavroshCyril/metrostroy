@@ -6,7 +6,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import Lang from "../../../components/Lang";
+import Lang from "../../../components/HeaderOptions";
 
 import Vokzalnaya from "../../../Assets/Images/GreenBranch/vokzalnaya/vokzalnaya02.jpg";
 import Bogushevicha from "../../../Assets/Images/GreenBranch/bogushevicha/bogushevicha02.jpg";

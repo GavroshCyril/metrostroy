@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "@mui/material/Link";
-import Lang from "../../components/Lang";
 import Axios from "axios"
-
 import { useTranslation } from "react-i18next";
+
+import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
+import HeaderOptions from "../../components/HeaderOptions";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -47,7 +47,8 @@ const Home = () => {
           {t("home.title")} <br />
           <span>{t("home.subtitle")} </span>
         </span>
-        <Lang />
+
+        <HeaderOptions />
 
         <div className="card-container">
           <Link href="/bluebranch" underline="none" className="Link">

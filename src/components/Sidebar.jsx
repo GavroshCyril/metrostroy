@@ -42,12 +42,6 @@ const Sidebar = ({ children }) => {
       name: "Интернет-ресурсы",
       icon: <UsefulLink />,
     },
-
-    {
-      path: "/auth",
-      name: "Личный кабинет администратора",
-      icon: <UserIcon />,
-    },
     {
       path: "/admin",
       name: "Панель администратора",
