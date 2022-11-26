@@ -48,6 +48,11 @@ const Sidebar = ({ children }) => {
       name: "Личный кабинет администратора",
       icon: <UserIcon />,
     },
+    {
+      path: "/admin",
+      name: "Панель администратора",
+      icon: <UserIcon />,
+    },
   ];
   return (
     <div className="container">

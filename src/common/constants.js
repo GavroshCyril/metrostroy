@@ -1,0 +1,1 @@
+export const REFRESH_TOKEN_TIMEOUT = 1000 * 60;

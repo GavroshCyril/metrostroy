@@ -12,26 +12,32 @@ import Auth from "./pages/Auth/Auth.jsx";
 import FisrtBranch from "./pages/FirstBranch/HomeFirstBranch/HomeFirstBranch.jsx";
 import SecondBranch from "./pages/SecondBranch/HomeSecondBranch/HomeSecondBranch.jsx";
 import ThirdBranch from "./pages/ThirdBranch/HomeThirdBranch/HomeThirdBranch.jsx";
+import Admin from "./pages/Admin/Admin.jsx";
+import { TokenManager } from "./common/TokenManager.jsx";
 import "./i18n";
 
 const App = () => {
   return (
     <Suspense fallback="Loading...">
       <BrowserRouter>
-        <Sidebar>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/map" element={<Map />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/bluebranch" element={<FisrtBranch />} />
-            <Route path="/redbranch" element={<SecondBranch />} />
-            <Route path="/greenbranch" element={<ThirdBranch />} />
-          </Routes>
-        </Sidebar>
+        <TokenManager>
+          <Sidebar>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/map" element={<Map />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/media" element={<Media />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/bluebranch" element={<FisrtBranch />} />
+              <Route path="/redbranch" element={<SecondBranch />} />
+              <Route path="/greenbranch" element={<ThirdBranch />} />
+
+              <Route path="/admin" element={<Admin />} />
+            </Routes>
+          </Sidebar>
+        </TokenManager>
       </BrowserRouter>
     </Suspense>
   );

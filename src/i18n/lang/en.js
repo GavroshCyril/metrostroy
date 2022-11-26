@@ -80,4 +80,11 @@ export const enLang = {
   },
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
+  admin: {
+    title: "Admin panel",
+    subTitle: "to get access to the administrator's office",
+    login: "Login",
+    password: "Password",
+    logIn: "Login to your personal account",
+  },
 };

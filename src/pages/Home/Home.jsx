@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Card from "@mui/material/Card";
@@ -8,11 +8,34 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "@mui/material/Link";
 import Lang from "../../components/Lang";
+import Axios from "axios"
 
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const [t] = useTranslation();
+  const config = {
+    headers:{
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  };
+
+  const getLine = () => {
+    Axios.get("http://localhost:3000/user/all", config)
+    .then((res) => {
+      console.log("res", res);
+
+    })
+    .catch((err) => {
+      console.log("getLine err", err);
+
+    })
+  }
+
+  useEffect(() => {
+    getLine()
+  }, [])
+
 
   return (
     <div className="Home">
