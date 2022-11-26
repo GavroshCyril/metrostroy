@@ -28,6 +28,9 @@ export const userSlice = createSlice({
   },
 })
 
+export const selectUserState = (state) => state.user
+export const isUserLoggedIn = (state) => state.user.id !== ""
+
 // Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount, update } = userSlice.actions
 

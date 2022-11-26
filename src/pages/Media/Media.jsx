@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 import { useTranslation } from "react-i18next";
 import Link from "@mui/material/Link";
-import Lang from "../../components/Lang";
+import Lang from "../../components/HeaderOptions";
 const Media = () => {
   const [t] = useTranslation();
 

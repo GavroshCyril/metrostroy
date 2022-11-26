@@ -1,7 +1,7 @@
 import React from "react";
 import "./Search.css";
 import { useTranslation } from "react-i18next";
-import Lang from "../../components/Lang";
+import Lang from "../../components/HeaderOptions";
 import Prospect from "../../Assets/Images/UsefullImages/prospect01.jpg";
 import Rasporyazenie from "../../Assets/Images/UsefullImages/rasporyazenie01.jpg";
 import Prikaz from "../../Assets/Images/UsefullImages/prikaz01.jpg";

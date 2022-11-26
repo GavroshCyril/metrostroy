@@ -1,7 +1,7 @@
 import React from "react";
 import "./Resources.css";
 import { useTranslation } from "react-i18next";
-import Lang from "../../components/Lang";
+import Lang from "../../components/HeaderOptions";
 
 const Resources = () => {
   const [t] = useTranslation();

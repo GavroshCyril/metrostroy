@@ -20,7 +20,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
 import { useTranslation } from "react-i18next";
 import Link from "@mui/material/Link";
-import Lang from "../../components/Lang";
+import Lang from "../../components/HeaderOptions";
 
 const Contacts = () => {
   const [t] = useTranslation();
