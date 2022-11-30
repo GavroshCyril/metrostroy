@@ -23,3 +23,19 @@
   justify-content: flex-start;
   margin-top: 8px;
 }
+
+.background {
+  background-color: grey;
+}
+
+.mainPage {
+  background-color: bisque;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* justify-content: center; */
+  /* gap: 50px */
+}

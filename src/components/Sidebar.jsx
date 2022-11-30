@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import ContactIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/AccountTree";
@@ -6,6 +6,7 @@ import MediaIcon from "@mui/icons-material/MenuBook";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import UsefulLink from "@mui/icons-material/AttachFileOutlined";
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
+import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
@@ -48,9 +49,19 @@ const Sidebar = ({ children }) => {
       icon: <UserIcon />,
     },
   ];
+
+  const[isOpen ,setIsOpen] = useState(false);
+  const toggle = () => setIsOpen (!isOpen);
+
+    
   return (
     <div className="container">
-      <div className="sidebar">
+      <div className="sidebar" style={{width: isOpen ? "200px" : "50px"}}>
+
+      <div style={{ marginLeft: isOpen ? "45%" : "33%" }} className="bars">
+        <MenuIcon onClick={toggle} />
+      </div>
+    
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}
@@ -59,11 +70,11 @@ const Sidebar = ({ children }) => {
             activeclassName="active"
           >
             <div className="icon">{item.icon}</div>
-            <div className="link_text">{item.name}</div>
+            <div className="link_text" style={{display: isOpen ? "block" : "none"}}>{item.name}</div>
           </NavLink>
         ))}
       </div>
-      <main>{children}</main>
+      <main style={{marginLeft: isOpen ? "200px" : "50px"}}>{children}</main>
     </div>
   );
 };
