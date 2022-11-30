@@ -1,7 +1,5 @@
 import React from "react";
 import "./HomeFirstBranch.css";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 import Slider from "../../../components/ImageSlider/Slider";
@@ -9,7 +7,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Lang from "../../../components/HeaderOptions";
 import Grushevka from "../../../Assets/Images/BlueBranch/grushevka/grushevka02.jpg";
 import Malinovka from "../../../Assets/Images/BlueBranch/malinovka/malinovka02.jpg";
 import Petrowshcina from "../../../Assets/Images/BlueBranch/petrowshcina/petrowshcina01.jpg";
@@ -26,25 +26,11 @@ const Home = () => {
     <div className="HomeFirstBranch">
       <Slider />
 
-      <Stack className="input-lang" spacing={2} direction="row">
-        <Button onClick={() => changeLanguage("en")} variant="contained">
-          ENG
-        </Button>
-        <Button onClick={() => changeLanguage("bel")} variant="contained">
-          БЕЛ
-        </Button>
-        <Button
-          color="primary"
-          onClick={() => changeLanguage("ru")}
-          variant="contained"
-        >
-          РУС
-        </Button>
-      </Stack>
+      <Lang />
 
       <div className="content">
         <div className="description">
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 330 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -59,9 +45,12 @@ const Home = () => {
                 {t("fBranch.malSubTitle")}
               </Typography>
             </CardContent>
+            <Stack className="card-btnBranch" spacing={2} direction="row">
+              <Button variant="outlined">Подробнее</Button>
+            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 330 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -76,9 +65,12 @@ const Home = () => {
                 {t("fBranch.petroSubTitle")}
               </Typography>
             </CardContent>
+            <Stack className="card-btnBranch" spacing={2} direction="row">
+              <Button variant="outlined">Подробнее</Button>
+            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 330 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -93,9 +85,12 @@ const Home = () => {
                 {t("fBranch.michSubTitle")}
               </Typography>
             </CardContent>
+            <Stack className="card-btnBranch" spacing={2} direction="row">
+              <Button variant="outlined">Подробнее</Button>
+            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 330 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -110,6 +105,9 @@ const Home = () => {
                 {t("fBranch.grushSubTitle")}
               </Typography>
             </CardContent>
+            <Stack className="card-btnBranch" spacing={2} direction="row">
+              <Button variant="outlined">Подробнее</Button>
+            </Stack>
           </Card>
         </div>
       </div>
