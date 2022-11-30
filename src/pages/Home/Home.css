@@ -47,7 +47,7 @@
 .Card {
   margin: 0 5px;
   width: 420px;
-  height: 400px;
+  height: 420px;
   transition: 0.2s ease-in-out;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
@@ -68,4 +68,9 @@
   position: absolute;
   top: 30px;
   right: 40px;
+}
+
+.card-btn {
+  margin: 15px;
+  width: 600px;
 }

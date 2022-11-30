@@ -1,41 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Home.css";
+import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "@mui/material/Link";
-import Axios from "axios"
-import { useTranslation } from "react-i18next";
+import Lang from "../../components/HeaderOptions";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
-import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
-import HeaderOptions from "../../components/HeaderOptions";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const [t] = useTranslation();
-  const config = {
-    headers:{
-      Authorization: `Bearer ${localStorage.getItem("token")}`
-    }
-  };
-
-  const getLine = () => {
-    Axios.get("http://localhost:3000/user/all", config)
-    .then((res) => {
-      console.log("res", res);
-
-    })
-    .catch((err) => {
-      console.log("getLine err", err);
-
-    })
-  }
-
-  useEffect(() => {
-    getLine()
-  }, [])
-
 
   return (
     <div className="Home">
@@ -47,8 +26,7 @@ const Home = () => {
           {t("home.title")} <br />
           <span>{t("home.subtitle")} </span>
         </span>
-
-        <HeaderOptions />
+        <Lang />
 
         <div className="card-container">
           <Link href="/bluebranch" underline="none" className="Link">
@@ -56,7 +34,7 @@ const Home = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="190"
                   image="https://metropoliten.by/upload/iblock/078/DSC_0144.jpg"
                   alt="green iguana"
                 />
@@ -69,6 +47,9 @@ const Home = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+              <Stack className="card-btn" spacing={2} direction="row">
+                <Button variant="outlined">Подробнее</Button>
+              </Stack>
             </Card>
           </Link>
 
@@ -90,6 +71,9 @@ const Home = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+              <Stack className="card-btn" spacing={2} direction="row">
+                <Button variant="outlined">Подробнее</Button>
+              </Stack>
             </Card>
           </Link>
           <Link href="/greenbranch" underline="none">
@@ -110,6 +94,9 @@ const Home = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+              <Stack className="card-btn" spacing={2} direction="row">
+                <Button variant="outlined">Подробнее</Button>
+              </Stack>
             </Card>
           </Link>
         </div>

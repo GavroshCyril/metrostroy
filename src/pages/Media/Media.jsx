@@ -25,11 +25,11 @@ const Media = () => {
       </div>
       <div className="content">
         <div className="description">
+          <YoutubeEmbed embedId="K0ytyKc1vwE" />
           <p className="Media-paragraph">
             <span> {t("media.let")} </span>
             {t("media.description01")}
           </p>
-          <YoutubeEmbed embedId="K0ytyKc1vwE" />
         </div>
         <Stack direction="row" spacing={1} className="content-span">
           <Chip label={t("media.label")} />
