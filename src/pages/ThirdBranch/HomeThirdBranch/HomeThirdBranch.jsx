@@ -24,7 +24,7 @@ const Home = () => {
 
       <div className="content">
         <div className="description">
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -41,7 +41,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -58,7 +58,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -75,7 +75,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 300 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"

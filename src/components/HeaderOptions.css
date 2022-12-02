@@ -1,0 +1,10 @@
+* {
+  text-decoration: none;
+}
+
+@media (max-width: 1140px) {
+  .input-lang {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -24,6 +24,10 @@
   margin: 0 15px;
 }
 
+.brach-card {
+  height: 410px;
+}
+
 .brach-card:hover {
   cursor: pointer;
   width: 600px;
@@ -39,5 +43,4 @@
   position: absolute;
   top: 30px;
   right: 40px;
-  z-index: 9999;
 }

@@ -30,7 +30,7 @@ const Home = () => {
 
       <div className="content">
         <div className="description">
-          <Card sx={{ maxWidth: 330 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -38,19 +38,24 @@ const Home = () => {
               alt="Малиновка"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                className="infoName"
+              >
                 {t("fBranch.malTitle")}
+                <Stack className="card-btnBranch" spacing={2} direction="row">
+                  <Button variant="outlined">{t("more")}</Button>
+                </Stack>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {t("fBranch.malSubTitle")}
               </Typography>
             </CardContent>
-            <Stack className="card-btnBranch" spacing={2} direction="row">
-              <Button variant="outlined">Подробнее</Button>
-            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 330 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -58,19 +63,24 @@ const Home = () => {
               alt="Петровщина"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                className="infoName"
+              >
                 {t("fBranch.petroTitle")}
+                <Stack className="card-btnBranch" spacing={2} direction="row">
+                  <Button variant="outlined">{t("more")}</Button>
+                </Stack>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {t("fBranch.petroSubTitle")}
               </Typography>
             </CardContent>
-            <Stack className="card-btnBranch" spacing={2} direction="row">
-              <Button variant="outlined">Подробнее</Button>
-            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 330 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -78,19 +88,24 @@ const Home = () => {
               alt="Михалово"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                className="infoName"
+              >
                 {t("fBranch.michTitle")}
+                <Stack className="card-btnBranch" spacing={2} direction="row">
+                  <Button variant="outlined">{t("more")}</Button>
+                </Stack>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {t("fBranch.michSubTitle")}
               </Typography>
             </CardContent>
-            <Stack className="card-btnBranch" spacing={2} direction="row">
-              <Button variant="outlined">Подробнее</Button>
-            </Stack>
           </Card>
 
-          <Card sx={{ maxWidth: 330 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }} className="brach-card">
             <CardMedia
               component="img"
               height="250"
@@ -98,16 +113,21 @@ const Home = () => {
               alt="Грушевка"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                className="infoName"
+              >
                 {t("fBranch.grushTitle")}
+                <Stack className="card-btnBranch" spacing={2} direction="row">
+                  <Button variant="outlined">{t("more")}</Button>
+                </Stack>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {t("fBranch.grushSubTitle")}
               </Typography>
             </CardContent>
-            <Stack className="card-btnBranch" spacing={2} direction="row">
-              <Button variant="outlined">Подробнее</Button>
-            </Stack>
           </Card>
         </div>
       </div>

@@ -34,7 +34,7 @@ const Home = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="190"
+                  height="200"
                   image="https://metropoliten.by/upload/iblock/078/DSC_0144.jpg"
                   alt="green iguana"
                 />
@@ -48,7 +48,7 @@ const Home = () => {
                 </CardContent>
               </CardActionArea>
               <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined">Подробнее</Button>
+                <Button variant="outlined"> {t("more")}</Button>
               </Stack>
             </Card>
           </Link>
@@ -72,7 +72,7 @@ const Home = () => {
                 </CardContent>
               </CardActionArea>
               <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined">Подробнее</Button>
+                <Button variant="outlined">{t("more")}</Button>
               </Stack>
             </Card>
           </Link>
@@ -95,7 +95,7 @@ const Home = () => {
                 </CardContent>
               </CardActionArea>
               <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined">Подробнее</Button>
+                <Button variant="outlined">{t("more")}</Button>
               </Stack>
             </Card>
           </Link>

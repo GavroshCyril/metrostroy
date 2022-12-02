@@ -13,6 +13,8 @@ import FisrtBranch from "./pages/FirstBranch/HomeFirstBranch/HomeFirstBranch.jsx
 import SecondBranch from "./pages/SecondBranch/HomeSecondBranch/HomeSecondBranch.jsx";
 import ThirdBranch from "./pages/ThirdBranch/HomeThirdBranch/HomeThirdBranch.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
+import Frunzenskaya from "./pages/SecondBranch/Frunzenskaya";
+import Partizanskaya from "./pages/SecondBranch/Frunzenskaya";
 import { TokenManager } from "./common/TokenManager.jsx";
 import "./i18n";
 
@@ -33,7 +35,8 @@ const App = () => {
               <Route path="/bluebranch" element={<FisrtBranch />} />
               <Route path="/redbranch" element={<SecondBranch />} />
               <Route path="/greenbranch" element={<ThirdBranch />} />
-
+              <Route path="/frunzenskaya" element={<Frunzenskaya />} />
+              <Route path="/parizanskaya" element={<Partizanskaya />} />
               <Route path="/admin" element={<Admin />} />
             </Routes>
           </Sidebar>

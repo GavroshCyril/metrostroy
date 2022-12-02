@@ -1,6 +1,7 @@
 .content {
   margin: 25px;
   text-align: justify;
+  flex-wrap: wrap;
 }
 
 .content-span {
