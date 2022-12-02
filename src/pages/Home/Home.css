@@ -47,7 +47,7 @@
 .Card {
   margin: 0 5px;
   width: 420px;
-  height: 420px;
+  height: 410px;
   transition: 0.2s ease-in-out;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
@@ -73,4 +73,11 @@
 .card-btn {
   margin: 15px;
   width: 600px;
+}
+
+@media (max-width: 1300px) {
+  .description {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -5,13 +5,16 @@ import { useNavigate } from "react-router-dom";
 import i18n from "../i18n";
 import { useSelector } from "react-redux";
 import Axios from "axios";
-
+import "./HeaderOptions.css";
+import { useTranslation } from "react-i18next";
 import { isUserLoggedIn } from "../store/userSlice";
 
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 
 const HeaderOptions = () => {
+  const [t] = useTranslation();
+
   const WhiteBtn = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(grey[50]),
 
@@ -66,7 +69,7 @@ const HeaderOptions = () => {
         </Button>
       ) : (
         <Button onClick={() => navigate("/auth")} variant="contained">
-          ЛОГИН
+          {t("login")}
         </Button>
       )}
     </Stack>

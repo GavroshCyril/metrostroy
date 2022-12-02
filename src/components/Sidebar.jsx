@@ -6,62 +6,62 @@ import MediaIcon from "@mui/icons-material/MenuBook";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import UsefulLink from "@mui/icons-material/AttachFileOutlined";
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = ({ children }) => {
+  const [t] = useTranslation();
   const menuItem = [
     {
       path: "/",
-      name: "Главная",
+      name: t("nav.home"),
       icon: <HomeIcon />,
     },
 
     {
       path: "/search",
-      name: "Проекты Минского метро (1969-1977)",
+      name: t("nav.projects"),
       icon: <SearchIcon />,
     },
     {
       path: "/media",
-      name: "Первая очередь (1977-1984)",
+      name: t("nav.stage"),
       icon: <MediaIcon />,
     },
     {
       path: "/map",
-      name: "Карта метрополитена",
+      name: t("nav.map"),
       icon: <MapIcon />,
     },
 
     {
       path: "/contacts",
-      name: "Выставочная экспозиция",
+      name: t("nav.kompozition"),
       icon: <ContactIcon />,
     },
     {
       path: "/resources",
-      name: "Интернет-ресурсы",
+      name: t("nav.info"),
       icon: <UsefulLink />,
     },
     {
       path: "/admin",
-      name: "Панель администратора",
+      name: t("nav.panel"),
       icon: <UserIcon />,
     },
   ];
 
-  const[isOpen ,setIsOpen] = useState(false);
-  const toggle = () => setIsOpen (!isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
-    
   return (
     <div className="container">
-      <div className="sidebar" style={{width: isOpen ? "200px" : "50px"}}>
+      <div className="sidebar" style={{ width: isOpen ? "200px" : "50px" }}>
+        <div style={{ marginLeft: isOpen ? "45%" : "33%" }} className="bars">
+          <MenuIcon onClick={toggle} />
+        </div>
 
-      <div style={{ marginLeft: isOpen ? "45%" : "33%" }} className="bars">
-        <MenuIcon onClick={toggle} />
-      </div>
-    
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}
@@ -70,11 +70,16 @@ const Sidebar = ({ children }) => {
             activeclassName="active"
           >
             <div className="icon">{item.icon}</div>
-            <div className="link_text" style={{display: isOpen ? "block" : "none"}}>{item.name}</div>
+            <div
+              className="link_text"
+              style={{ display: isOpen ? "block" : "none" }}
+            >
+              {item.name}
+            </div>
           </NavLink>
         ))}
       </div>
-      <main style={{marginLeft: isOpen ? "200px" : "50px"}}>{children}</main>
+      <main style={{ marginLeft: isOpen ? "200px" : "50px" }}>{children}</main>
     </div>
   );
 };

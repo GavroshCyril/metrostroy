@@ -24,10 +24,6 @@
   margin: 0 15px;
 }
 
-.brach-card {
-  position: relative;
-}
-
 .brach-card:hover {
   cursor: pointer;
   width: 500px;
@@ -47,6 +43,13 @@
 }
 
 .card-btnBranch {
+  margin: 10px;
+  z-index: 999;
   position: absolute;
-  bottom: -15px;
+  right: -18px;
+  bottom: -10px;
+}
+
+.infoName {
+  position: relative;
 }

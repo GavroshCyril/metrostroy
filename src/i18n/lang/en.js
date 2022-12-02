@@ -1,6 +1,12 @@
 export const enLang = {
   nav: {
     home: "Home",
+    projects: "Minsk metro projects (1969-1977)",
+    stage: "First stage (1977-1984)",
+    map: "Minsk metro scheme",
+    kompozition: "Exhibition exposition",
+    panel: "Admin Panel",
+    info: "Information",
   },
   home: {
     title: "Virtual Museum of the",
@@ -129,4 +135,6 @@ export const enLang = {
     password: "Password",
     logIn: "Login to your personal account",
   },
+  login: "Log in",
+  more: "More",
 };
