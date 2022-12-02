@@ -16,30 +16,31 @@ import Admin from "./pages/Admin/Admin.jsx";
 import Frunzenskaya from "./pages/SecondBranch/Frunzenskaya";
 import Partizanskaya from "./pages/SecondBranch/Frunzenskaya";
 import { TokenManager } from "./common/TokenManager.jsx";
-import "./i18n";
+import { LocalizationProvider } from "./common/LocalizationProvider.jsx";
 
 const App = () => {
   return (
     <Suspense fallback="Loading...">
       <BrowserRouter>
         <TokenManager>
-          <Sidebar>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/map" element={<Map />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/media" element={<Media />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/bluebranch" element={<FisrtBranch />} />
-              <Route path="/redbranch" element={<SecondBranch />} />
-              <Route path="/greenbranch" element={<ThirdBranch />} />
-              <Route path="/frunzenskaya" element={<Frunzenskaya />} />
-              <Route path="/parizanskaya" element={<Partizanskaya />} />
-              <Route path="/admin" element={<Admin />} />
-            </Routes>
-          </Sidebar>
+          <LocalizationProvider>
+            <Sidebar>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/map" element={<Map />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/media" element={<Media />} />
+                <Route path="/contacts" element={<Contacts />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/bluebranch" element={<FisrtBranch />} />
+                <Route path="/redbranch" element={<SecondBranch />} />
+                <Route path="/greenbranch" element={<ThirdBranch />} />
+
+                <Route path="/admin" element={<Admin />} />
+              </Routes>
+            </Sidebar>
+          </LocalizationProvider>
         </TokenManager>
       </BrowserRouter>
     </Suspense>

@@ -1,4 +1,4 @@
-export const enLang = {
+export let enLang = {
   nav: {
     home: "Home",
     projects: "Minsk metro projects (1969-1977)",
