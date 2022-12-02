@@ -37,14 +37,14 @@ export const AccountProfileDetails = (props) => {
   const [t] = useTranslation();
   const localizedState = useSelector(selectLocalizedState);
   const locale = useSelector(selectLocale);
-  const category = "home";
-  const subcategory = "title";
+  const category = "home_title";
+
   const onLocalisation = useLocalisation();
   const [shouldReRender, setShouldReRender] = useState(false);
 
   const [values, setValues] = useState({
     // title: t("home.title"),
-    title: localizedState[category][subcategory],
+    home_title: localizedState["home_title"],
     lastName: 'Smith',
     email: 'demo@devias.io',
     phone: '',
@@ -62,12 +62,11 @@ export const AccountProfileDetails = (props) => {
   };
 
   const saveTitle = () => {
-    console.log("title", values.title)
+    console.log("title", values.home_title)
     Axios.put("http://localhost:3000/localization", {
       locale: locale,
-      value: values.title,
+      value: values.home_title,
       category: category,
-      subcategory: subcategory
     })
     .then((res) => {
       if (res.status === 200) {
@@ -158,10 +157,10 @@ export const AccountProfileDetails = (props) => {
                 <TextField
                   fullWidth
                   label=""
-                  name="title"
+                  name="home_title"
                   onChange={handleChange}
                   required
-                  value={values.title}
+                  value={values.home_title}
                   variant="outlined"
                 />
               </Grid>
@@ -185,7 +184,9 @@ export const AccountProfileDetails = (props) => {
                   onClick={() => setIsChanging(false)}
                 >
                   Отмена
-                </Button></> : <Button
+                </Button></> 
+                : 
+                <Button
                   color="primary"
                   variant="contained"
                   onClick={() => setIsChanging(true)}

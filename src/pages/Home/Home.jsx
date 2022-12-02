@@ -18,7 +18,7 @@ import { selectLocalizedState } from "../../store/localizationSlice";
 const Home = () => {
   const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
-  console.log("state", state)
+  console.log("state Home", state)
 
   return (
     <div className="Home">
@@ -27,8 +27,8 @@ const Home = () => {
           <img src={logoMetro} className="logo" alt="Misk Metro Logo" />
         </div>
         <span className="Home-title">
-          {state.home.title} <br />
-          <span>{state.home.subtitle} </span>
+          {state.home_title} <br />
+          <span>{state.home_subtitle} </span>
         </span>
         <Lang />
 
