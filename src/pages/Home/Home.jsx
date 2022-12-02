@@ -12,9 +12,13 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { selectLocalizedState } from "../../store/localizationSlice";
 
 const Home = () => {
   const [t] = useTranslation();
+  const state = useSelector(selectLocalizedState);
+  console.log("state", state)
 
   return (
     <div className="Home">
@@ -23,8 +27,8 @@ const Home = () => {
           <img src={logoMetro} className="logo" alt="Misk Metro Logo" />
         </div>
         <span className="Home-title">
-          {t("home.title")} <br />
-          <span>{t("home.subtitle")} </span>
+          {state.home.title} <br />
+          <span>{state.home.subtitle} </span>
         </span>
         <Lang />
 

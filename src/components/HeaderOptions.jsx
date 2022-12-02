@@ -11,6 +11,8 @@ import { isUserLoggedIn } from "../store/userSlice";
 
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
+import { update } from '../store/localizationSlice'
+import { useDispatch } from 'react-redux'
 
 const HeaderOptions = () => {
   const [t] = useTranslation();
@@ -23,10 +25,11 @@ const HeaderOptions = () => {
       backgroundColor: grey[300],
     },
   }));
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    dispatch(update(lng))
   };
 
   const isLoggedIn = useSelector(isUserLoggedIn);
