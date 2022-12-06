@@ -17,6 +17,9 @@ import {ruLang} from "../../i18n/lang/ru";
 import { useSelector } from "react-redux";
 import { selectLocalizedState, selectLocale } from "../../store/localizationSlice";
 import { useLocalisation } from '../../hooks/useLocalisation'
+import { FormRow } from './FormRow'
+import { selectLines } from "../../store/linesSlice";
+import { useLines } from "../../hooks/useLines";
 
 const states = [
   {
@@ -34,6 +37,11 @@ const states = [
 ];
 
 export const AccountProfileDetails = (props) => {
+  const state = useSelector(selectLocalizedState);
+  console.log("state AccountProfileDetails", state)
+  const linesState = useSelector(selectLines);
+  console.log("linesState AccountProfileDetails", linesState)
+
   const [t] = useTranslation();
   const localizedState = useSelector(selectLocalizedState);
   const locale = useSelector(selectLocale);
@@ -42,17 +50,28 @@ export const AccountProfileDetails = (props) => {
   const onLocalisation = useLocalisation();
   const [shouldReRender, setShouldReRender] = useState(false);
 
-  const [values, setValues] = useState({
+
+
+  const stateObject = {
     // title: t("home.title"),
     home_title: localizedState["home_title"],
-    lastName: 'Smith',
-    email: 'demo@devias.io',
-    phone: '',
-    state: 'Alabama',
-    country: 'USA'
-  });
+    // lastName: 'Smith',
+    // email: 'demo@devias.io',
+    // phone: '',
+    // state: 'Alabama',
+    // country: 'USA'
+  }
 
-  const [isChanging, setIsChanging] = useState(false);
+  if(linesState) {
+    linesState.map((line) => {
+      console.log("line0", line)
+      stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
+    })
+  }
+  console.log("stateObject", stateObject)
+  const [values, setValues] = useState(stateObject);
+  const onLines = useLines();
+
   
   const handleChange = (event) => {
     setValues({
@@ -80,7 +99,6 @@ export const AccountProfileDetails = (props) => {
 
   // const { locale, value, category, subcategory } = req.body
 
-
   useEffect(() => {
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!useEffect')
 
@@ -89,47 +107,15 @@ export const AccountProfileDetails = (props) => {
     .then((localizationResult) => {
       console.log('localizationResult 000', localizationResult)
     })
+    onLines()
+    .then((linesResult) => {
+      console.log('onLines 000', linesResult)
+    })
     .catch((err) => {
       console.error('err', err)
     })
-  //   console.log('localizationResult', localizationResult)
-  //   tokenRefresh(refreshToken, id);
 
   }, [shouldReRender])
-
-
-  // useEffect(() => {
-  //   Axios.post("http://localhost:3000/user/login", {
-  //       name: userName,
-  //       password: userPassword
-  //   })
-  //   .then((responce) => {
-  //       if (responce.status === 200) {
-  //           const token = responce.data && responce.data.accessToken
-  //           const refreshToken = responce.data && responce.data.refreshToken
-  //           const decoded = JwtDecode(token);
-  //           const user = {
-  //             id: decoded.id,
-  //             name: decoded.name,
-  //             role: decoded.role,
-  //           }
-
-  //           localStorage.setItem("token", token)
-  //           localStorage.setItem("refreshToken", refreshToken)
-         
-  //           dispatch(update(user))
-  //           navigate('/');
-  //       } else {
-  //           console.log("Something went wrong", responce)
-  //       }
-  //   })
-  //   .catch((err) => {
-  //       console.log("err", err)
-
-  //   })
-
-
-  // }, [])
 
   return (
     <>
@@ -149,62 +135,23 @@ export const AccountProfileDetails = (props) => {
               container
               spacing={3}
             >
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label=""
-                  name="home_title"
-                  onChange={handleChange}
-                  required
-                  value={values.home_title}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-                className="buttonContainer"
-              >
-                {isChanging ? <>
-                  <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={(e) => saveTitle(e)}
-                >
-                  Сохранить
-                </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(false)}
-                >
-                  Отмена
-                </Button></> 
-                : 
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(true)}
-                >
-                  Редактировать
-                </Button>}
-                
-                
-                {/* <TextField
-                  fullWidth
-                  label="Last name"
-                  name="lastName"
-                  onChange={handleChange}
-                  required
-                  value={values.lastName}
-                  variant="outlined"
-                /> */}
-              </Grid>
+              <FormRow 
+                handleChange={handleChange} 
+                title={values.home_title} 
+                saveTitle={saveTitle} 
+              />
+              {linesState.map((line) => {
+                console.log("line", line)
+                return (
+                  <FormRow 
+                    handleChange={handleChange} 
+                    title={state[`${line.line_name}`]} 
+                    saveTitle={saveTitle} 
+                  />
+                )
+              })}
+              
+              
          
             
       
@@ -254,7 +201,7 @@ export const AccountProfileDetails = (props) => {
                 xs={12}
                 className="buttonContainer"
               >
-                {isChanging ? <>
+                {/* {isChanging ? <>
                   <Button
                   color="primary"
                   variant="contained"
@@ -274,10 +221,10 @@ export const AccountProfileDetails = (props) => {
                   onClick={() => setIsChanging(true)}
                 >
                   Редактировать
-                </Button>}
+                </Button>} */}
                 
                 
-                {/* <TextField
+                <TextField
                   fullWidth
                   label="Last name"
                   name="lastName"
@@ -285,7 +232,7 @@ export const AccountProfileDetails = (props) => {
                   required
                   value={values.lastName}
                   variant="outlined"
-                /> */}
+                />
               </Grid>
               <Grid
                 item

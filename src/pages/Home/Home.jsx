@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Card from "@mui/material/Card";
@@ -14,11 +14,33 @@ import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { selectLocalizedState } from "../../store/localizationSlice";
+import { selectLines } from "../../store/linesSlice";
+import { useLines } from "../../hooks/useLines";
+
 
 const Home = () => {
   const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
   console.log("state Home", state)
+
+  const linesState = useSelector(selectLines);
+  console.log("linesState", linesState)
+
+
+  const onLines = useLines();
+
+  useEffect(() => {
+    onLines()
+    .then((linesResult) => {
+      console.log('onLines 000', linesResult)
+    })
+    .catch((err) => {
+      console.error('err', err)
+    })
+  //   console.log('localizationResult', localizationResult)
+  //   tokenRefresh(refreshToken, id);
+
+}, [])
 
   return (
     <div className="Home">
@@ -33,7 +55,35 @@ const Home = () => {
         <Lang />
 
         <div className="card-container">
-          <Link href="/bluebranch" underline="none" className="Link">
+          {linesState.map((line) => {
+            console.log("line", line)
+            return (
+              <Link key={line.id} href="/bluebranch" underline="none" className="Link">
+                <Card sx={{ maxWidth: 500 }} className="Card">
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image="https://metropoliten.by/upload/iblock/078/DSC_0144.jpg"
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        {state[`${line.line_name}`]}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {state[`${line.line_description}`]}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <Stack className="card-btn" spacing={2} direction="row">
+                    <Button variant="outlined"> {t("more")}</Button>
+                  </Stack>
+                </Card>
+              </Link>
+            )
+          })}
+          {/* <Link href="/bluebranch" underline="none" className="Link">
             <Card sx={{ maxWidth: 500 }} className="Card">
               <CardActionArea>
                 <CardMedia
@@ -102,7 +152,7 @@ const Home = () => {
                 <Button variant="outlined">{t("more")}</Button>
               </Stack>
             </Card>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
