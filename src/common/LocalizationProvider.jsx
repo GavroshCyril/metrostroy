@@ -5,6 +5,7 @@ import { useRefresh } from '../hooks/useRefresh'
 import { useLocalisation } from '../hooks/useLocalisation'
 
 import { REFRESH_TOKEN_TIMEOUT } from './constants';
+import { useLines } from "../hooks/useLines";
 
 export const LocalizationProvider = ({ children }) => {
   const { pathname } = useLocation();
@@ -13,7 +14,9 @@ export const LocalizationProvider = ({ children }) => {
   const onLocalisation = useLocalisation();
   
   const navigate = useNavigate();
+  
   const refreshToken = localStorage.getItem("refreshToken")
+  const onLines = useLines();
 
   const isUserLoggedIn = [
     "admin",
@@ -31,6 +34,19 @@ export const LocalizationProvider = ({ children }) => {
     //   tokenRefresh(refreshToken, id);
 
   }, [pathname, isUserLoggedIn])
+
+  useEffect(() => {
+    onLines()
+    .then((linesResult) => {
+      console.log('onLines 000', linesResult)
+    })
+    .catch((err) => {
+      console.error('err', err)
+    })
+  //   console.log('localizationResult', localizationResult)
+  //   tokenRefresh(refreshToken, id);
+
+  }, [])
 
   return <>{children}</>;
 }

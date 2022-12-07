@@ -53,7 +53,7 @@ export const AccountProfileDetails = (props) => {
 
 
   const stateObject = {
-    // title: t("home.title"),
+    title2: "123",
     home_title: localizedState["home_title"],
     // lastName: 'Smith',
     // email: 'demo@devias.io',
@@ -62,14 +62,13 @@ export const AccountProfileDetails = (props) => {
     // country: 'USA'
   }
 
-  if(linesState) {
-    linesState.map((line) => {
-      console.log("line0", line)
-      stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
-    })
-  }
+
+
+
+
   console.log("stateObject", stateObject)
   const [values, setValues] = useState(stateObject);
+  console.log("values", values)
   const onLines = useLines();
 
   
@@ -80,24 +79,34 @@ export const AccountProfileDetails = (props) => {
     });
   };
 
-  const saveTitle = () => {
-    console.log("title", values.home_title)
-    Axios.put("http://localhost:3000/localization", {
-      locale: locale,
-      value: values.home_title,
-      category: category,
-    })
-    .then((res) => {
-      if (res.status === 200) {
+  // const saveTitle = () => {
+  //   console.log("title", values.home_title)
+  //   Axios.put("http://localhost:3000/localization", {
+  //     locale: locale,
+  //     value: values.home_title,
+  //     category: category,
+  //   })
+  //   .then((res) => {
+  //     if (res.status === 200) {
         
-        console.log("res.data", res.data)
-        setShouldReRender(true)
-      }
-    })
+  //       console.log("res.data", res.data)
+  //       setShouldReRender(true)
+  //     }
+  //   })
 
-  }
+  // }
 
   // const { locale, value, category, subcategory } = req.body
+
+  useEffect(() => {
+    if(linesState) {
+      linesState.map((line) => {
+        console.log("line0", line)
+        stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
+      })
+    }
+    setValues(stateObject)
+  }, [linesState])
 
   useEffect(() => {
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!useEffect')
@@ -114,7 +123,7 @@ export const AccountProfileDetails = (props) => {
     .catch((err) => {
       console.error('err', err)
     })
-
+    setValues(stateObject)
   }, [shouldReRender])
 
   return (
@@ -138,16 +147,30 @@ export const AccountProfileDetails = (props) => {
               <FormRow 
                 handleChange={handleChange} 
                 title={values.home_title} 
-                saveTitle={saveTitle} 
+                // saveTitle={saveTitle} 
+                name={"home_title"}
               />
               {linesState.map((line) => {
                 console.log("line", line)
+                console.log("name", line.line_name)
+                
                 return (
-                  <FormRow 
-                    handleChange={handleChange} 
-                    title={state[`${line.line_name}`]} 
-                    saveTitle={saveTitle} 
-                  />
+                  <>
+                    <FormRow 
+                      // handleChange={handleChange} 
+                      title={state[`${line.line_name}`]} 
+                      // saveTitle={saveTitle} 
+                      name={line.line_name}
+                    />
+
+                    <FormRow 
+                      // handleChange={handleChange} 
+                      title={state[`${line.line_description}`]} 
+                      // saveTitle={saveTitle} 
+                      name={line.line_description}
+                    />    
+                  </>
+                  
                 )
               })}
               

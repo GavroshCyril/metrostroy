@@ -1,0 +1,55 @@
+.logo {
+  width: 170px;
+  height: 170px;
+  margin: 10px;
+}
+
+.Home-title {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.Home-title span {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.card-container {
+  display: flex;
+  margin: 0 15px;
+}
+
+.brach-card:hover {
+  cursor: pointer;
+  width: 500px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  -o-transform: translateY(-20px);
+}
+
+.input-lang {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  z-index: 9999;
+}
+
+.card-btnBranch {
+  margin: 10px;
+  z-index: 999;
+  position: absolute;
+  right: -18px;
+  bottom: -10px;
+}
+
+.infoName {
+  position: relative;
+}

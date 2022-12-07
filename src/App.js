@@ -18,6 +18,7 @@ import Frunzenskaya from "./pages/SecondBranch/Frunzenskaya";
 import Partizanskaya from "./pages/SecondBranch/Frunzenskaya";
 import { TokenManager } from "./common/TokenManager.jsx";
 import { LocalizationProvider } from "./common/LocalizationProvider.jsx";
+import Line from "./pages/Line";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/greenbranch" element={<ThirdBranch />} />
 
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/line/:name" element={<Line />} />
                 <Route path="*" element={<Error />} />
               </Routes>
             </Sidebar>

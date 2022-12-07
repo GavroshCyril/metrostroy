@@ -1,21 +1,23 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "@mui/material/Link";
-import Lang from "../../components/HeaderOptions";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
+import Lang from "../../components/HeaderOptions";
 import { selectLocalizedState } from "../../store/localizationSlice";
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
+
 
 
 const Home = () => {
@@ -28,19 +30,21 @@ const Home = () => {
 
 
   const onLines = useLines();
+  const navigate = useNavigate();
+  
+  // navigate('/');
+  // useEffect(() => {
+  //   onLines()
+  //   .then((linesResult) => {
+  //     console.log('onLines 000', linesResult)
+  //   })
+  //   .catch((err) => {
+  //     console.error('err', err)
+  //   })
+  // //   console.log('localizationResult', localizationResult)
+  // //   tokenRefresh(refreshToken, id);
 
-  useEffect(() => {
-    onLines()
-    .then((linesResult) => {
-      console.log('onLines 000', linesResult)
-    })
-    .catch((err) => {
-      console.error('err', err)
-    })
-  //   console.log('localizationResult', localizationResult)
-  //   tokenRefresh(refreshToken, id);
-
-}, [])
+  // }, [])
 
   return (
     <div className="Home">
@@ -51,15 +55,16 @@ const Home = () => {
         <span className="Home-title">
           {state.home_title} <br />
           <span>{state.home_subtitle} </span>
-        </span>
+        </span>s
         <Lang />
 
         <div className="card-container">
           {linesState.map((line) => {
             console.log("line", line)
+
             return (
-              <Link key={line.id} href="/bluebranch" underline="none" className="Link">
-                <Card sx={{ maxWidth: 500 }} className="Card">
+              // <Link key={line.id} name={line.line_name} href={`/line/${line.line_name}`} underline="none" className="Link">
+                <Card sx={{ maxWidth: 500 }} className="Card" onClick={() => navigate(`/line/${line.line_name}`)}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -80,7 +85,7 @@ const Home = () => {
                     <Button variant="outlined"> {t("more")}</Button>
                   </Stack>
                 </Card>
-              </Link>
+              // </Link>
             )
           })}
           {/* <Link href="/bluebranch" underline="none" className="Link">
