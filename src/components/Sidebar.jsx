@@ -20,28 +20,28 @@ const Sidebar = ({ children }) => {
     },
 
     {
-      path: "/search",
+      path: "/minskmetroprojects",
       name: t("nav.projects"),
       icon: <SearchIcon />,
     },
     {
-      path: "/media",
+      path: "/firstline",
       name: t("nav.stage"),
       icon: <MediaIcon />,
     },
     {
-      path: "/map",
+      path: "/metroschema",
       name: t("nav.map"),
       icon: <MapIcon />,
     },
 
     {
-      path: "/contacts",
+      path: "/kompozitions",
       name: t("nav.kompozition"),
       icon: <ContactIcon />,
     },
     {
-      path: "/resources",
+      path: "/info",
       name: t("nav.info"),
       icon: <UsefulLink />,
     },

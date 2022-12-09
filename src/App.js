@@ -28,11 +28,11 @@ const App = () => {
             <Sidebar>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/map" element={<Map />} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/media" element={<Media />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="/search" element={<Search />} />
+                <Route path="/metroschema" element={<Map />} />
+                <Route path="/info" element={<Resources />} />
+                <Route path="/firstline" element={<Media />} />
+                <Route path="/kompozitions" element={<Contacts />} />
+                <Route path="/minskmetroprojects" element={<Search />} />
                 <Route path="/auth" element={<Auth />} />
                 <Route path="/bluebranch" element={<FisrtBranch />} />
                 <Route path="/redbranch" element={<SecondBranch />} />
