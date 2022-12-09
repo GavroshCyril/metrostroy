@@ -18,8 +18,6 @@ import { selectLocalizedState } from "../../store/localizationSlice";
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
 
-
-
 const Home = () => {
   const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
@@ -55,13 +53,13 @@ const Home = () => {
         <span className="Home-title">
           {state.home_title} <br />
           <span>{state.home_subtitle} </span>
-        </span>s
+        </span>
         <Lang />
 
         <div className="card-container">
           {linesState.map((line) => {
             console.log("line", line)
-
+            const imageLink = "http://localhost:3000/station/image/"
             return (
               // <Link key={line.id} name={line.line_name} href={`/line/${line.line_name}`} underline="none" className="Link">
                 <Card sx={{ maxWidth: 500 }} className="Card" onClick={() => navigate(`/line/${line.line_name}`)}>
@@ -69,7 +67,7 @@ const Home = () => {
                     <CardMedia
                       component="img"
                       height="200"
-                      image="https://metropoliten.by/upload/iblock/078/DSC_0144.jpg"
+                      image={imageLink + line.line_picture}
                       alt="green iguana"
                     />
                     <CardContent>

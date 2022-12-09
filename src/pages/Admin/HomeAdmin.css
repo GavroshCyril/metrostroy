@@ -1,0 +1,12 @@
+.line {
+  background: lightgray;
+  /* display: flex; */
+  width: 100%;
+  /* margin: 10px 0 10px 0;  */
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+.header {
+    margin-bottom: 50px;
+}

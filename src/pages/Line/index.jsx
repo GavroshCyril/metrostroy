@@ -46,7 +46,7 @@ const Line = () => {
   if (line) {
     console.log("line_name", line.line_name)
   }
-  
+  const imageLink = "http://localhost:3000/station/image/"
   // console.log("line00", state)
 
   return (
@@ -64,7 +64,7 @@ const Line = () => {
                 <CardMedia
                   component="img"
                   height="250"
-                  image={Vokzalnaya}
+                  image={imageLink + station.station_picture}
                   alt="Вокзальная"
                 />
                 <CardContent>

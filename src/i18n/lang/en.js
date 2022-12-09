@@ -112,20 +112,20 @@ export let enLang = {
     bluebranch: "Moskovskaya line",
     greenbranch: "Zelenoluzhskaya line",
   },
-  tBranch: {
-    vokzTitle: "Vokzalnaya",
-    vokzSubTitle:
-      "It is located at the intersection of Druzhnaya and Vokzalnaya streets. It is a transfer to the Moscow line ('Lenin Square')",
-    bogushTitle: "Frantishek Bogushevich Square",
-    bogushSubTitle:
-      "The square is located at the intersection of Dzerzhinsky Avenue, Klara Zetkin and Nemiga streets in the historical district of Pleschanka",
-    yubileyTitle: "Yubileynaya Square",
-    yubileySubTitle:
-      "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Dry and Kalvariyskaya streets",
-    slobodaTitle: "Kovalskaya Sloboda",
-    slobodaSubTitle:
-      "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Zhukovsky and Voronyansky streets",
-  },
+  // tBranch: {
+  //   vokzTitle: "Vokzalnaya",
+  //   vokzSubTitle:
+  //     "It is located at the intersection of Druzhnaya and Vokzalnaya streets. It is a transfer to the Moscow line ('Lenin Square')",
+  //   bogushTitle: "Frantishek Bogushevich Square",
+  //   bogushSubTitle:
+  //     "The square is located at the intersection of Dzerzhinsky Avenue, Klara Zetkin and Nemiga streets in the historical district of Pleschanka",
+  //   yubileyTitle: "Yubileynaya Square",
+  //   yubileySubTitle:
+  //     "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Dry and Kalvariyskaya streets",
+  //   slobodaTitle: "Kovalskaya Sloboda",
+  //   slobodaSubTitle:
+  //     "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Zhukovsky and Voronyansky streets",
+  // },
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
   admin: {

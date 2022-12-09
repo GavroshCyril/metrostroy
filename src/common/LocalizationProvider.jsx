@@ -33,7 +33,8 @@ export const LocalizationProvider = ({ children }) => {
     //   console.log('localizationResult', localizationResult)
     //   tokenRefresh(refreshToken, id);
 
-  }, [pathname, isUserLoggedIn])
+  // }, [pathname])
+  }, [])
 
   useEffect(() => {
     onLines()

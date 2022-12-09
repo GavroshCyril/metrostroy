@@ -18,17 +18,33 @@ export const linesSlice = createSlice({
     // },
     update: (state, action) => {
       console.log("state", state)
-
       console.log("action", action)
 
       state.data = action.payload
     },
-    updateCurrentLineName: (state, action) => {
+    // updateCurrentLineName: (state, action) => {
+    //   console.log("state", state)
+
+    //   console.log("action", action)
+
+    //   state.currentLine = action.payload
+    // },
+    updateCurrentLineImage: (state, action) => {
       console.log("state", state)
 
       console.log("action", action)
+      const { filename, lineName } = action.payload
+      console.log("filename", filename)
+      console.log("lineName", lineName)
 
-      state.currentLine = action.payload
+      const index = state.data.findIndex(line => line.line_name == lineName); 
+      console.log("index", index)
+
+      const newArray = [...state.data];
+      console.log("newArray", newArray)
+      newArray[index].line_picture = filename
+      console.log("newArray 2", newArray)
+      state.data = newArray
     },
     decrement: (state) => {
       state.value -= 1
@@ -59,6 +75,6 @@ export const selectCurrentLineName = (state) => state.lines.currentLine
 // export const isUserLoggedIn = (state) => state.user.id !== ""
 
 // Action creators are generated for each case reducer function
-export const { update, updateLocalisationResouces } = linesSlice.actions
+export const { update, updateLocalisationResouces, updateCurrentLineImage } = linesSlice.actions
 
 export default linesSlice.reducer

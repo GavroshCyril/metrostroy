@@ -1,6 +1,6 @@
 import React from "react";
 import "./Admin.css";
-import { AccountProfileDetails } from './account-profile-details';
+import { HomeAdmin } from './HomeAdmin';
 
 const Admin = () => {
 
@@ -11,7 +11,7 @@ const Admin = () => {
       Admin
       <div className="mainPage">
         Main
-        <AccountProfileDetails />
+        <HomeAdmin />
       </div>
     </div>
   );

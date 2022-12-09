@@ -10,7 +10,7 @@ import {
   import { selectLocalizedState, selectLocale } from "../../store/localizationSlice";
   import { useLocalisation } from '../../hooks/useLocalisation'
 
-export const FormRow = ({title, name}) => {
+export const FormRow = ({title, name, color = 'transparent'}) => {
     const [isChanging, setIsChanging] = useState(false);
     const locale = useSelector(selectLocale);
     // const [values, setValues] = useState({
@@ -42,17 +42,13 @@ export const FormRow = ({title, name}) => {
           setShouldReRender(true)
         }
       })
-  
     }
 
     const handleChange = (event) => {
       setValue(event.target.value)
     }
 
-    useEffect(() => {
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!!useEffect')
-  
-  
+    useEffect(() => {  
       onLocalisation()
       .then((localizationResult) => {
         console.log('localizationResult 000', localizationResult)
@@ -60,63 +56,61 @@ export const FormRow = ({title, name}) => {
       .catch((err) => {
         console.error('err', err)
       })
-
     }, [shouldReRender])
 
-
  return (
-     <>
+  <>
+    <Grid
+        item
+        md={9}
+        xs={12}
+        sx={{
+          backgroundColor: color,
+        }}
+    >
+      <TextareaAutosize
+         style={{ width: '100%' }}
+         // fullWidth
+         label=""
+         // name="home_title"
+         onChange={handleChange}
+         required
+         value={value}
+         variant="outlined"
+         type="text"
+         readOnly={!isChanging}
+       />
+    </Grid>
      <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextareaAutosize
-                  style={{ width: '100%' }}
-                  // fullWidth
-                  label=""
-                  name="home_title"
-                  onChange={handleChange}
-                  required
-                  value={value}
-                  variant="outlined"
-                  type="text"
-                  readOnly={!isChanging}
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-                className="buttonContainer"
-              >
-                {isChanging ? <>
-                  <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={(e) => saveTitle(e)}
-                >
-                  Сохранить
-                </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(false)}
-                >
-                  Отмена
-                </Button></> 
-                : 
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(true)}
-                >
-                  Редактировать
-                </Button>}
-              </Grid>
-     
-     
-     
-     </>
+       item
+       md={3}
+       xs={12}
+       className="buttonContainer"
+     >
+       {isChanging ? <>
+         <Button
+           color="primary"
+           variant="contained"
+           onClick={(e) => saveTitle(e)}
+         >
+           Сохранить
+         </Button>
+         <Button
+           color="primary"
+           variant="contained"
+           onClick={() => setIsChanging(false)}
+         >
+           Отмена
+         </Button></>
+         :
+         <Button
+           color="primary"
+           variant="contained"
+           onClick={() => setIsChanging(true)}
+         >
+           Редактировать
+         </Button>}
+     </Grid>
+  </>
  )
 }
