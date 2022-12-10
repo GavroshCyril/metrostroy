@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -9,41 +9,42 @@ import {
   Divider,
   Grid,
   TextField,
-} from '@mui/material';
+} from "@mui/material";
 import "./HomeAdmin.css";
-import Axios from "axios"
+import Axios from "axios";
 import { useTranslation } from "react-i18next";
-import {ruLang} from "../../i18n/lang/ru";
+import { ruLang } from "../../i18n/lang/ru";
 import { useSelector } from "react-redux";
-import { selectLocalizedState, selectLocale } from "../../store/localizationSlice";
-import { useLocalisation } from '../../hooks/useLocalisation'
-import { FormRow } from './FormRow'
-import { PictureRow } from './PictureRow'
+import {
+  selectLocalizedState,
+  selectLocale,
+} from "../../store/localizationSlice";
+import { useLocalisation } from "../../hooks/useLocalisation";
+import { FormRow } from "./FormRow";
+import { PictureRow } from "./PictureRow";
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
 
-
-
 const states = [
   {
-    value: 'alabama',
-    label: 'Alabama'
+    value: "alabama",
+    label: "Alabama",
   },
   {
-    value: 'new-york',
-    label: 'New York'
+    value: "new-york",
+    label: "New York",
   },
   {
-    value: 'san-francisco',
-    label: 'San Francisco'
-  }
+    value: "san-francisco",
+    label: "San Francisco",
+  },
 ];
 
 export const HomeAdmin = (props) => {
   const state = useSelector(selectLocalizedState);
-  console.log("state AccountProfileDetails", state)
+  console.log("state AccountProfileDetails", state);
   const linesState = useSelector(selectLines);
-  console.log("linesState AccountProfileDetails", linesState)
+  console.log("linesState AccountProfileDetails", linesState);
 
   const [t] = useTranslation();
   const localizedState = useSelector(selectLocalizedState);
@@ -53,8 +54,6 @@ export const HomeAdmin = (props) => {
   const onLocalisation = useLocalisation();
   const [shouldReRender, setShouldReRender] = useState(false);
 
-
-
   const stateObject = {
     title2: "123",
     home_title: localizedState["home_title"],
@@ -63,22 +62,17 @@ export const HomeAdmin = (props) => {
     // phone: '',
     // state: 'Alabama',
     // country: 'USA'
-  }
+  };
 
-
-
-
-
-  console.log("stateObject", stateObject)
+  console.log("stateObject", stateObject);
   const [values, setValues] = useState(stateObject);
-  console.log("values", values)
+  console.log("values", values);
   const onLines = useLines();
 
-  
   const handleChange = (event) => {
     setValues({
       ...values,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -91,7 +85,7 @@ export const HomeAdmin = (props) => {
   //   })
   //   .then((res) => {
   //     if (res.status === 200) {
-        
+
   //       console.log("res.data", res.data)
   //       setShouldReRender(true)
   //     }
@@ -102,290 +96,113 @@ export const HomeAdmin = (props) => {
   // const { locale, value, category, subcategory } = req.body
 
   useEffect(() => {
-    if(linesState) {
+    if (linesState) {
       linesState.map((line) => {
-        console.log("line0", line)
+        console.log("line0", line);
         stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
-      })
+      });
     }
-    setValues(stateObject)
-  }, [linesState])
+    setValues(stateObject);
+  }, [linesState]);
 
   useEffect(() => {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!useEffect')
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!useEffect");
 
-
-    onLocalisation()
-    .then((localizationResult) => {
-      console.log('localizationResult 000', localizationResult)
-    })
+    onLocalisation().then((localizationResult) => {
+      console.log("localizationResult 000", localizationResult);
+    });
     onLines()
-    .then((linesResult) => {
-      console.log('onLines 000', linesResult)
-    })
-    .catch((err) => {
-      console.error('err', err)
-    })
-    setValues(stateObject)
-  }, [shouldReRender])
+      .then((linesResult) => {
+        console.log("onLines 000", linesResult);
+      })
+      .catch((err) => {
+        console.error("err", err);
+      });
+    setValues(stateObject);
+  }, [shouldReRender]);
 
   return (
     <>
-      <form
-        autoComplete="off"
-        noValidate
-        {...props}
-      >
+      <form autoComplete="off" noValidate {...props}>
         <Card sx={{ margin: 3 }}>
-          <CardHeader
-            subheader="Редактирование главной страницы"
-            title="Главная"
-          />
+          <CardHeader title="Главная страница" />
           <Divider />
           <CardContent>
-            <Grid
-              container
-              spacing={3}
-              className="header"
-            >
+            <Grid container spacing={3} className="header">
               <FormRow
                 handleChange={handleChange}
                 title={values.home_title}
-                // saveTitle={saveTitle} 
+                // saveTitle={saveTitle}
                 name={"home_title"}
               />
             </Grid>
-              {linesState.map((line) => {
-                console.log("line", line)
-                console.log("name", line.line_name)
-                
-                return (
-                  <Grid
-                    container
-                    spacing={3}
-                    className="line"
-                  >
-                    <FormRow 
-                      // handleChange={handleChange} 
-                      title={state[`${line.line_name}`]} 
-                      // saveTitle={saveTitle} 
-                      name={line.line_name}
-                    />
+            {linesState.map((line) => {
+              console.log("line", line);
+              console.log("name", line.line_name);
 
-                    <FormRow 
-                      // handleChange={handleChange} 
-                      title={state[`${line.line_description}`]} 
-                      // saveTitle={saveTitle} 
-                      name={line.line_description}
-                    />    
-                    <PictureRow pictureName={line.line_picture} lineName={line.line_name}/>
+              return (
+                <Grid container spacing={3} className="line">
+                  <FormRow
+                    // handleChange={handleChange}
+                    title={state[`${line.line_name}`]}
+                    // saveTitle={saveTitle}
+                    name={line.line_name}
+                  />
 
-                    {line.stations && line.stations.map((station, index) => {
-                      console.log("STAT", station)
+                  <FormRow
+                    // handleChange={handleChange}
+                    title={state[`${line.line_description}`]}
+                    // saveTitle={saveTitle}
+                    name={line.line_description}
+                  />
+                  <PictureRow
+                    pictureName={line.line_picture}
+                    lineName={line.line_name}
+                  />
+
+                  {line.stations &&
+                    line.stations.map((station, index) => {
+                      console.log("STAT", station);
                       const stationTitle = station.station_name;
-                      console.log("stationTitle", stationTitle)
-                      console.log("station_description", state[`${station.station_description}`])
-                      console.log("station_description", station.station_description)
+                      console.log("stationTitle", stationTitle);
+                      console.log(
+                        "station_description",
+                        state[`${station.station_description}`]
+                      );
+                      console.log(
+                        "station_description",
+                        station.station_description
+                      );
                       // const title = state[`${line.line_name}`][`${line.stations[index]}`];
                       return (
                         <>
                           <FormRow
-                            // handleChange={handleChange} 
+                            // handleChange={handleChange}
                             title={state[`${stationTitle}`]}
-                            // saveTitle={saveTitle} 
+                            // saveTitle={saveTitle}
                             name={station.station_name}
-                            color='grey'
+                            color="grey"
                           />
                           <FormRow
-                            // handleChange={handleChange} 
+                            // handleChange={handleChange}
                             title={state[`${station.station_description}`]}
-                            // saveTitle={saveTitle} 
+                            // saveTitle={saveTitle}
                             name={station.station_description}
-                            color='grey'
+                            color="grey"
                           />
-                          <PictureRow pictureName={station.station_picture} lineName={line.station_name} />
+                          <PictureRow
+                            pictureName={station.station_picture}
+                            lineName={line.station_name}
+                          />
                         </>
-                      )
+                      );
                     })}
-                  </Grid>
-                )
-              })}
-              
-              
-         
-            
-      
-        
-  
+                </Grid>
+              );
+            })}
           </CardContent>
-
-      
-        </Card>
-      </form>
-    
-
-      <form
-        autoComplete="off"
-        noValidate
-        {...props}
-      >
-        <Card>
-          <CardHeader
-            subheader="Редактирование главной страницы"
-            title="Главная"
-          />
-          <Divider />
-          <CardContent>
-            <Grid
-              container
-              spacing={3}
-            >
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label=""
-                  name="title"
-                  onChange={handleChange}
-                  required
-                  value={values.title}
-                  variant="outlined"
-                  type="file"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-                className="buttonContainer"
-              >
-                {/* {isChanging ? <>
-                  <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(false)}
-                >
-                  Сохранить
-                </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(false)}
-                >
-                  Отмена
-                </Button></> : <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => setIsChanging(true)}
-                >
-                  Редактировать
-                </Button>} */}
-                
-                
-                <TextField
-                  fullWidth
-                  label="Last name"
-                  name="lastName"
-                  onChange={handleChange}
-                  required
-                  value={values.lastName}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label="Email Address"
-                  name="email"
-                  onChange={handleChange}
-                  required
-                  value={values.email}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label="Phone Number"
-                  name="phone"
-                  onChange={handleChange}
-                  type="number"
-                  value={values.phone}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label="Country"
-                  name="country"
-                  onChange={handleChange}
-                  required
-                  value={values.country}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid
-                item
-                md={6}
-                xs={12}
-              >
-                <TextField
-                  fullWidth
-                  label="Select State"
-                  name="state"
-                  onChange={handleChange}
-                  required
-                  select
-                  SelectProps={{ native: true }}
-                  value={values.state}
-                  variant="outlined"
-                >
-                  {states.map((option) => (
-                    <option
-                      key={option.value}
-                      value={option.value}
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </TextField>
-              </Grid>
-            </Grid>
-          </CardContent>
-          <Divider />
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              p: 2
-            }}
-          >
-            <Button
-              color="primary"
-              variant="contained"
-            >
-              Save details
-            </Button>
-          </Box>
         </Card>
       </form>
     </>
-   
   );
 };

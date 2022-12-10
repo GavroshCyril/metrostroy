@@ -21,7 +21,7 @@ export let enLang = {
     zelenoluzskayaSubTitle:
       "Zelenoluzhskaya line (3rd line) - the third line of the Minsk Metro, opened on November 6, 2020. Now the 3.53 km long line includes four stations and will cross Minsk from south to north",
   },
-  media: {
+  search: {
     title: "The history of the development of the Minsk metro",
     let: "The",
     description01:
@@ -49,13 +49,7 @@ export let enLang = {
       "on the basis of preliminary applications received by e-mail. mail mail@metropoliten.by",
     label: "Images of the Minsk Metro Museum:",
   },
-  login: {
-    title: "Log in",
-    subTitle: "to get access to the administrator's office",
-    login: "Login",
-    password: "Password",
-    logIn: "Login to your personal account",
-  },
+
   fBranch: {
     malTitle: "Malinovka",
     malSubTitle:
@@ -84,7 +78,7 @@ export let enLang = {
     partizSubTitle:
       "Located at the intersection of Partizansky Avenue and Kozlova Street",
   },
-  search: {
+  media: {
     title: "Minsk metro projects (1969-1977)",
     description01:
       "The second half of the 20th century was marked by rapid construction and industrial growth for Minsk. The city, which until recently was almost wiped off the face of the earth during the war years, developed rapidly: new plants and factories, educational and cultural institutions appeared, new residential areas were built. By the beginning of the 70s, about 140 enterprises worked in Minsk, including the flagships of the industry of the republic and the Union: a tractor and automobile plant, bearing, motor, gear plants, machine-tool plants, electronic computers and many others. Against the backdrop of the rapid development of Minsk, more and more people flocked to the metropolis.",
@@ -129,12 +123,14 @@ export let enLang = {
   printMaterial: "Print version",
   downloadMaterial: "Download material in Word format",
   admin: {
-    title: "Admin panel",
+    panel: "Admin panel",
+    title: "Log in",
     subTitle: "to get access to the administrator's office",
     login: "Login",
     password: "Password",
     logIn: "Login to your personal account",
   },
+
   login: "Log in",
   more: "More",
 };
