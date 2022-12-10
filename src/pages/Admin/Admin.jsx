@@ -12,7 +12,7 @@ const Admin = () => {
 
   return (
     <div className="Admin-container">
-      <div className="Map">
+      <div className="Admin">
         <div className="Map-container">
           <h2 className="title">{t("admin.panel")}</h2>
         </div>
@@ -25,7 +25,7 @@ const Admin = () => {
               Перед началом администрирования веб-приложением, ознакомьтесь с
               руководством администратора, кликнув на{" "}
               <Link
-                href="../../Assets/documents/admin-guide.docx"
+                href="../../Assets/documents/history.docx"
                 underline="none"
                 download
               >

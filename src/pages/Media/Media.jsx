@@ -19,7 +19,7 @@ const Media = () => {
     <div className="Media-container">
       <div className="Map">
         <div className="Map-container">
-          <h2 className="title">{t("media.title")}</h2>
+          <h2 className="title">{t("search.title")}</h2>
         </div>
         <Lang />
       </div>
@@ -27,21 +27,21 @@ const Media = () => {
         <div className="description">
           <YoutubeEmbed embedId="K0ytyKc1vwE" />
           <p className="Media-paragraph">
-            <span> {t("media.let")} </span>
-            {t("media.description01")}
+            <span> {t("search.let")} </span>
+            {t("search.description01")}
           </p>
         </div>
         <Stack direction="row" spacing={1} className="content-span">
-          <Chip label={t("media.label")} />
+          <Chip label={t("search.label")} />
         </Stack>
         <ImagesList />
-        <p className="Media-desc"> {t("media.description02")}</p>
-        <p className="Media-desc"> {t("media.description03")}</p>
-        <p className="Media-desc"> {t("media.description04")}</p>
+        <p className="Media-desc"> {t("search.description02")}</p>
+        <p className="Media-desc"> {t("search.description03")}</p>
+        <p className="Media-desc"> {t("search.description04")}</p>
 
         <Alert severity="info">
-          <AlertTitle>{t("media.infoTitle")}</AlertTitle>
-          {t("media.infoSubtitle")}
+          <AlertTitle>{t("search.infoTitle")}</AlertTitle>
+          {t("search.infoSubtitle")}
         </Alert>
         <Stack direction="row" spacing={2} className="links">
           <Button variant="outlined" startIcon={<PrintIcon />}>

@@ -21,38 +21,37 @@ const Search = () => {
     <div className="ContactsWrapper">
       <div className="Search">
         <div className="Map-container">
-          <h2 className="title"> {t("search.title")}</h2>
+          <h2 className="title"> {t("media.title")}</h2>
         </div>
         <Lang />
       </div>
       <div className="content">
-        <p>{t("search.description01")}</p>
+        <p>{t("media.description01")}</p>
         <div className="description">
           <div className="project-img">
             <img src={Prospect} alt="Ленинский проспект в 70 годах" />
             <Stack direction="row" spacing={1}>
-              <Chip className="project-label" label={t("search.leninprosp")} />
+              <Chip className="project-label" label={t("media.leninprosp")} />
             </Stack>
           </div>
           <p className="project-paragraph">
-            {t("search.description02")}
+            {t("media.description02")}
             <br /> <br />
-            {t("search.description03")}
+            {t("media.description03")}
           </p>
         </div>
 
         <Stack sx={{ width: "100%" }} spacing={2}>
           <Alert severity="warning">
-            <AlertTitle>{t("search.alertTitle")}</AlertTitle>
-            {t("search.alertDesc01")}
-            <b> {t("search.alertDesc02")} </b>
+            <AlertTitle>{t("media.alertTitle")}</AlertTitle>
+            {t("media.alertDesc01")}
+            <b> {t("media.alertDesc02")} </b>
           </Alert>
         </Stack>
         <div className="first-description-info">
           <p>
-            {t("search.description04")}
-            <b> {t("search.description04bold")} </b>,{" "}
-            {t("search.description05")}
+            {t("media.description04")}
+            <b> {t("media.description04bold")} </b>, {t("media.description05")}
           </p>
           <img
             className="info-img"
@@ -72,7 +71,7 @@ const Search = () => {
             alt="Распоряжение о создании метро 6 июля 1976 года"
           />
           <Stack direction="row" spacing={1}>
-            <Chip className="project-label" label={t("search.perspectiva")} />
+            <Chip className="project-label" label={t("media.perspectiva")} />
           </Stack>
         </div>
         <Stack direction="row" spacing={2} className="links">

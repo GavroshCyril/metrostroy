@@ -45,12 +45,10 @@ export const HomeAdmin = (props) => {
   console.log("state AccountProfileDetails", state);
   const linesState = useSelector(selectLines);
   console.log("linesState AccountProfileDetails", linesState);
-
   const [t] = useTranslation();
   const localizedState = useSelector(selectLocalizedState);
   const locale = useSelector(selectLocale);
   const category = "home_title";
-
   const onLocalisation = useLocalisation();
   const [shouldReRender, setShouldReRender] = useState(false);
 
@@ -123,7 +121,7 @@ export const HomeAdmin = (props) => {
 
   return (
     <>
-      <form autoComplete="off" noValidate {...props}>
+      <form autoComplete="off" noValidate {...props} className="fonts">
         <Card sx={{ margin: 3 }}>
           <CardHeader title="Главная страница" />
           <Divider />

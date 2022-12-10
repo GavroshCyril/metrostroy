@@ -20,13 +20,14 @@
 
 .title {
   text-align: center;
-  font-size: 35px;
+  font-size: 30px;
   padding: 10px;
   color: #ffff;
 }
 
 .MapWrapper {
   position: relative;
+  margin-bottom: 12px;
 }
 
 .Map-info {

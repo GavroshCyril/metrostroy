@@ -6,7 +6,7 @@ export let enLang = {
     map: "Minsk metro scheme",
     kompozition: "Exhibition exposition",
     panel: "Admin Panel",
-    info: "Information",
+    info: "Useful information",
   },
   home: {
     title: "Virtual Museum of the",

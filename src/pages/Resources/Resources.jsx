@@ -9,7 +9,7 @@ const Resources = () => {
     <div className="ContactsWrapper">
       <div className="Resources">
         <div className="Map-container">
-          <h2 className="title"> {t("tBranch.vokzSubTitle")}</h2>
+          <h2 className="title"> {t("nav.info")}</h2>
         </div>
         <Lang />
       </div>
