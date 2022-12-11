@@ -9,6 +9,7 @@ export const useRefresh = () => {
         try {
          const result = await Axios.post("http://localhost:3000/user/token", config)
          localStorage.setItem("token", result.data.accessToken)
+         
         } catch (error) {
           console.error(`Refresh has been failed with error: ${error}`);
         }

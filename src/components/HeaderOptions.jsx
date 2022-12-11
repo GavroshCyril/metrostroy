@@ -3,16 +3,15 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import i18n from "../i18n";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Axios from "axios";
 import "./HeaderOptions.css";
 import { useTranslation } from "react-i18next";
-import { isUserLoggedIn } from "../store/userSlice";
+import { isUserLoggedIn, logout } from "../store/userSlice";
 
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import { update } from "../store/localizationSlice";
-import { useDispatch } from "react-redux";
 
 const HeaderOptions = () => {
   const [t] = useTranslation();
@@ -33,6 +32,7 @@ const HeaderOptions = () => {
   };
 
   const isLoggedIn = useSelector(isUserLoggedIn);
+  console.log("isLoggedIn", isLoggedIn)
 
   const onLogOut = () => {
     const refreshToken = localStorage.getItem("refreshToken");
@@ -49,6 +49,8 @@ const HeaderOptions = () => {
       .catch((err) => {
         console.error("Something went wrong during logout", err);
       });
+    console.log("dispatch logout")
+    dispatch(logout());
   };
 
   return (

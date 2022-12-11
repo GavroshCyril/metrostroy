@@ -8,11 +8,9 @@ export const useLocalisation = () => {
     const dispatch = useDispatch();
     const onRefresh = async () => {
         try {
-         const result = await Axios.get("http://localhost:3000/localization/all")
-        console.log("!!!!!!!!!!!!!!!!!!result", result.data.data)
-        dispatch(updateLocalisationResouces(result.data.data))
+          const result = await Axios.get("http://localhost:3000/localization/all")
+          dispatch(updateLocalisationResouces(result.data.data))
 
-        
         } catch (error) {
           console.error(`Refresh has been failed with error: ${error}`);
         }

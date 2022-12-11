@@ -94,7 +94,7 @@ const Search = () => {
           localStorage.setItem("refreshToken", refreshToken);
 
           dispatch(update(user));
-          navigate("/");
+          navigate("/admin");
         } else {
           console.log("Something went wrong", responce);
         }

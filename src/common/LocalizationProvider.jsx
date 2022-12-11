@@ -25,13 +25,11 @@ export const LocalizationProvider = ({ children }) => {
   useEffect(() => {
       onLocalisation()
       .then((localizationResult) => {
-        console.log('localizationResult 000', localizationResult)
+   
       })
       .catch((err) => {
         console.error('err', err)
       })
-    //   console.log('localizationResult', localizationResult)
-    //   tokenRefresh(refreshToken, id);
 
   // }, [pathname])
   }, [])
@@ -39,13 +37,11 @@ export const LocalizationProvider = ({ children }) => {
   useEffect(() => {
     onLines()
     .then((linesResult) => {
-      console.log('onLines 000', linesResult)
+
     })
     .catch((err) => {
       console.error('err', err)
     })
-  //   console.log('localizationResult', localizationResult)
-  //   tokenRefresh(refreshToken, id);
 
   }, [])
 

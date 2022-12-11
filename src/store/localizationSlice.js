@@ -50,40 +50,12 @@ export const localizationSlice = createSlice({
   },
   reducers: {
     update: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      console.log("state", state)
-      console.log("action", action)
-    //   action.payload.locale
-
-    //   state.id = action.payload.id
-    //   state.name = action.payload.name
-    //   state.currentLocalization = () => {
-    //       let abc
-    //     switch (action.payload.locale) {
-    //             case "en":
-    //                 abc = state.localization.en
-    //             case "ru":
-    //                 abc= state.localization.ru
-    //             case "ru":
-    //                 abc = state.localization.by
-    //             default:
-    //                 abc = state.localization.en
-    //         }
-    //     return state.currentLocalization = abc
-    //   }
-        state.currentLocale = action.payload
+      state.currentLocale = action.payload
     },
     updateLocalisationResouces: (state, action) => {
-      console.log("state", state)
-      console.log("state.en", state.en)
-      console.log("action", action)
-
       state.en = action.payload.en
       state.ru = action.payload.ru
-      state.bel = action.payload.by
+      state.bel = action.payload.bel
     },
     decrement: (state) => {
       state.value -= 1
@@ -97,7 +69,6 @@ export const localizationSlice = createSlice({
 export const selectLocalizedState = (state) => {
     // state.locale
     // let abc
-    console.log("state.currentLocale", state.localization.currentLocale)
     // switch (state.localization.currentLocale) {
     //     case "en":
     //         state.localization.currentLocalization = state.localization.en

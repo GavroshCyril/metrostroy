@@ -1,42 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-    Button,
-    Grid,
-    TextField,
-    TextareaAutosize,
-  } from '@mui/material';
-  import Axios from "axios"
-  import { selectLocalizedState, selectLocale } from "../../store/localizationSlice";
-  import { useLocalisation } from '../../hooks/useLocalisation'
+  Button,
+  Grid,
+  TextField,
+  TextareaAutosize,
+} from '@mui/material';
+import Axios from "axios"
+import { selectLocalizedState, selectLocale } from "../../store/localizationSlice";
+import { useLocalisation } from '../../hooks/useLocalisation'
+import { useLines } from '../../hooks/useLines'
 import { StationsModal } from './StationsModal'
 
-export const DeleteStantion = ({ stationName, color = 'transparent'}) => {
+export const DeleteStantion = ({ stationName, stationDescription, setStationDeleted, color = 'transparent'}) => {
     const [isChanging, setIsChanging] = useState(false);
     const locale = useSelector(selectLocale);
     // const [values, setValues] = useState({
     //   name: title
     // });
 
-    const [value, setValue] = useState();
-    const [shouldReRender, setShouldReRender] = useState(false);
-    const onLocalisation = useLocalisation();
+  const [value, setValue] = useState();
+  const [shouldReRender, setShouldReRender] = useState(false);
+  const getLocalisation = useLocalisation();
+  const getLines = useLines();
+  
 
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpenModal = () => setIsOpen(true);
   const handleCloseModal = () => setIsOpen(false);
-    // const handleChange = (event) => {
-    //     setValues({
-    //       ...values,
-    //       [event.target.name]: event.target.value
-    //     });
-    //   };
-  console.log("================================")
-  console.log("stationName", stationName)
+
   const deleteStation = () => {
-      Axios.delete("http://localhost:3000/station", {
-        stationName
-      },
+    Axios.delete(`http://localhost:3000/station/${stationName}/${stationDescription}`,
         {
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -48,49 +42,17 @@ export const DeleteStantion = ({ stationName, color = 'transparent'}) => {
           console.log("res.data", res.data)
           setIsChanging(false)
           setShouldReRender(true)
+          setStationDeleted(stationName)
         }
       })
+    setIsOpen(false)
     }
-
-    const handleChange = (event) => {
-      setValue(event.target.value)
-    }
-
-
-  // const deleteStation = () => {
-
-    // Axios.post("http://localhost:3000/station", {
-    //   lineId,
-    //   stationNameDB,
-    //   stationDescriptionDB,
-    //   stationNameEN,
-    //   stationNameBY,
-    //   stationNameRU,
-    //   stationDescriptionEN,
-    //   stationDescriptionBY,
-    //   stationDescriptionRU,
-    //   image: selectedImage
-    // },
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }
-    //   }
-    // )
-    //   .then((res) => {
-    //     if (res.status === 200) {
-
-    //       console.log("res.data", res.data)
-    //       setIsChanging(false)
-    //       setShouldReRender(true)
-    //     }
-    //   })
-  // }
 
     useEffect(() => {  
-      onLocalisation()
+      getLocalisation()
+      getLines()
       .then((localizationResult) => {
-        console.log('localizationResult 000', localizationResult)
+
       })
       .catch((err) => {
         console.error('err', err)

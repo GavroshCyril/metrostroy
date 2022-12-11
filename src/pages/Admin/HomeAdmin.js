@@ -24,9 +24,15 @@ import { FormRow } from "./FormRow";
 import { StationsHeader } from "./StationsHeader";
 import { PictureRow } from "./PictureRow";
 import { DeleteStantion } from "./DeleteStantion";
+import { HomeSection } from "./Sections/HomeSection";
 
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
+
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
 
 const states = [
   {
@@ -43,184 +49,114 @@ const states = [
   },
 ];
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 export const HomeAdmin = (props) => {
-  const state = useSelector(selectLocalizedState);
-  console.log("state AccountProfileDetails", state);
-  const linesState = useSelector(selectLines);
-  console.log("linesState AccountProfileDetails", linesState);
-  const [t] = useTranslation();
-  const localizedState = useSelector(selectLocalizedState);
-  const locale = useSelector(selectLocale);
-  const category = "home_title";
-  const onLocalisation = useLocalisation();
-  const [shouldReRender, setShouldReRender] = useState(false);
+  // const state = useSelector(selectLocalizedState);
+  // const linesState = useSelector(selectLines);
 
-  const stateObject = {
-    title2: "123",
-    home_title: localizedState["home_title"],
-    // lastName: 'Smith',
-    // email: 'demo@devias.io',
-    // phone: '',
-    // state: 'Alabama',
-    // country: 'USA'
+  // const localizedState = useSelector(selectLocalizedState);
+  // const onLocalisation = useLocalisation();
+  // const [shouldReRender, setShouldReRender] = useState(false);
+
+  // const stateObject = {
+  //   title2: "123",
+  //   home_title: localizedState["home_title"],
+  //   // lastName: 'Smith',
+  //   // email: 'demo@devias.io',
+  //   // phone: '',
+  //   // state: 'Alabama',
+  //   // country: 'USA'
+  // };
+
+  // const [values, setValues] = useState(stateObject);
+  // const onLines = useLines();
+
+  // const handleChange = (event) => {
+  //   setValues({
+  //     ...values,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  const [value, setValue] = React.useState(0);
+
+  const handleOneChange = (event, newValue) => {
+    setValue(newValue);
   };
-
-  console.log("stateObject", stateObject);
-  const [values, setValues] = useState(stateObject);
-  console.log("values", values);
-  const onLines = useLines();
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  // const saveTitle = () => {
-  //   console.log("title", values.home_title)
-  //   Axios.put("http://localhost:3000/localization", {
-  //     locale: locale,
-  //     value: values.home_title,
-  //     category: category,
-  //   })
-  //   .then((res) => {
-  //     if (res.status === 200) {
-
-  //       console.log("res.data", res.data)
-  //       setShouldReRender(true)
-  //     }
-  //   })
-
-  // }
 
   // const { locale, value, category, subcategory } = req.body
 
-  useEffect(() => {
-    if (linesState) {
-      linesState.map((line) => {
-        console.log("line0", line);
-        stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
-      });
-    }
-    setValues(stateObject);
-  }, [linesState]);
+  // useEffect(() => {
+  //   if (linesState) {
+  //     linesState.map((line) => {
+  //       stateObject[`${line.line_name}`] = localizedState[`${line.line_name}`];
+  //     });
+  //   }
+  //   setValues(stateObject);
+  // }, [linesState]);
 
-  useEffect(() => {
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!useEffect");
-
-    onLocalisation().then((localizationResult) => {
-      console.log("localizationResult 000", localizationResult);
-    });
-    onLines()
-      .then((linesResult) => {
-        console.log("onLines 000", linesResult);
-      })
-      .catch((err) => {
-        console.error("err", err);
-      });
-    setValues(stateObject);
-  }, [shouldReRender]);
+  // useEffect(() => {
+  //   onLocalisation()
+  //   onLines()
+  //     .catch((err) => {
+  //       console.error("err", err);
+  //     });
+  //   setValues(stateObject);
+  // }, [shouldReRender]);
 
   return (
     <>
-      <form autoComplete="off" noValidate {...props} className="fonts">
-        <Card sx={{ margin: 3 }}>
-          <CardHeader title="Главная страница" />
-          <Divider />
-          <CardContent>
-            <Grid container spacing={3} className="header">
-              <FormRow
-                handleChange={handleChange}
-                title={values.home_title}
-                // saveTitle={saveTitle}
-                name={"home_title"}
-              />
-            </Grid>
-            {linesState.map((line) => {
-              console.log("line", line);
-              console.log("name", line.line_name);
-
-              return (
-                <Grid container spacing={2} className="line">
-                  <FormRow
-                    // handleChange={handleChange}
-                    title={state[`${line.line_name}`]}
-                    // saveTitle={saveTitle}
-                    name={line.line_name}
-                  />
-
-                  <FormRow
-                    // handleChange={handleChange}
-                    title={state[`${line.line_description}`]}
-                    // saveTitle={saveTitle}
-                    name={line.line_description}
-                  />
-                  <PictureRow
-                    pictureName={line.line_picture}
-                    lineName={line.line_name}
-                  />
-                  
-                  <StationsHeader
-                    // handleChange={handleChange}
-                    // title={state[`${line.line_description}`]}
-                    lineId={line.line_id}
-                    name={line.line_description}
-                  />
-
-                  {line.stations &&
-                    line.stations.map((station, index) => {
-                      console.log("STAT", station);
-                      const stationTitle = station.station_name;
-                      console.log("stationTitle", stationTitle);
-                      console.log(
-                        "station_description",
-                        state[`${station.station_description}`]
-                      );
-                      console.log(
-                        "station_description",
-                        station.station_description
-                      );
-                      // const title = state[`${line.line_name}`][`${line.stations[index]}`];
-                      return (
-                        <>
-                          <FormRow
-                            // handleChange={handleChange}
-                            title={state[`${stationTitle}`]}
-                            // saveTitle={saveTitle}
-                            name={station.station_name}
-                            color="grey"
-                          />
-                          <FormRow
-                            // handleChange={handleChange}
-                            title={state[`${station.station_description}`]}
-                            // saveTitle={saveTitle}
-                            name={station.station_description}
-                            color="grey"
-                          />
-                          <PictureRow
-                            pictureName={station.station_picture}
-                            lineName={line.station_name}
-                            style={{ marginBottom: "30px" }}
-                          />
-
-                          <DeleteStantion
-                            // handleChange={handleChange}
-                            // title={state[`${station.station_description}`]}
-                            // saveTitle={saveTitle}
-                            stationName={station.station_name}
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleOneChange} aria-label="basic tabs example">
+            <Tab label="Item One" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Item Three" {...a11yProps(2)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <HomeSection />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Item Two
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Item Three
+        </TabPanel>
+      </Box>
       
-                          />
-                          
-                        </>
-                      );
-                    })}
-                </Grid>
-              );
-            })}
-          </CardContent>
-        </Card>
-      </form>
     </>
   );
 };

@@ -21,28 +21,8 @@ import { useLines } from "../../hooks/useLines";
 const Home = () => {
   const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
-  console.log("state Home", state)
-
   const linesState = useSelector(selectLines);
-  console.log("linesState", linesState)
-
-
-  const onLines = useLines();
   const navigate = useNavigate();
-  
-  // navigate('/');
-  // useEffect(() => {
-  //   onLines()
-  //   .then((linesResult) => {
-  //     console.log('onLines 000', linesResult)
-  //   })
-  //   .catch((err) => {
-  //     console.error('err', err)
-  //   })
-  // //   console.log('localizationResult', localizationResult)
-  // //   tokenRefresh(refreshToken, id);
-
-  // }, [])
 
   return (
     <div className="Home">
@@ -58,7 +38,6 @@ const Home = () => {
 
         <div className="card-container">
           {linesState.map((line) => {
-            console.log("line", line)
             const imageLink = "http://localhost:3000/station/image/"
             return (
               // <Link key={line.id} name={line.line_name} href={`/line/${line.line_name}`} underline="none" className="Link">

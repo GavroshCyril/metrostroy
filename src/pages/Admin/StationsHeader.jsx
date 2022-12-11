@@ -9,7 +9,8 @@ import {
   } from '@mui/material';
   import Axios from "axios"
 
-  import { useLocalisation } from '../../hooks/useLocalisation'
+import { useLocalisation } from '../../hooks/useLocalisation'
+import { useLines } from '../../hooks/useLines'
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import Stack from "@mui/material/Stack";
@@ -17,15 +18,15 @@ import { StationsModal } from './StationsModal'
 import { FormRow } from './FormRow'
 import { AddPictureButton } from './AddPictureButton'
 
-export const StationsHeader = ({ name, lineId }) => {
-    const [isChanging, setIsChanging] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
+export const StationsHeader = ({ name, lineId, setStationAdded }) => {
+  const [isChanging, setIsChanging] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    const [value, setValue] = useState();
-    const [shouldReRender, setShouldReRender] = useState(false);
-    const onLocalisation = useLocalisation();
+  const [value, setValue] = useState();
+  const getLocalisation = useLocalisation();
+  const getLines = useLines();
 
-    const [values, setValues] = useState({
+  const [values, setValues] = useState({
       stationNameDB: '',
       stationDescriptionDB: '',
 
@@ -40,14 +41,14 @@ export const StationsHeader = ({ name, lineId }) => {
       stationDescriptionRU: '',
 
       // selectedImage: null,
-    });
+  });
 
-    const handleChange = (event) => {
+  const handleChange = (event) => {
         setValues({
           ...values,
           [event.target.name]: event.target.value
         });
-      };
+  };
   const { 
     stationNameDB, 
     stationDescriptionDB,
@@ -58,37 +59,40 @@ export const StationsHeader = ({ name, lineId }) => {
     stationDescriptionBY,
     stationDescriptionRU
   } = values
-    const addStation = () => {
-      console.log('values', values);
-      console.log('selectedImage', selectedImage);
-      console.log("lineId", lineId)
-      Axios.post("http://localhost:3000/station", {
-        lineId,
-        stationNameDB,
-        stationDescriptionDB,
-        stationNameEN,
-        stationNameBY,
-        stationNameRU,
-        stationDescriptionEN,
-        stationDescriptionBY,
-        stationDescriptionRU,
-        image: selectedImage
-      },
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
+  console.log("values", values)
+  console.log("selectedImage", selectedImage)
+  const addStation = () => {
+    Axios.post("http://localhost:3000/station", {
+      lineId,
+      stationNameDB,
+      stationDescriptionDB,
+      stationNameEN,
+      stationNameBY,
+      stationNameRU,
+      stationDescriptionEN,
+      stationDescriptionBY,
+      stationDescriptionRU,
+      image: selectedImage
+    },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
         }
-      )
+      }
+    )
       .then((res) => {
         if (res.status === 200) {
-          
-          console.log("res.data", res.data)
           setIsChanging(false)
-          setShouldReRender(true)
+          getLocalisation()
+          getLines()
+            .catch((err) => {
+              console.error('err', err)
+            })
+          setStationAdded(stationNameDB)
+          setIsOpen(false)
         }
       })
-    }
+  }
 
     // const handleChange = (event) => {
     //   setValue(event.target.value)
@@ -98,15 +102,13 @@ export const StationsHeader = ({ name, lineId }) => {
   const handleOpenModal = () => setIsOpen(true);
   const handleCloseModal = () => setIsOpen(false);
 
-    useEffect(() => {  
-      onLocalisation()
-      .then((localizationResult) => {
-        console.log('localizationResult 000', localizationResult)
-      })
+  useEffect(() => {
+    getLocalisation()
+    getLines()
       .catch((err) => {
         console.error('err', err)
       })
-    }, [shouldReRender])
+  }, [])
 
   const content = <>
     <TextField

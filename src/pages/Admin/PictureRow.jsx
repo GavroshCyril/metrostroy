@@ -61,9 +61,6 @@ export const PictureRow = ({ lineName, pictureName }) => {
   const dispatch = useDispatch();
 
   const savePicture = (e) => {
-    // console.log("file", e.target.files[0]);
-    // setSelectedImage(e.target.files[0]);
-    console.log("lineName", lineName);
     Axios.post(
       "http://localhost:3000/station/image",
       {
@@ -77,24 +74,8 @@ export const PictureRow = ({ lineName, pictureName }) => {
       }
     ).then((res) => {
       if (res.status === 200) {
-        console.log("res", res);
-        console.log("res.data", res.data);
         const { filename } = res.data;
-        // fieldname
-        // :
-        // "image"
-        // filename
-        // :
-        // "1670531532241zelenoluzskaya.jpg"
-        // mimetype
-        // :
-        // "image/jpeg"
-        // originalname
-        // :
-        // "zelenoluzskaya.jpg"
-        // size
-        // :
-        // 204708
+
         const image = {
           lineName,
           filename,
@@ -106,15 +87,8 @@ export const PictureRow = ({ lineName, pictureName }) => {
     });
   };
 
-  const handleChange = (event) => {
-    // setValue(event.target.value)
-  };
-
   useEffect(() => {
     onLocalisation()
-      .then((localizationResult) => {
-        console.log("localizationResult 000", localizationResult);
-      })
       .catch((err) => {
         console.error("err", err);
       });
@@ -177,22 +151,10 @@ export const PictureRow = ({ lineName, pictureName }) => {
               width={100}
               height={100}
               type="file"
-              // accept="image/*,.pdf"
               onChange={(event) => {
-                console.log(event.target.files[0]);
                 setSelectedImage(event.target.files[0]);
               }}
             />
-            {/* <TextField
-             fullWidth
-             label=""
-             name="title"
-             onChange={handleChange}
-             required
-             //  value={imageLink + pictureName}
-             variant="outlined"
-             type="file"
-           /> */}
             <Button
               color="primary"
               variant="contained"

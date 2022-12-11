@@ -10,7 +10,6 @@ import { selectLocalizedState, selectLocale } from "../../../store/localizationS
 
 
 function Slider({lineName}) {
-  console.log("Slider", lineName)
   const [activeIndex, setActiveIndex] = useState(0);
 
   const state = useSelector(selectLocalizedState);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import ContactIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/AccountTree";
@@ -9,10 +10,13 @@ import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { isUserLoggedIn } from "../store/userSlice";
 
 const Sidebar = ({ children }) => {
   const [t] = useTranslation();
-  const menuItem = [
+  const isLoggedIn = useSelector(isUserLoggedIn);
+
+  const routes = [
     {
       path: "/",
       name: t("nav.home"),
@@ -44,13 +48,27 @@ const Sidebar = ({ children }) => {
       path: "/resources",
       name: t("nav.info"),
       icon: <UsefulLink />,
-    },
+    }
+  ];
+
+  const privateRoutes = [
     {
       path: "/admin",
       name: t("nav.panel"),
       icon: <UserIcon />,
     },
-  ];
+  ]
+
+  let resultRoutes = [];
+  
+  
+  console.log("isLoggedIn0", isLoggedIn)
+  if (isLoggedIn) {
+    resultRoutes = routes.concat(privateRoutes)
+  } else {
+    resultRoutes = routes
+  }
+  console.log("resultRoutes", resultRoutes)
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -62,7 +80,7 @@ const Sidebar = ({ children }) => {
           <MenuIcon onClick={toggle} />
         </div>
 
-        {menuItem.map((item, index) => (
+        {resultRoutes.map((item, index) => (
           <NavLink
             to={item.path}
             key={index}

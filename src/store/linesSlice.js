@@ -5,45 +5,16 @@ export const linesSlice = createSlice({
   initialState: {
     data: [],
     currentLine: "home_moscowTitle"
-    // fBranch: {},
-    // sBranch: {},
-    // tBranch: {},
   },
   reducers: {
-    // update: (state, action) => {
-    //   console.log("state", state)
-    //   console.log("action", action)
-
-    //     state.currentLocale = action.payload
-    // },
     update: (state, action) => {
-      console.log("state", state)
-      console.log("action", action)
-
       state.data = action.payload
     },
-    // updateCurrentLineName: (state, action) => {
-    //   console.log("state", state)
-
-    //   console.log("action", action)
-
-    //   state.currentLine = action.payload
-    // },
     updateCurrentLineImage: (state, action) => {
-      console.log("state", state)
-
-      console.log("action", action)
       const { filename, lineName } = action.payload
-      console.log("filename", filename)
-      console.log("lineName", lineName)
-
       const index = state.data.findIndex(line => line.line_name == lineName); 
-      console.log("index", index)
-
       const newArray = [...state.data];
-      console.log("newArray", newArray)
       newArray[index].line_picture = filename
-      console.log("newArray 2", newArray)
       state.data = newArray
     },
     decrement: (state) => {
@@ -61,13 +32,8 @@ function selectedLine(elem, currentLineName) {
 
 export const selectLines = (state) => state.lines.data
 export const selectLine = (state, currentLineName) => {
-  console.log("currentLineName000", currentLineName)
-  console.log("state.lines.data", state.lines.data)
 
   return state.lines.data.find((elem) => {
-    console.log("elem", elem)
-    console.log("elem.line_name", elem.line_name)
-    console.log("currentLineName", currentLineName)
     return elem.line_name === currentLineName
   })
 }

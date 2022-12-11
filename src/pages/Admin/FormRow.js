@@ -10,24 +10,14 @@ import { useLocalisation } from "../../hooks/useLocalisation";
 import CreateIcon from "@mui/icons-material/Create";
 import { useTranslation } from "react-i18next";
 
-export const FormRow = ({ title, name, color = "#f7f7f7" }) => {
+export const FormRow = ({ title, name }) => {
   const [t] = useTranslation();
   const [isChanging, setIsChanging] = useState(false);
   const locale = useSelector(selectLocale);
-  // const [values, setValues] = useState({
-  //   name: title
-  // });
 
   const [value, setValue] = useState(title);
   const [shouldReRender, setShouldReRender] = useState(false);
   const onLocalisation = useLocalisation();
-
-  // const handleChange = (event) => {
-  //     setValues({
-  //       ...values,
-  //       [event.target.name]: event.target.value
-  //     });
-  //   };
 
   const saveTitle = () => {
     Axios.put("http://localhost:3000/localization", {
@@ -36,7 +26,6 @@ export const FormRow = ({ title, name, color = "#f7f7f7" }) => {
       category: name,
     }).then((res) => {
       if (res.status === 200) {
-        console.log("res.data", res.data);
         setIsChanging(false);
         setShouldReRender(true);
       }
@@ -47,15 +36,8 @@ export const FormRow = ({ title, name, color = "#f7f7f7" }) => {
     setValue(event.target.value);
   };
 
-  const cancelChanges = () => {
-    alert("Вы уверены, что хотите отменить изменения?");
-  };
-
   useEffect(() => {
     onLocalisation()
-      .then((localizationResult) => {
-        console.log("localizationResult 000", localizationResult);
-      })
       .catch((err) => {
         console.error("err", err);
       });

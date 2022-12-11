@@ -19,35 +19,17 @@ import { selectLocalizedState } from "../../store/localizationSlice";
 import { selectCurrentLineName, selectLine} from "../../store/linesSlice";
 
 const Line = () => {
-  const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
-  console.log("state Home", state)
-  
   const { pathname } = useLocation();
-  console.log("pathname", pathname)
-
   const path = pathname.split("/");
-  console.log("path", path[2])
-  
   const currentLineName = path[2];
-  console.log("currentLineName", currentLineName)
 
   const line = useSelector((state) => {
     return selectLine(state, currentLineName)
   });
-  console.log("line00", line)
-  console.log("line00", line && line.line_name)
 
   const stations = line && line.stations
-  console.log("stations", stations)
-  // const lineName 
-  // console.log("line_name", line?.line_name)
-
-  if (line) {
-    console.log("line_name", line.line_name)
-  }
   const imageLink = "http://localhost:3000/station/image/"
-  // console.log("line00", state)
 
   return (
     <div className="HomeFirstBranch">
@@ -58,7 +40,6 @@ const Line = () => {
       <div className="content">
         <div className="description">
           {stations && stations.map((station) => {
-            console.log("station", station)
             return (
               <Card sx={{ maxWidth: 345 }} className="brach-card">
                 <CardMedia
@@ -78,58 +59,6 @@ const Line = () => {
               </Card>
             )
           })}
-          
-
-          {/* <Card sx={{ maxWidth: 345 }} className="brach-card">
-            <CardMedia
-              component="img"
-              height="250"
-              image={Bogushevicha}
-              alt="Францишка Богушевича"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {t("tBranch.bogushTitle")}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {t("tBranch.bogushSubTitle")}
-              </Typography>
-            </CardContent>
-          </Card> */}
-
-          {/* <Card sx={{ maxWidth: 345 }} className="brach-card">
-            <CardMedia
-              component="img"
-              height="250"
-              image={Yubileynaja}
-              alt="Юбилейная"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {t("tBranch.yubileyTitle")}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {t("tBranch.yubileySubTitle")}
-              </Typography>
-            </CardContent>
-          </Card> */}
-
-          {/* <Card sx={{ maxWidth: 345 }} className="brach-card">
-            <CardMedia
-              component="img"
-              height="250"
-              image={Sloboda}
-              alt="Слобода"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {t("tBranch.slobodaTitle")}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {t("tBranch.slobodaSubTitle")}
-              </Typography>
-            </CardContent>
-          </Card> */}
         </div>
       </div>
     </div>

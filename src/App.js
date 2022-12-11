@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home/Home.jsx";
 import Map from "./pages/Map/Map.jsx";
@@ -19,8 +21,11 @@ import Partizanskaya from "./pages/SecondBranch/Frunzenskaya";
 import { TokenManager } from "./common/TokenManager.jsx";
 import { LocalizationProvider } from "./common/LocalizationProvider.jsx";
 import Line from "./pages/Line";
+import { isUserLoggedIn, logout } from "./store/userSlice";
 
 const App = () => {
+  const isLoggedIn = useSelector(isUserLoggedIn);
+
   return (
     <Suspense fallback="Loading...">
       <BrowserRouter>
@@ -38,8 +43,10 @@ const App = () => {
                 <Route path="/bluebranch" element={<FisrtBranch />} />
                 <Route path="/redbranch" element={<SecondBranch />} />
                 <Route path="/greenbranch" element={<ThirdBranch />} />
-
-                <Route path="/admin" element={<Admin />} />
+                {isLoggedIn && <Route path="/admin" element={<Admin />} />
+                  
+                }
+                
                 <Route path="/line/:name" element={<Line />} />
                 <Route path="*" element={<Error />} />
               </Routes>
