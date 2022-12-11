@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -7,7 +7,6 @@ import Axios from "axios";
 import JwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
-
 import { useTranslation } from "react-i18next";
 import { update } from "../../store/userSlice";
 
@@ -16,6 +15,61 @@ const Search = () => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState();
   const [userPassword, setUserPassword] = useState();
+  const [userNameDirty, setUserNameDirty] = useState(false);
+  const [userPasswordDirty, setUserPasswordDirty] = useState(false);
+  const [userNameError, setUserNameError] = useState(
+    "Поле с логином не может быть пустым"
+  );
+  const [userPasswordError, setUserPasswordError] = useState(
+    "Поле с паролем не может быть пустым"
+  );
+  const [formValid, setFormValid] = useState(false);
+
+  useEffect(() => {
+    if (userNameError || userPasswordError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [userNameError, userPasswordError]);
+
+  const userNameHandler = (e) => {
+    setUserName(e.target.value);
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
+    if (!usernameRegex.test(e.target.value)) {
+      setUserNameError("Неккоректный логин");
+
+      if (!e.target.value) {
+        setUserNameError("Поле с паролем не может быть пустым");
+      }
+    } else {
+      setUserNameError("");
+    }
+  };
+
+  const userPasswordHandler = (e) => {
+    setUserPassword(e.target.value);
+    if (e.target.value.length < 2 || e.target.value.length > 15) {
+      setUserPasswordError("Пароль должен быть длинее 2 и меньше 15 символов");
+      if (!e.target.value) {
+        setUserPasswordError("Поле с паролем не может быть пустым");
+      } else {
+        setUserPasswordError("");
+      }
+    }
+  };
+
+  const bluerHandler = (e) => {
+    switch (e.target.name) {
+      case "userName":
+        setUserNameDirty(true);
+        break;
+      case "userPassword":
+        setUserPasswordDirty(true);
+        break;
+    }
+  };
+
   const navigate = useNavigate();
 
   const login = (event) => {
@@ -64,28 +118,39 @@ const Search = () => {
         {t("admin.subTitle")}
       </Typography>
       <form className="auth-form__form">
+        {userNameDirty && userNameError && (
+          <div style={{ color: "red" }}>{userNameError}</div>
+        )}
         <TextField
+          onBlur={(e) => bluerHandler(e)}
           label={t("admin.login")}
+          name="userName"
           fullWidth={true}
           size="small"
           margin="normal"
           className="auth-form__input"
-          onChange={(event) => {
-            setUserName(event.target.value);
+          onChange={(e) => {
+            userNameHandler(e);
           }}
         />
+        {userPasswordDirty && userPasswordError && (
+          <div style={{ color: "red" }}>{userPasswordError}</div>
+        )}
         <TextField
+          onBlur={(e) => bluerHandler(e)}
           label={t("admin.password")}
+          name="userPassword"
           fullWidth={true}
           size="small"
           margin="normal"
           type="password"
           className="auth-form__input"
-          onChange={(event) => {
-            setUserPassword(event.target.value);
+          onChange={(e) => {
+            userPasswordHandler(e);
           }}
         />
         <Button
+          disabled={!formValid}
           type="submit"
           variant="contained"
           fullWidth={true}

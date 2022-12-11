@@ -11,8 +11,8 @@ import { isUserLoggedIn } from "../store/userSlice";
 
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-import { update } from '../store/localizationSlice'
-import { useDispatch } from 'react-redux'
+import { update } from "../store/localizationSlice";
+import { useDispatch } from "react-redux";
 
 const HeaderOptions = () => {
   const [t] = useTranslation();
@@ -29,7 +29,7 @@ const HeaderOptions = () => {
   const navigate = useNavigate();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    dispatch(update(lng))
+    dispatch(update(lng));
   };
 
   const isLoggedIn = useSelector(isUserLoggedIn);
@@ -57,18 +57,18 @@ const HeaderOptions = () => {
         ENG
       </WhiteBtn>
       <WhiteBtn onClick={() => changeLanguage("bel")} variant="contained">
-        БЕЛ
+        {t("bel")}
       </WhiteBtn>
       <WhiteBtn
         color="primary"
         onClick={() => changeLanguage("ru")}
         variant="contained"
       >
-        РУС
+        {t("ru")}
       </WhiteBtn>
       {isLoggedIn ? (
         <Button onClick={() => onLogOut()} variant="contained">
-          ВЫХОД
+          {t("logout")}
         </Button>
       ) : (
         <Button onClick={() => navigate("/auth")} variant="contained">

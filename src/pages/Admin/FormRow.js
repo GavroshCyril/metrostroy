@@ -7,8 +7,11 @@ import {
   selectLocale,
 } from "../../store/localizationSlice";
 import { useLocalisation } from "../../hooks/useLocalisation";
+import CreateIcon from "@mui/icons-material/Create";
+import { useTranslation } from "react-i18next";
 
-export const FormRow = ({ title, name, color = "transparent" }) => {
+export const FormRow = ({ title, name, color = "#f7f7f7" }) => {
+  const [t] = useTranslation();
   const [isChanging, setIsChanging] = useState(false);
   const locale = useSelector(selectLocale);
   // const [values, setValues] = useState({
@@ -60,16 +63,9 @@ export const FormRow = ({ title, name, color = "transparent" }) => {
 
   return (
     <>
-      <Grid
-        item
-        md={9}
-        xs={12}
-        sx={{
-          backgroundColor: color,
-        }}
-      >
+      <Grid item md={9} xs={12}>
         <TextareaAutosize
-          style={{ width: "100%" }}
+          style={{ width: "50%" }}
           // fullWidth
           label=""
           // name="home_title"
@@ -89,23 +85,24 @@ export const FormRow = ({ title, name, color = "transparent" }) => {
               variant="contained"
               onClick={(e) => saveTitle(e)}
             >
-              Сохранить
+              {t("save")}
             </Button>
             <Button
               color="primary"
               variant="contained"
-              onClick={() => cancelChanges() && setIsChanging(false)}
+              onClick={() => setIsChanging(false)}
             >
-              Отмена
+              {t("cancel")}
             </Button>
           </>
         ) : (
           <Button
+            startIcon={<CreateIcon />}
             color="primary"
             variant="contained"
             onClick={() => setIsChanging(true)}
           >
-            Редактировать
+            {t("change")}
           </Button>
         )}
       </Grid>

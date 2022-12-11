@@ -22,14 +22,14 @@ const Admin = () => {
         <div className="admin-info">
           <Stack sx={{ width: "100%" }} spacing={2}>
             <Alert severity="warning">
-              Перед началом администрирования веб-приложением, ознакомьтесь с
-              руководством администратора, кликнув на{" "}
+              {t("admin.info")}
+
               <Link
                 href="../../Assets/documents/history.docx"
                 underline="none"
                 download
               >
-                «Руководство администратора»
+                {t("admin.link")}
               </Link>
             </Alert>
           </Stack>

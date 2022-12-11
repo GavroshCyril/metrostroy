@@ -23,8 +23,9 @@ const Home = () => {
       <Lang />
 
       <div className="content">
+        <h2 className="usefull-title">Полезные ссылки:</h2>
         <div className="description">
-          <Card sx={{ maxWidth: 345 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               height="250"
@@ -41,7 +42,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 345 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               height="250"
@@ -58,7 +59,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 345 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               height="250"
@@ -75,7 +76,7 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card sx={{ maxWidth: 345 }} className="brach-card">
+          <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               height="250"

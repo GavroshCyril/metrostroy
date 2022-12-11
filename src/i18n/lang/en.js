@@ -106,6 +106,28 @@ export let enLang = {
     bluebranch: "Moskovskaya line",
     greenbranch: "Zelenoluzhskaya line",
   },
+  resources: {
+    info:
+      "If you need web application documentation, you can download it by clicking on",
+    link: "«User's manual»",
+    history: "History of the Minsk metro",
+    map: "See the subway map",
+    schema: "Download the scheme of the subway structure until 2050",
+    portalMinObr:
+      "Internet portal of the Ministry of Education of the Republic of Belarus",
+    portalRepBel: "National Legal Internet Portal of the Republic of Belarus",
+    prezidenta: "Internet portal of the President of the Republic of Belarus",
+    minskMetro: "Internet portal of the Minsk metro",
+    minskMetroStroy:
+      "Internet portal of the unitary enterprise 'MINSKMETROSTROY''",
+    usefullLinks: "Useful links:",
+    desc01:
+      "The Minsk Metro was opened on June 29, 1984. The chronicle of the metro began with 8 stations of the first line and the Moskovskoye electric depot. Then the second branch and the Mogilevskoye electric depot appeared. The operational length of the Minsk metro is 40.8 kilometers in double-track terms. In total, the length of tracks in single-track terms (with dead ends and track depot development) is about 116 kilometers.",
+    desc02:
+      "The state enterprise 'Minsk Metro' includes 30 structural divisions: 10 services, 2 electric depots, 11 departments, the office of the chief auditor for train traffic safety, a situation center, a metrology laboratory, 4 sectors, 2 hostels. The staff of the subway is more than 5 thousand people. In the period from the moment of launch to the present, the metro of the Belarusian capital has come a long way of development. The Minsk Metro State Enterprise is dynamically and efficiently moving forward in the field of modernizing production processes, doing everything necessary for the convenience and comfort of passengers.",
+    desc03:
+      "The Metro is progressively upgrading its rolling stock to become more modern, comfortable and safer. An accessible environment has been created and is being improved for the convenience of passengers of various opportunities. At all stations, a contactless method of fare payment using bank payment systems has been introduced. The subway has access to the Internet using Wi-Fi technology.",
+  },
   // tBranch: {
   //   vokzTitle: "Vokzalnaya",
   //   vokzSubTitle:
@@ -121,7 +143,7 @@ export let enLang = {
   //     "The terminal station of the Zelenoluzhskaya line and is located at the intersection of Zhukovsky and Voronyansky streets",
   // },
   printMaterial: "Print version",
-  downloadMaterial: "Download material in Word format",
+  downloadMaterial: "Download material",
   admin: {
     panel: "Admin panel",
     title: "Log in",
@@ -129,8 +151,20 @@ export let enLang = {
     login: "Login",
     password: "Password",
     logIn: "Login to your personal account",
+    info:
+      " Before you start administering the web application, read the administrator's guide by clicking on",
+    link: "«Admin Guide»",
+    changeImg: "Change the picture",
+    loadImg: "Upload an image",
   },
 
   login: "Log in",
   more: "More",
+  save: "Save",
+  cancel: "Cancel",
+  change: "Edit",
+  close: "Close",
+  ru: "RUS",
+  bel: "BEL",
+  logout: "EXIT",
 };

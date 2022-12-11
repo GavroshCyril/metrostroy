@@ -24,17 +24,6 @@
   margin: 0 15px;
 }
 
-.brach-card:hover {
-  cursor: pointer;
-  width: 500px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transform: translateY(-20px);
-  -webkit-transform: translateY(-20px);
-  -moz-transform: translateY(-20px);
-  -ms-transform: translateY(-20px);
-  -o-transform: translateY(-20px);
-}
-
 .input-lang {
   position: absolute;
   top: 30px;

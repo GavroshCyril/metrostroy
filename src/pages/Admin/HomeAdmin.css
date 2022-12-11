@@ -1,12 +1,14 @@
 .line {
-  background: lightgray;
+  /*  box-shadow: 0 40px 20px rgba(0, 0, 0, 0.25),
+    10px 10px 10px rgba(0, 0, 0, 0.22); */
   /* display: flex; */
-  width: 100%;
+  width: 50%;
   /* margin: 10px 0 10px 0;  */
   margin-bottom: 50px;
   padding-bottom: 20px;
+  border: 2px solid black;
 }
 
 .header {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }

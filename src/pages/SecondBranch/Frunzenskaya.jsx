@@ -7,6 +7,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
 import Link from "@mui/material/Link";
 import Lang from "../../components/HeaderOptions";
+import "./Frunzenskaya.css";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -20,6 +21,7 @@ const Home = () => {
       <Lang />
 
       <div className="content">
+        <h1 className="title">fsdff</h1>
         <div className="description">
           {" "}
           <Stack direction="row" spacing={2} className="links">

@@ -139,7 +139,7 @@ export const HomeAdmin = (props) => {
               console.log("name", line.line_name);
 
               return (
-                <Grid container spacing={3} className="line">
+                <Grid container spacing={2} className="line">
                   <FormRow
                     // handleChange={handleChange}
                     title={state[`${line.line_name}`]}
