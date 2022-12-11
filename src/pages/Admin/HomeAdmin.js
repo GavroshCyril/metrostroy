@@ -21,7 +21,10 @@ import {
 } from "../../store/localizationSlice";
 import { useLocalisation } from "../../hooks/useLocalisation";
 import { FormRow } from "./FormRow";
+import { StationsHeader } from "./StationsHeader";
 import { PictureRow } from "./PictureRow";
+import { DeleteStantion } from "./DeleteStantion";
+
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
 
@@ -157,6 +160,13 @@ export const HomeAdmin = (props) => {
                     pictureName={line.line_picture}
                     lineName={line.line_name}
                   />
+                  
+                  <StationsHeader
+                    // handleChange={handleChange}
+                    // title={state[`${line.line_description}`]}
+                    lineId={line.line_id}
+                    name={line.line_description}
+                  />
 
                   {line.stations &&
                     line.stations.map((station, index) => {
@@ -191,7 +201,17 @@ export const HomeAdmin = (props) => {
                           <PictureRow
                             pictureName={station.station_picture}
                             lineName={line.station_name}
+                            style={{ marginBottom: "30px" }}
                           />
+
+                          <DeleteStantion
+                            // handleChange={handleChange}
+                            // title={state[`${station.station_description}`]}
+                            // saveTitle={saveTitle}
+                            stationName={station.station_name}
+      
+                          />
+                          
                         </>
                       );
                     })}

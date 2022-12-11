@@ -22,6 +22,10 @@ import { updateCurrentLineImage } from "../../store/linesSlice";
 import "./PictureRow.jsx";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import { useTranslation } from "react-i18next";
+import IconButton from "@mui/material/IconButton";
+import AddIcon from "@mui/icons-material/Add";
+import Stack from "@mui/material/Stack";
+
 
 const style = {
   position: "absolute",
@@ -48,16 +52,10 @@ export const PictureRow = ({ lineName, pictureName }) => {
   const onLocalisation = useLocalisation();
   const imageLink = "http://localhost:3000/station/image/";
 
+
   const [open, setOpen] = React.useState(false);
   const handleOpenModal = () => setOpen(true);
   const handleCloseModal = () => setOpen(false);
-
-  // const handleChange = (event) => {
-  //     setValues({
-  //       ...values,
-  //       [event.target.name]: event.target.value
-  //     });
-  //   };
 
   const [selectedImage, setSelectedImage] = useState(null);
   const dispatch = useDispatch();
