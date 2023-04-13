@@ -36,12 +36,12 @@ const Contacts = () => {
         <div className="description">
           <iFrame
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A922d17d946bd2970f021cf8ca0bf38b187ce87c54f417e088119af40e6621784&amp;source=constructor"
-            width="623"
+            width="80%"
             height="370"
             frameborder="0"
           />
           <Box
-            sx={{ width: "100%", maxWidth: 620, bgcolor: "background.paper" }}
+            sx={{ width: "100%", maxWidth: 680, bgcolor: "background.paper" }}
           >
             <Box sx={{ my: 3, mx: 2 }}>
               <Grid container alignItems="center">

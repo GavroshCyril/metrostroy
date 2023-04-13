@@ -147,7 +147,7 @@ export let enLang = {
   admin: {
     panel: "Admin panel",
     title: "Log in",
-    subTitle: "to get access to the administrator's office",
+    subTitle: "to get access to your personal account",
     login: "Login",
     password: "Password",
     logIn: "Login to your personal account",

@@ -4,7 +4,7 @@ import { Typography, TextField, Button } from "@mui/material";
 import Axios from "axios";
 import JwtDecode from "jwt-decode";
 import { useNavigate, Link } from "react-router-dom";
-import "./Auth.css";
+import "../Auth/Auth.css";
 import { useTranslation } from "react-i18next";
 import { update } from "../../store/userSlice";
 
@@ -105,7 +105,7 @@ const Search = () => {
   return (
     <div className="auth-form">
       <Typography variant="h3" component="div">
-        {t("admin.title")}
+        {t("register.title")}
       </Typography>
       <Typography
         variant="subtitle1"
@@ -113,7 +113,7 @@ const Search = () => {
         component="div"
         className="auth-form__subtitle"
       >
-        {t("admin.subTitle")}
+        {t("register.subTitle")}
       </Typography>
       <form className="auth-form__form">
         {userNameDirty && userNameError && (
@@ -160,11 +160,11 @@ const Search = () => {
             login(event);
           }}
         >
-          {t("admin.logIn")}
+          {t("register.title")}
         </Button>
       </form>
       
-      <small >Нет аккаунта? <Link to="/register">Зарегистрироваться</Link></small>
+      <small >Уже есть аккаунт? <Link to="/auth">Войти в личный кабинет</Link></small>
     </div>
   );
 };

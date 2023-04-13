@@ -11,6 +11,7 @@ import Resources from "./pages/Resources/Resources.jsx";
 import Contacts from "./pages/Contacts/Contacts.jsx";
 import Search from "./pages/Search/Search.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
+import Register from "./pages/Register/Register.jsx";
 import FisrtBranch from "./pages/FirstBranch/HomeFirstBranch/HomeFirstBranch.jsx";
 import SecondBranch from "./pages/SecondBranch/HomeSecondBranch/HomeSecondBranch.jsx";
 import ThirdBranch from "./pages/ThirdBranch/HomeThirdBranch/HomeThirdBranch.jsx";
@@ -40,6 +41,7 @@ const App = () => {
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/auth" element={<Auth />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/bluebranch" element={<FisrtBranch />} />
                 <Route path="/redbranch" element={<SecondBranch />} />
                 <Route path="/greenbranch" element={<ThirdBranch />} />

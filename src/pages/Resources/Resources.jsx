@@ -24,20 +24,7 @@ const Resources = () => {
         <Lang />
       </div>
 
-      <Stack sx={{ width: "100%" }} spacing={2}>
-        <Alert severity="info">
-          {t("resources.info")}
-
-          <Link
-            href="../../Assets/documents/user-guide.docx"
-            underline="none"
-            download
-          >
-            {" "}
-            {t("resources.link")}
-          </Link>
-        </Alert>
-      </Stack>
+     
       <div className="content">
         <h1>{t("resources.history")}</h1>
         <div className="description">
@@ -63,6 +50,7 @@ const Resources = () => {
         <div className="content ">
           <h2 className="usefull-title"> {t("resources.usefullLinks")}</h2>
           <div className="resources-cards">
+            
             <Link
               href="http://metrostroy.by/"
               underline="none"
@@ -84,6 +72,7 @@ const Resources = () => {
                 </CardActionArea>
               </Card>
             </Link>
+
             <Link
               href="https://metropoliten.by/"
               underline="none"
@@ -105,6 +94,7 @@ const Resources = () => {
                 </CardActionArea>
               </Card>
             </Link>
+
             <Link
               href="https://president.gov.by/ru"
               underline="none"
@@ -126,6 +116,7 @@ const Resources = () => {
                 </CardActionArea>
               </Card>
             </Link>
+
             <Link href="https://pravo.by/" underline="none" className="Link">
               <Card sx={{ maxWidth: 270 }}>
                 <CardActionArea>
