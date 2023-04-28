@@ -19,9 +19,9 @@ main {
 }
 .sidebar {
   position: fixed;
-  z-index: 9999;
+  z-index: 1;
   left: 0;
-  background-color: gray;
+  background-color: rgb(83, 83, 83);
   color: #fff;
   height: 100vh;
   width: 220px;

@@ -48,9 +48,7 @@ export const FormRow = ({ title, name }) => {
       <Grid item md={9} xs={12}>
         <TextareaAutosize
           style={{ width: "50%" }}
-          // fullWidth
           label=""
-          // name="home_title"
           onChange={handleChange}
           required
           value={value}

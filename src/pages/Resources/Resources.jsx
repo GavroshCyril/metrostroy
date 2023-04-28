@@ -2,7 +2,7 @@ import React from "react";
 import "./Resources.css";
 import { useTranslation } from "react-i18next";
 import Lang from "../../components/HeaderOptions";
-import { Alert, Stack, Link } from "@mui/material";
+import { Stack, Link } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
 import ForkLeftIcon from "@mui/icons-material/ForkLeft";
+import Timer from "../../components/Timer";
 
 const Resources = () => {
   const [t] = useTranslation();
@@ -24,20 +25,6 @@ const Resources = () => {
         <Lang />
       </div>
 
-      <Stack sx={{ width: "100%" }} spacing={2}>
-        <Alert severity="info">
-          {t("resources.info")}
-
-          <Link
-            href="../../Assets/documents/user-guide.docx"
-            underline="none"
-            download
-          >
-            {" "}
-            {t("resources.link")}
-          </Link>
-        </Alert>
-      </Stack>
       <div className="content">
         <h1>{t("resources.history")}</h1>
         <div className="description">
@@ -53,14 +40,20 @@ const Resources = () => {
             {t("resources.desc03")}
           </p>
         </div>
+        <Timer className="timer" date={new Date("Wed, 27 Nov 2023 00:00:00")} />
         <Stack direction="row" spacing={2} className="links">
-          <Button variant="outlined" startIcon={<ForkLeftIcon />}>
+          {/*  <Button variant="outlined" startIcon={<ForkLeftIcon />}>
             <Link href="/map" underline="none">
               {t("resources.map")}
             </Link>
+          </Button> */}
+          <Button variant="outlined" endIcon={<DownloadIcon />}>
+            <Link href="./schema.docx" underline="none" download>
+              {t("resources.schema")}
+            </Link>
           </Button>
         </Stack>
-        <div className="content ">
+        {/*  <div className="content ">
           <h2 className="usefull-title"> {t("resources.usefullLinks")}</h2>
           <div className="resources-cards">
             <Link
@@ -165,8 +158,8 @@ const Resources = () => {
               </Card>
             </Link>
           </div>
-        </div>
-        <Stack direction="row" spacing={2} className="links">
+        </div> */}
+        {/*  <Stack direction="row" spacing={2} className="links">
           <Button variant="outlined" startIcon={<PrintIcon />}>
             <Link
               href="https://metropoliten.by/o_metropolitene/?print=y"
@@ -184,12 +177,8 @@ const Resources = () => {
               {t("downloadMaterial")}
             </Link>
           </Button>
-          <Button variant="outlined" endIcon={<DownloadIcon />}>
-            <Link href="./schema.docx" underline="none" download>
-              {t("resources.schema")}
-            </Link>
-          </Button>
-        </Stack>
+          
+        </Stack> */}
       </div>
     </div>
   );

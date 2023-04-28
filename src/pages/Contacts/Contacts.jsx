@@ -1,29 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Contacts.css";
-import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
+import {
+  Box,
+  Chip,
+  Grid,
+  Stack,
+  Divider,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Link,
+  Alert,
+} from "@mui/material";
 import ImageIcon from "@mui/icons-material/LocalPhone";
-import BeachAccessIcon from "@mui/icons-material/AttachEmail";
-import Divider1 from "@mui/material/Divider";
-import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
-import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
 import PrintIcon from "@mui/icons-material/Print";
+import BeachAccessIcon from "@mui/icons-material/AttachEmail";
+import Divider1 from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
-import Link from "@mui/material/Link";
 import Lang from "../../components/HeaderOptions";
+import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
+import SurveyComponent from "../../components/RatingComponent/SurveyComponent";
+
+const classes = {
+  container: {
+    cursor: "pointer",
+  },
+};
 
 const Contacts = () => {
   const [t] = useTranslation();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="ContactsWrapper">
       <div className="Contacts">
@@ -36,12 +48,12 @@ const Contacts = () => {
         <div className="description">
           <iFrame
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A922d17d946bd2970f021cf8ca0bf38b187ce87c54f417e088119af40e6621784&amp;source=constructor"
-            width="623"
+            width="900"
             height="370"
             frameborder="0"
           />
           <Box
-            sx={{ width: "100%", maxWidth: 620, bgcolor: "background.paper" }}
+            sx={{ width: "100%", maxWidth: 630, bgcolor: "background.paper" }}
           >
             <Box sx={{ my: 3, mx: 2 }}>
               <Grid container alignItems="center">
@@ -101,7 +113,7 @@ const Contacts = () => {
           <Stack direction="row" spacing={1} className="content-span">
             <Chip label={t("contact.label")} />
           </Stack>
-          <ImagesListMuseum />
+          <ImagesListMuseum styles={classes.container} />
         </div>
         <Stack direction="row" spacing={2} className="links">
           <Button variant="outlined" startIcon={<PrintIcon />}>
@@ -122,6 +134,23 @@ const Contacts = () => {
             </Link>
           </Button>
         </Stack>
+
+        {isLoggedIn ? (
+          <SurveyComponent />
+        ) : (
+          <Stack
+            style={{ marginTop: "10px" }}
+            sx={{ width: "100%" }}
+            spacing={2}
+          >
+            <Alert severity="info">
+              Чтобы поделиться своим мнением о посещенном объекте,{" "}
+              <Link href="/auth" underline="none">
+                войдите в личный кабинет
+              </Link>
+            </Alert>
+          </Stack>
+        )}
       </div>
     </div>
   );

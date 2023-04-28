@@ -1,0 +1,107 @@
+.News {
+  background: url("../../Assets/Images/newss.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.News-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center; /* 
+  width: 400px; */
+  height: 340px;
+  background-color: rgba(0, 0, 0, 0.686);
+  max-height: 44%;
+}
+
+.logo {
+  width: 170px;
+  height: 170px;
+  margin: 10px;
+}
+
+.News-title {
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+.Home-title span {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.card-container {
+  display: flex;
+  margin: 0 15px;
+  flex-wrap: wrap;
+}
+
+.Card {
+  margin: 0 5px;
+  width: 420px;
+  height: 410px;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.Card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  -o-transform: translateY(-20px);
+}
+
+.input-lang {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.card-btn {
+  margin: 15px;
+  width: 600px;
+}
+
+@media (max-width: 1300px) {
+  .description {
+    display: flex;
+    justify-content: center;
+  }
+}
+.news-cotainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  padding: 0 15px;
+  gap: 20px;
+}
+
+.date {
+  background-color: #2979ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 5px 15px 5px 15px;
+  margin-bottom: 20px;
+  display: inline-block;
+}

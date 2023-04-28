@@ -22,9 +22,6 @@ import { updateCurrentLineImage } from "../../store/linesSlice";
 import "./PictureRow.jsx";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import { useTranslation } from "react-i18next";
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
-import Stack from "@mui/material/Stack";
 
 
 const style = {
@@ -43,20 +40,12 @@ export const PictureRow = ({ lineName, pictureName }) => {
   const [t] = useTranslation();
   const [isChanging, setIsChanging] = useState(false);
   const locale = useSelector(selectLocale);
-  // const [values, setValues] = useState({
-  //   name: title
-  // });
-
-  // const [value, setValue] = useState(title);
   const [shouldReRender, setShouldReRender] = useState(false);
   const onLocalisation = useLocalisation();
   const imageLink = "http://localhost:3000/station/image/";
-
-
   const [open, setOpen] = React.useState(false);
   const handleOpenModal = () => setOpen(true);
   const handleCloseModal = () => setOpen(false);
-
   const [selectedImage, setSelectedImage] = useState(null);
   const dispatch = useDispatch();
 
@@ -81,8 +70,6 @@ export const PictureRow = ({ lineName, pictureName }) => {
           filename,
         };
         dispatch(updateCurrentLineImage(image));
-        // setIsChanging(false)
-        // setShouldReRender(true)
       }
     });
   };
@@ -97,25 +84,13 @@ export const PictureRow = ({ lineName, pictureName }) => {
   return (
     <>
       <Grid item md={9} xs={12}>
-        {/* <TextareaAutosize
-         style={{ width: '100%' }}
-         // fullWidth
-         label=""
-         // name="home_title"
-         onChange={handleChange}
-         required
-         value={value}
-         variant="outlined"
-         type="text"
-         readOnly={!isChanging}
-       /> */}
         <CardMedia
           className="card-img"
           style={{ width: "50%", marginBottom: "50px" }}
           component="img"
           height="200"
           image={imageLink + pictureName}
-          alt="green iguana"
+          alt="Остановка"
         />
       </Grid>
       <Grid item md={3} xs={12} className="buttonContainer">
@@ -132,7 +107,6 @@ export const PictureRow = ({ lineName, pictureName }) => {
       </Grid>
 
       <div>
-        {/* <Button onClick={handleOpenModal}>Open modal</Button> */}
         <Modal
           open={open}
           onClose={handleCloseModal}

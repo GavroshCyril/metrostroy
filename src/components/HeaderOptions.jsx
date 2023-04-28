@@ -1,6 +1,5 @@
-import React from "react";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import React, { useState } from "react";
+import { Stack, Avatar, Button, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import i18n from "../i18n";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,6 +13,11 @@ import { styled } from "@mui/material/styles";
 import { update } from "../store/localizationSlice";
 
 const HeaderOptions = () => {
+  /*   const firstLetter = this.state.name.charAt(0);
+  const secondLetter = this.state.name.charAt(1);
+  const fullName = this.state.name;
+  const initials = `${firstLetter}${secondLetter}`; */
+
   const [t] = useTranslation();
 
   const WhiteBtn = styled(Button)(({ theme }) => ({
@@ -32,7 +36,7 @@ const HeaderOptions = () => {
   };
 
   const isLoggedIn = useSelector(isUserLoggedIn);
-  console.log("isLoggedIn", isLoggedIn)
+  console.log("isLoggedIn", isLoggedIn);
 
   const onLogOut = () => {
     const refreshToken = localStorage.getItem("refreshToken");
@@ -49,7 +53,7 @@ const HeaderOptions = () => {
       .catch((err) => {
         console.error("Something went wrong during logout", err);
       });
-    console.log("dispatch logout")
+    console.log("dispatch logout");
     dispatch(logout());
   };
 
@@ -68,6 +72,7 @@ const HeaderOptions = () => {
       >
         {t("ru")}
       </WhiteBtn>
+
       {isLoggedIn ? (
         <Button onClick={() => onLogOut()} variant="contained">
           {t("logout")}
@@ -77,6 +82,12 @@ const HeaderOptions = () => {
           {t("login")}
         </Button>
       )}
+
+      {isLoggedIn ? (
+        <Tooltip /* title={{ fullName }} */>
+          <Avatar style={{ cursor: "pointer" }}>{/* {{ initials }} */}</Avatar>
+        </Tooltip>
+      ) : null}
     </Stack>
   );
 };

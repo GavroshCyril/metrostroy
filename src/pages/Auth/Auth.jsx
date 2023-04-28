@@ -5,10 +5,12 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Axios from "axios";
 import JwtDecode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Auth.css";
 import { useTranslation } from "react-i18next";
 import { update } from "../../store/userSlice";
+import showPwdImg from "./showPassword.svg";
+import hidePwdImg from "./hidePassword.svg";
 
 const Search = () => {
   const [t] = useTranslation();
@@ -64,9 +66,6 @@ const Search = () => {
       case "userName":
         setUserNameDirty(true);
         break;
-      case "userPassword":
-        setUserPasswordDirty(true);
-        break;
     }
   };
 
@@ -104,6 +103,8 @@ const Search = () => {
       });
   };
 
+  const [pwd, setPwd] = useState("");
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
   return (
     <div className="auth-form">
       <Typography variant="h3" component="div">
@@ -136,27 +137,36 @@ const Search = () => {
         {userPasswordDirty && userPasswordError && (
           <div style={{ color: "red" }}>{userPasswordError}</div>
         )}
-        <TextField
-          onBlur={(e) => bluerHandler(e)}
-          label={t("admin.password")}
-          name="userPassword"
-          fullWidth={true}
-          size="small"
-          margin="normal"
-          type="password"
-          className="auth-form__input"
-          onChange={(e) => {
+        <div className="pwd-container">
+          <TextField
+            onBlur={(e) => bluerHandler(e)}
+            label={t("admin.password")}
+            name="userPassword"
+            fullWidth={true}
+            size="small"
+            margin="normal"
+            type={isRevealPwd ? "text" : "password"}
+            className="auth-form__input"
+            /*  onChange={(e) => {
             userPasswordHandler(e);
-          }}
-        />
+          }} */
+            onChange={(e) => setPwd(e.target.value)}
+          />
+
+          <img
+            title={isRevealPwd ? "Скрыть пароль" : "Показать пароль"}
+            src={isRevealPwd ? hidePwdImg : showPwdImg}
+            onClick={() => setIsRevealPwd((prevState) => !prevState)}
+          />
+        </div>
         <Button
-          disabled={!formValid}
+          /*   disabled={!formValid} */
           type="submit"
           variant="contained"
           fullWidth={true}
           disableElevation={true}
           sx={{
-            marginTop: 2,
+            marginTop: 3,
           }}
           onClick={(event) => {
             login(event);
@@ -164,6 +174,9 @@ const Search = () => {
         >
           {t("admin.logIn")}
         </Button>
+        <small>
+          Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+        </small>
       </form>
     </div>
   );

@@ -23,3 +23,22 @@
   justify-content: flex-start;
   margin-top: 8px;
 }
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+}
+
+.pwd-container {
+  position: relative;
+}
+
+.pwd-container img {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  right: 8px;
+  top: 40%;
+}

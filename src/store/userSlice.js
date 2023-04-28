@@ -1,36 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({
-  name: 'users',
+  name: "users",
   initialState: {
-    id: '',
-    name: '',
-    role: ''
+    id: "",
+    name: "",
+    role: "",
   },
   reducers: {
     update: (state, action) => {
-      state.id = action.payload.id
-      state.name = action.payload.name
-      state.role = action.payload.role
+      state.id = action.payload.id;
+      state.name = action.payload.name;
+      state.role = action.payload.role;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload
+      state.value += action.payload;
     },
     logout: (state) => {
-      state.id = ""
-      state.name = ""
-      state.role = ""
-    }
+      state.id = "";
+      state.name = "";
+      state.role = "";
+    },
   },
-})
+});
 
-export const selectUserState = (state) => state.user
-export const isUserLoggedIn = (state) => state.user.id !== ""
+export const selectUserState = (state) => state.user;
+export const isUserLoggedIn = (state) => state.user.id !== "";
+export const isUserAdmin = (state) => state.user.role === "admin";
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, update, logout } = userSlice.actions
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  update,
+  logout,
+} = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

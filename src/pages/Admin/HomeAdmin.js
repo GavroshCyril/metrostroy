@@ -29,10 +29,10 @@ import { HomeSection } from "./Sections/HomeSection";
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
 
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
 
 const states = [
   {
@@ -78,11 +78,12 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
 export const HomeAdmin = (props) => {
+  const [t] = useTranslation();
   // const state = useSelector(selectLocalizedState);
   // const linesState = useSelector(selectLines);
 
@@ -138,25 +139,36 @@ export const HomeAdmin = (props) => {
 
   return (
     <>
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleOneChange} aria-label="basic tabs example">
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
+      <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleOneChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label={t("nav.home")} {...a11yProps(0)} />
+            <Tab label={t("nav.projects")} {...a11yProps(1)} />
+            <Tab label={t("nav.stage")} {...a11yProps(2)} />
+            <Tab label={t("nav.kompozition")} {...a11yProps(3)} />
+            <Tab label={t("nav.info")} {...a11yProps(4)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
           <HomeSection />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          Проекты минского метрополитена
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+          Первая очередь
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          Комопзиция
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          Полезная информация
         </TabPanel>
       </Box>
-      
     </>
   );
 };

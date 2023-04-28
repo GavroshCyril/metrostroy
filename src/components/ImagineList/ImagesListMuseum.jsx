@@ -1,21 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Typography } from "@mui/material";
+import { Typography, Modal, Backdrop, Fade } from "@mui/material";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
+    srcSet: `${image}?w=${size * cols}&h=${size *
+      rows}&fit=crop&auto=format&dpr=2 2x`,
   };
 }
 
+const classes = {
+  container: {
+    cursor: "pointer",
+  },
+  gridList: {
+    flexWrap: "nowrap",
+    transform: "translateZ(0)",
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
+  img: {
+    outline: "none",
+    zIndex: 99,
+  },
+};
+
 export default function ImagesList() {
+  /*   const classes = useStyles(); */
+  const [open, setOpen] = useState(false);
+  const [image, setImage] = useState("false");
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleImage = (value) => {
+    setImage(value);
+    setOpen(true);
+    console.log(image);
+  };
   return (
     <div className="Image-container">
-      <ImageList variant="quilted" cols={4} rowHeight={150}>
+      <ImageList
+        styles={classes.gridList}
+        variant="quilted"
+        cols={4}
+        rowHeight={150}
+      >
         {itemData.map((item, index) => (
           <ImageListItem
             key={item.img}
@@ -41,6 +78,7 @@ export default function ImagesList() {
                   index - Math.floor(index / pattern.length) * pattern.length
                 ].cols
               )}
+              onClick={(e) => handleImage(item.img)}
               alt={item.title}
               loading="lazy"
             />
@@ -60,17 +98,42 @@ export default function ImagesList() {
           </ImageListItem>
         ))}
       </ImageList>
+      <Modal
+        /* className={classes.modal} */
+        style={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade
+          in={open}
+          timeout={500}
+          style={classes.img} /*  className={classes.img} */
+        >
+          <img
+            src={image}
+            alt="asd"
+            style={{ maxHeight: "90%", maxWidth: "90%" }}
+          />
+        </Fade>
+      </Modal>
     </div>
   );
 }
 
 const itemData = [
   {
-    img: "https://img-fotki.yandex.ru/get/26144/51545939.70/0_d5676_4283d68f_XXL.jpg",
+    img:
+      "https://img-fotki.yandex.ru/get/26144/51545939.70/0_d5676_4283d68f_XXL.jpg",
     title: "01",
   },
   {
-    img: "https://img-fotki.yandex.ru/get/54905/51545939.70/0_d5678_772719_XXL.jpg",
+    img:
+      "https://img-fotki.yandex.ru/get/54905/51545939.70/0_d5678_772719_XXL.jpg",
     title: "02",
   },
   {
@@ -78,7 +141,8 @@ const itemData = [
     title: "03",
   },
   {
-    img: "http://www.adsl.kirov.ru/projects/articles/2016/09/12/muzey-minskogo-metro/6692651425e0568d82605c71a6b_prev.jpg",
+    img:
+      "https://www.holiday.by/files/sights/thumbnails/sights_gallery_fullsize/250d20d6dd9d9d0b2989f313ca4c39f6-orig.jpg",
     title: "04",
   },
 ];

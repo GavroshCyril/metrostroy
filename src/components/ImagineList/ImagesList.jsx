@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Typography } from "@mui/material";
+import { Typography, Modal, Backdrop, Fade } from "@mui/material";
+
+const classes = {
+  container: {
+    cursor: "pointer",
+  },
+  gridList: {
+    flexWrap: "nowrap",
+    transform: "translateZ(0)",
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
+  img: {
+    outline: "none",
+    zIndex: 99,
+  },
+};
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -12,9 +32,27 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 export default function ImagesList() {
+  /*   const classes = useStyles(); */
+  const [open, setOpen] = useState(false);
+  const [image, setImage] = useState("false");
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleImage = (value) => {
+    setImage(value);
+    setOpen(true);
+    console.log(image);
+  };
   return (
     <div className="Image-container">
-      <ImageList variant="quilted" cols={4} rowHeight={150}>
+      <ImageList
+        styles={classes.gridList}
+        variant="quilted"
+        cols={4}
+        rowHeight={150}
+      >
         {itemData.map((item, index) => (
           <ImageListItem
             key={item.img}
@@ -41,6 +79,7 @@ export default function ImagesList() {
                 ].cols
               )}
               alt={item.title}
+              onClick={(e) => handleImage(item.img)}
               loading="lazy"
             />
             <Typography
@@ -59,6 +98,29 @@ export default function ImagesList() {
           </ImageListItem>
         ))}
       </ImageList>
+      <Modal
+        /* className={classes.modal} */
+        style={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade
+          in={open}
+          timeout={500}
+          style={classes.img} /*  className={classes.img} */
+        >
+          <img
+            src={image}
+            alt="asd"
+            style={{ maxHeight: "90%", maxWidth: "90%" }}
+          />
+        </Fade>
+      </Modal>
     </div>
   );
 }

@@ -45,6 +45,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* justify-content: center; */
-  /* gap: 50px */
+}
+
+.change-lines {
+  border-bottom: 3px solid rgb(157, 157, 157);
 }

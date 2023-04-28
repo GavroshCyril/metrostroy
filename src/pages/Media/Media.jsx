@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Media.css";
 import ImagesList from "../../components/ImagineList/ImagesList";
 import Alert from "@mui/material/Alert";
