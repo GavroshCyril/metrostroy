@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { Typography, TextField, Button } from "@mui/material";
 import Axios from "axios";
 import JwtDecode from "jwt-decode";
 import { useNavigate, Link } from "react-router-dom";
@@ -178,6 +176,8 @@ const Search = () => {
           Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
         </small>
       </form>
+      
+      <small >Нет аккаунта? <Link to="/register">Зарегистрироваться</Link></small>
     </div>
   );
 };
