@@ -11,11 +11,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { isUserLoggedIn } from "../store/userSlice";
+import { isUserLoggedIn, isUserAdmin } from "../store/userSlice";
 
 const Sidebar = ({ children }) => {
   const [t] = useTranslation();
   const isLoggedIn = useSelector(isUserLoggedIn);
+  const isAdmin = useSelector(isUserAdmin);
 
   const routes = [
     {
@@ -67,8 +68,7 @@ const Sidebar = ({ children }) => {
 
   let resultRoutes = [];
 
-  console.log("isLoggedIn0", isLoggedIn);
-  if (isLoggedIn) {
+  if (isLoggedIn && isAdmin) {
     resultRoutes = routes.concat(privateRoutes);
   } else {
     resultRoutes = routes;

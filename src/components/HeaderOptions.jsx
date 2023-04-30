@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Stack, Avatar, Button, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import i18n from "../i18n";
@@ -6,23 +6,22 @@ import { useSelector, useDispatch } from "react-redux";
 import Axios from "axios";
 import "./HeaderOptions.css";
 import { useTranslation } from "react-i18next";
-import { isUserLoggedIn, logout } from "../store/userSlice";
+import { isUserLoggedIn, logout, selectUserState } from "../store/userSlice";
 
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import { update } from "../store/localizationSlice";
 
 const HeaderOptions = () => {
-  /*   const firstLetter = this.state.name.charAt(0);
-  const secondLetter = this.state.name.charAt(1);
-  const fullName = this.state.name;
-  const initials = `${firstLetter}${secondLetter}`; */
-
+  const userState = useSelector(selectUserState);
+  const firstLetter = userState.name.charAt(0);
+  const secondLetter = userState.name.charAt(1);
+  const fullName = userState.name;
+  const initials = `${firstLetter}${secondLetter}`;
   const [t] = useTranslation();
 
   const WhiteBtn = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(grey[50]),
-
     backgroundColor: grey[50],
     "&:hover": {
       backgroundColor: grey[300],
@@ -36,7 +35,6 @@ const HeaderOptions = () => {
   };
 
   const isLoggedIn = useSelector(isUserLoggedIn);
-  console.log("isLoggedIn", isLoggedIn);
 
   const onLogOut = () => {
     const refreshToken = localStorage.getItem("refreshToken");
@@ -84,8 +82,8 @@ const HeaderOptions = () => {
       )}
 
       {isLoggedIn ? (
-        <Tooltip /* title={{ fullName }} */>
-          <Avatar style={{ cursor: "pointer" }}>{/* {{ initials }} */}</Avatar>
+        <Tooltip title={ fullName }>
+          <Avatar style={{ cursor: "pointer" }}>{initials}</Avatar>
         </Tooltip>
       ) : null}
     </Stack>

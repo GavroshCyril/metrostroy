@@ -14,6 +14,7 @@ import PasswordStrengthMeter from "../../components/PasswordStrengthMeter";
 const Register = () => {
   const [t] = useTranslation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState();
   const [userPassword, setUserPassword] = useState();
@@ -21,6 +22,13 @@ const Register = () => {
   const [userPasswordDirty, setUserPasswordDirty] = useState(false);
   const [userNameError, setUserNameError] = useState("Придумайте логин");
   const [formValid, setFormValid] = useState(false);
+
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [pwd, setPwd] = useState("");
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
 
   useEffect(() => {
     if (userNameError) {
@@ -55,14 +63,12 @@ const Register = () => {
     }
   };
 
-  const navigate = useNavigate();
-
-  const login = (event) => {
+  const register = (event) => {
     event.preventDefault();
-
-    Axios.post("http://localhost:3000/user/login", {
+    Axios.post("http://localhost:3000/user", {
       name: userName,
       password: userPassword,
+      confirmPassword: confirmPassword,
     })
       .then((responce) => {
         if (responce.status === 200) {
@@ -79,7 +85,7 @@ const Register = () => {
           localStorage.setItem("refreshToken", refreshToken);
 
           dispatch(update(user));
-          navigate("/admin");
+          // navigate("/admin");
         } else {
           console.log("Something went wrong", responce);
         }
@@ -89,16 +95,9 @@ const Register = () => {
       });
   };
 
-  const [pwd, setPwd] = useState("");
-  const [isRevealPwd, setIsRevealPwd] = useState(false);
-
   const getInputStatus = () => {
     return pwd.length > 0 ? <PasswordStrengthMeter password={pwd} /> : "";
   };
-
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,23 +107,23 @@ const Register = () => {
       // Выкидываем ошибку на уровне фронта
       setErrorMessage("Пароль и подтверждение пароля не совпадают!");
 
-      // Выполняем обработку ошибки на бэкенде
-      try {
-        const response = await Axios.post("/", {
-          password,
-          confirmPassword,
-        });
-        alert(response.data.message); // Выводим сообщение об успехе
-      } catch (error) {
-        console.error(error);
-        setErrorMessage(error.response.data.error);
-      }
+      // // Выполняем обработку ошибки на бэкенде
+      // try {
+      //   const response = await Axios.post("/", {
+      //     password,
+      //     confirmPassword,
+      //   });
+      //   alert(response.data.message); // Выводим сообщение об успехе
+      // } catch (error) {
+      //   console.error(error);
+      //   setErrorMessage(error.response.data.error);
+      // }
     } else {
       // Если пароль и подтверждение пароля совпадают, записываем данные в базу данных
       // запись в MySQL ...
       try {
-        const response = await Axios.post("/api/signup", { password });
-        alert(response.data.message); // Выводим сообщение об успехе
+        await Axios.post("http://localhost:3000/user", { userName, password, confirmPassword });
+        navigate("/auth")
       } catch (error) {
         console.error(error);
         setErrorMessage(error.response.data.error);
@@ -192,7 +191,7 @@ const Register = () => {
         <TextField
           onBlur={(e) => bluerHandler(e)}
           label={t("register.repeatPass")}
-          name="userPassword"
+          name="confirmPassword"
           fullWidth={true}
           size="small"
           margin="normal"
@@ -216,9 +215,9 @@ const Register = () => {
           sx={{
             marginTop: 2,
           }}
-          onClick={(event) => {
-            login(event);
-          }}
+          // onClick={(event) => {
+          //   register(event);
+          // }}
         >
           {t("register.logIn")}
         </Button>

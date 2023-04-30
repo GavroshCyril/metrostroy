@@ -75,9 +75,6 @@ const Search = () => {
 
   const login = (event) => {
     event.preventDefault();
-
-    console.log("userName", userName);
-    console.log("userPassword", pwd);
     Axios.post("http://localhost:3000/user/login", {
       name: userName,
       password: pwd,
@@ -97,7 +94,13 @@ const Search = () => {
           localStorage.setItem("refreshToken", refreshToken);
 
           dispatch(update(user));
-          navigate("/admin");
+          
+
+          if (user.role === "admin") {
+            navigate("/admin");
+          } else {
+            navigate("/");
+          }
         } else {
           console.log("Something went wrong", responce);
         }

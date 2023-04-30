@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import "./Contacts.css";
 import {
   Box,
@@ -25,6 +26,7 @@ import { useTranslation } from "react-i18next";
 import Lang from "../../components/HeaderOptions";
 import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
 import SurveyComponent from "../../components/RatingComponent/SurveyComponent";
+import { isUserLoggedIn } from "../../store/userSlice";
 
 const classes = {
   container: {
@@ -35,7 +37,7 @@ const classes = {
 const Contacts = () => {
   const [t] = useTranslation();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector(isUserLoggedIn);
   return (
     <div className="ContactsWrapper">
       <div className="Contacts">
