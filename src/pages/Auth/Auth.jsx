@@ -176,8 +176,6 @@ const Search = () => {
           Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
         </small>
       </form>
-      
-      <small >Нет аккаунта? <Link to="/register">Зарегистрироваться</Link></small>
     </div>
   );
 };

@@ -1,63 +1,119 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
+import "./Timer.css";
 
 const Timer = ({ date }) => {
-  const [finishTime] = useState(date.getTime());
-  const [[diffDays, diffH, diffM, diffS], setDiff] = useState([0, 0, 0, 0]);
-  const [tick, setTick] = useState(false);
-  const [isTimeout, setIsTimeout] = useState(false);
-  const [timerId, setTimerID] = useState(0);
+  const [timerDays, setTimerDays] = useState("00");
+  const [timerHours, setTimerHours] = useState("00");
+  const [timerMinutes, setTimerMinutes] = useState("00");
+  const [timerSeconds, setTimerSeconds] = useState("00");
 
-  useEffect(() => {
-    const diff = (finishTime - new Date()) / 1000;
-    if (diff < 0) {
-      setIsTimeout(true);
-      return;
-    }
-    setDiff([
-      Math.floor(diff / 86400), // дни
-      Math.floor((diff / 3600) % 24),
-      Math.floor((diff / 60) % 60),
-      Math.floor(diff % 60),
-    ]);
-  }, [tick, finishTime]);
+  let interval = useRef();
 
-  useEffect(() => {
-    if (isTimeout) clearInterval(timerId);
-  }, [isTimeout, timerId]);
+  const startTimer = () => {
+    const countdownDate = new Date("May 11 2023 00:00:00").getTime();
 
-  useEffect(() => {
-    const timerID = setInterval(() => {
-      setTick(!tick);
+    interval = setInterval(() => {
+      const now = new Date();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        clearInterval(interval.current);
+      } else {
+        setTimerDays(days);
+        setTimerHours(hours);
+        setTimerMinutes(minutes);
+        setTimerSeconds(seconds);
+      }
     }, 1000);
-    setTimerID(timerID);
-    return () => clearInterval(timerID);
-  }, [tick]);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      clearInterval(interval.current);
+    };
+  });
 
   return (
-    <Stack
-      style={{
-        display: "flex",
-        alignItems: "center",
-        color: "black",
-        /* marginTop: "70px", */
-      }}
-      sx={{ width: "100%" }}
-      spacing={2}
-    >
-      До октрытия новой станции метро:
-      <Chip
-        sx={{ width: "200px" }}
-        label={`${diffDays} дней ${diffH.toString().padStart(2, "0")}:${diffM
-          .toString()
-          .padStart(2, "0")}:${diffS.toString().padStart(2, "0")}`}
-        color="success"
-        variant="primary"
-      />
-    </Stack>
-    /*     <p style={{color: 'white', fontSize:'25px'}}></p> */
+    <section className="timer-container">
+      <div className="section timer">
+        <div>
+          <Typography
+            fontWeight={500}
+            className="timer-title"
+            variant="h5"
+            component="h4"
+          >
+            До открытия новых станций метро:
+          </Typography>
+        </div>
+        <div className="timer-times">
+          <section className="timer-section">
+            <Typography variant="h2" component="h2">
+              {timerDays}
+            </Typography>
+            <Typography
+              className="timer-section"
+              variant="subtitle2"
+              gutterBottom
+              fontSize={17}
+            >
+              Дней
+            </Typography>
+          </section>
+          <section className="timer-section">
+            <Typography variant="h2" component="h2">
+              {timerHours}
+            </Typography>
+            <Typography
+              className="timer-section"
+              variant="subtitle2"
+              gutterBottom
+              fontSize={17}
+            >
+              Часов
+            </Typography>
+          </section>
+          <section className="timer-section">
+            <Typography variant="h2" component="h2">
+              {timerMinutes}
+            </Typography>
+            <Typography
+              className="timer-section"
+              variant="subtitle2"
+              gutterBottom
+              fontSize={17}
+            >
+              Минут
+            </Typography>
+          </section>
+          <section className="timer-section">
+            <Typography variant="h2" component="h2">
+              {timerSeconds}
+            </Typography>
+            <Typography
+              className="timer-section"
+              variant="subtitle2"
+              gutterBottom
+              fontSize={17}
+            >
+              Секунд
+            </Typography>
+          </section>
+        </div>
+      </div>
+    </section>
   );
 };
 

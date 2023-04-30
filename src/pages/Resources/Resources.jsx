@@ -2,16 +2,8 @@ import React from "react";
 import "./Resources.css";
 import { useTranslation } from "react-i18next";
 import Lang from "../../components/HeaderOptions";
-import { Stack, Link } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import Button from "@mui/material/Button";
+import { Stack, Link, Alert, Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
-import PrintIcon from "@mui/icons-material/Print";
-import ForkLeftIcon from "@mui/icons-material/ForkLeft";
 import Timer from "../../components/Timer";
 
 const Resources = () => {
@@ -25,36 +17,27 @@ const Resources = () => {
         <Lang />
       </div>
 
-      <Stack sx={{ width: "100%" }} spacing={2}>
-        <Alert severity="info">
-          {t("resources.info")}
-
-          <Link
-            href="../../Assets/documents/user-guide.docx"
-            underline="none"
-            download
-          >
-            {" "}
-            {t("resources.link")}
-          </Link>
-        </Alert>
-      </Stack>
       <div className="content">
-        <h1>{t("resources.history")}</h1>
         <div className="description">
-          <img
-            src="https://metropoliten.by/images/o_metro/glav590.jpg"
-            alt=""
-          />
           <p className="resources-desc">
             {t("resources.desc01")}
-            <br /> <br />
+            <br /> <br /> <br />
             {t("resources.desc02")}
-            <br /> <br />
+            <br /> <br /> <br />
             {t("resources.desc03")}
           </p>
+          {/* <img
+            src="https://metropoliten.by/images/o_metro/glav590.jpg"
+            alt=""
+            width={"40%"}
+          /> */}
+
+          <Timer
+            className="timer"
+            /*  date={new Date("Wed, 27 Nov 2023 00:00:00")} */
+          />
         </div>
-        <Timer className="timer" date={new Date("Wed, 27 Nov 2023 00:00:00")} />
+
         <Stack direction="row" spacing={2} className="links">
           {/*  <Button variant="outlined" startIcon={<ForkLeftIcon />}>
             <Link href="/map" underline="none">
@@ -62,7 +45,7 @@ const Resources = () => {
             </Link>
           </Button> */}
           <Button variant="outlined" endIcon={<DownloadIcon />}>
-            <Link href="./schema.docx" underline="none" download>
+            <Link href="./schema" underline="none" download>
               {t("resources.schema")}
             </Link>
           </Button>
@@ -197,6 +180,11 @@ const Resources = () => {
           </Button>
           
         </Stack> */}
+        <Stack sx={{ width: "104%", marginTop: "15px" }} spacing={2}>
+          <Alert severity="warning">
+            Дата открытия может меняться в зависимости от строительных работ
+          </Alert>
+        </Stack>
       </div>
     </div>
   );

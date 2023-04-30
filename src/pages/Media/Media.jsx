@@ -54,7 +54,7 @@ const Media = () => {
           </Button>
           <Button variant="outlined" endIcon={<DownloadIcon />}>
             <Link
-              href="../../Assets/documents/history.docx"
+              href="../../Assets/documents/history.pdf"
               underline="none"
               download
             >

@@ -6,8 +6,8 @@ export let enLang = {
     map: "Minsk metro scheme",
     kompozition: "Exhibition exposition",
     panel: "Admin Panel",
-    info: "Useful information",
-    news: "News"
+    info: "History of the Minsk metro",
+    news: "News",
   },
   home: {
     title: "Virtual Museum of the",
@@ -108,7 +108,8 @@ export let enLang = {
     greenbranch: "Zelenoluzhskaya line",
   },
   resources: {
-    info: "If you need web application documentation, you can download it by clicking on",
+    info:
+      "If you need web application documentation, you can download it by clicking on",
     link: "«User's manual»",
     history: "History of the Minsk metro",
     map: "See the subway map",
@@ -151,7 +152,8 @@ export let enLang = {
     login: "Login",
     password: "Password",
     logIn: "Log in",
-    info: " Before you start administering the web application, read the administrator's guide by clicking on",
+    info:
+      " Before you start administering the web application, read the administrator's guide by clicking on",
     link: "«Admin Guide»",
     changeImg: "Change the picture",
     loadImg: "Upload an image",
