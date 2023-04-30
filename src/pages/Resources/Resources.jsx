@@ -180,9 +180,10 @@ const Resources = () => {
           </Button>
           
         </Stack> */}
-        <Stack sx={{ width: "104%", marginTop: "15px" }} spacing={2}>
+        <Stack sx={{ width: "100%", marginTop: "15px" }} spacing={2}>
           <Alert severity="warning">
-            Дата открытия может меняться в зависимости от строительных работ
+            Дата открытия новых станций Зеленолужской линии метро может меняться
+            в зависимости от строительных работ
           </Alert>
         </Stack>
       </div>

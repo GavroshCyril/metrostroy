@@ -67,7 +67,7 @@ const Timer = ({ date }) => {
               className="timer-section"
               variant="subtitle2"
               gutterBottom
-              fontSize={17}
+              fontSize={20}
             >
               Дней
             </Typography>
@@ -80,7 +80,7 @@ const Timer = ({ date }) => {
               className="timer-section"
               variant="subtitle2"
               gutterBottom
-              fontSize={17}
+              fontSize={20}
             >
               Часов
             </Typography>
@@ -93,7 +93,7 @@ const Timer = ({ date }) => {
               className="timer-section"
               variant="subtitle2"
               gutterBottom
-              fontSize={17}
+              fontSize={20}
             >
               Минут
             </Typography>
@@ -106,7 +106,7 @@ const Timer = ({ date }) => {
               className="timer-section"
               variant="subtitle2"
               gutterBottom
-              fontSize={17}
+              fontSize={20}
             >
               Секунд
             </Typography>

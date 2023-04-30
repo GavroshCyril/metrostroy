@@ -157,16 +157,22 @@ export const HomeAdmin = (props) => {
           <HomeSection />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Проекты минского метрополитена
+          Проекты минского метро
         </TabPanel>
         <TabPanel value={value} index={2}>
           Первая очередь
         </TabPanel>
         <TabPanel value={value} index={3}>
-          Комопзиция
+          Схема минского метро
         </TabPanel>
         <TabPanel value={value} index={4}>
-          Полезная информация
+          Выставочная экспозиция
+        </TabPanel>
+        <TabPanel value={value} index={5}>
+          История минского метро
+        </TabPanel>
+        <TabPanel value={value} index={6}>
+          Новости
         </TabPanel>
       </Box>
     </>
