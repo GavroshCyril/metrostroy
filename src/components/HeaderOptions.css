@@ -8,3 +8,7 @@
     flex-direction: column;
   }
 }
+
+.input-lang {
+  z-index: -999;
+}

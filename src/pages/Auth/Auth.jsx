@@ -15,6 +15,10 @@ const Search = () => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState();
   const [userPassword, setUserPassword] = useState();
+
+  const [pwd, setPwd] = useState("");
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
+
   const [userNameDirty, setUserNameDirty] = useState(false);
   const [userPasswordDirty, setUserPasswordDirty] = useState(false);
   const [userNameError, setUserNameError] = useState(
@@ -72,9 +76,11 @@ const Search = () => {
   const login = (event) => {
     event.preventDefault();
 
+    console.log("userName", userName);
+    console.log("userPassword", pwd);
     Axios.post("http://localhost:3000/user/login", {
       name: userName,
-      password: userPassword,
+      password: pwd,
     })
       .then((responce) => {
         if (responce.status === 200) {
@@ -101,8 +107,6 @@ const Search = () => {
       });
   };
 
-  const [pwd, setPwd] = useState("");
-  const [isRevealPwd, setIsRevealPwd] = useState(false);
   return (
     <div className="auth-form">
       <Typography variant="h3" component="div">
