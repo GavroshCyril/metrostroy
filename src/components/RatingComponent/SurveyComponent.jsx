@@ -27,7 +27,7 @@ function BasicRating() {
 
   useEffect(() => {
     axios
-      .get("/api/reviews")
+      .get("/reviews")
       .then((response) => {
         setReviews(response.data);
       })
@@ -53,22 +53,11 @@ function BasicRating() {
   const handleAddReview = (event) => {
     event.preventDefault();
     axios
-      .post("/api/reviews", { name, content })
+      .post("/reviews", { name, content })
       .then((response) => {
         setReviews([...reviews, { name, content }]);
         setName("");
         setContent("");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const handleDeleteReview = (id) => {
-    axios
-      .delete(`/api/reviews/${id}`)
-      .then((response) => {
-        setReviews(reviews.filter((review) => review.id !== id));
       })
       .catch((error) => {
         console.log(error);
@@ -115,17 +104,6 @@ function BasicRating() {
       >
         <div>
           <TextField
-            id="outlined-multiline-flexible"
-            label="Ваш никнейм"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            multiline
-            maxRows={4}
-            style={{ width: 400 }}
-          />
-        </div>
-        <div>
-          <TextField
             id="outlined-multiline-static"
             label="Комментарий"
             value={content}
@@ -143,50 +121,6 @@ function BasicRating() {
           Отправить
         </Button>
       </Stack>
-
-      <h1>Нас уже оценили!</h1>
-
-      <Box
-        sx={{
-          "& > legend": { mt: 2 },
-        }}
-      >
-        <Rating
-          name="simple-controlled"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        />
-      </Box>
-      {/*  <Box
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div>
-          <TextField
-            id="outlined-read-only-input"
-            defaultValue="gavrosh.cyril"
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-        </div>
-      </Box> */}
-      <ul>
-        {reviews.map((review) => (
-          <li key={review.id}>
-            {review.name}: {review.content}
-            <button onClick={() => handleDeleteReview(review.id)}>
-              Удалить Комментарий
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

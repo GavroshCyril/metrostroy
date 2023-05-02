@@ -4,3 +4,45 @@
   flex-direction: column;
   width: 240px;
 }
+
+.rating-title {
+  color: rgba(56, 56, 56, 0.979);
+}
+
+.rating-container {
+  width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.submit-review {
+  margin: 25px 0; /* 
+  border: 2px solid rgba(0, 0, 0, 0.39); */
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.submit-review-container {
+  /*  width: 1120px; */
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.submit-review-date {
+  color: rgba(0, 0, 0, 0.534);
+}
+
+.submit-review-rating {
+  gap: 110px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.submit-review-text {
+  margin-top: 15px;
+}

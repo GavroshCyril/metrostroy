@@ -20,19 +20,19 @@ import { useLocalisation } from "../../../hooks/useLocalisation";
 import { useLines } from "../../../hooks/useLines";
 import { useTranslation } from "react-i18next";
 
-export const HomeSection = (props) => {
+export const NewsSection = (props) => {
   const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
   const linesState = useSelector(selectLines);
 
   const localizedState = useSelector(selectLocalizedState);
   const onLocalisation = useLocalisation();
-  const [stationAdded, setStationAdded] = useState("");
-  const [stationDeleted, setStationDeleted] = useState("");
+  const [newsAdded, setNewsAdded] = useState("");
+  const [newsDeleted, setNewsDeleted] = useState("");
 
   const stateObject = {
     title2: "123",
-    home_title: localizedState["home_title"],
+    home_title: localizedState["nav.title"],
     // lastName: 'Smith',
     // email: 'demo@devias.io',
     // phone: '',
@@ -64,12 +64,12 @@ export const HomeSection = (props) => {
       console.error("err", err);
     });
     setValues(stateObject);
-  }, [stationAdded, stationDeleted]);
+  }, [newsAdded, newsDeleted]);
 
   return (
     <form autoComplete="off" noValidate {...props} className="fonts">
       <Card sx={{ margin: 3 }}>
-        <CardHeader title={t("nav.home")} />
+        <CardHeader title={t("nav.news")} />
         <Divider />
         <CardContent>
           <Grid container spacing={3} className="header">
@@ -77,7 +77,7 @@ export const HomeSection = (props) => {
               handleChange={handleChange}
               title={values.home_title}
               // saveTitle={saveTitle}
-              name={"home_title"}
+              name={"new.title"}
             />
           </Grid>
           {linesState.map((line) => {
@@ -106,7 +106,7 @@ export const HomeSection = (props) => {
                   // title={state[`${line.line_description}`]}
                   lineId={line.line_id}
                   name={line.line_description}
-                  setStationAdded={setStationAdded}
+                  setNewsAdded={setNewsAdded}
                 />
 
                 {line.stations &&
@@ -140,7 +140,7 @@ export const HomeSection = (props) => {
                           // saveTitle={saveTitle}
                           stationDescription={station.station_description}
                           stationName={station.station_name}
-                          setStationDeleted={setStationDeleted}
+                          setNewsDeleted={setNewsDeleted}
                         />
                       </>
                     );

@@ -28,6 +28,8 @@ import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
 import SurveyComponent from "../../components/RatingComponent/SurveyComponent";
 import { isUserLoggedIn } from "../../store/userSlice";
 
+import SubmitRating from "../../components/RatingComponent/SubmitRating";
+
 const classes = {
   container: {
     cursor: "pointer",
@@ -136,22 +138,25 @@ const Contacts = () => {
             </Link>
           </Button>
         </Stack>
+        <SubmitRating />
 
         {isLoggedIn ? (
           <SurveyComponent />
         ) : (
-          <Stack
-            style={{ marginTop: "10px" }}
-            sx={{ width: "100%" }}
-            spacing={2}
-          >
-            <Alert severity="info">
-              Чтобы поделиться своим мнением о посещенном объекте,{" "}
-              <Link href="/auth" underline="none">
-                войдите в личный кабинет
-              </Link>
-            </Alert>
-          </Stack>
+          <div className="cotainer-ratings-info">
+            <Stack
+              style={{ marginTop: "10px" }}
+              sx={{ width: "100%" }}
+              spacing={2}
+            >
+              <Alert severity="info">
+                Чтобы поделиться своим мнением о посещенном объекте,{" "}
+                <Link href="/auth" underline="none">
+                  войдите в личный кабинет
+                </Link>
+              </Alert>
+            </Stack>
+          </div>
         )}
       </div>
     </div>

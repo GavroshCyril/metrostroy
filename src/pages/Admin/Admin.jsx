@@ -19,21 +19,6 @@ const Admin = () => {
         <Lang />
       </div>
       <div className="mainPage">
-        <div className="admin-info">
-          <Stack sx={{ width: "100%" }} spacing={2}>
-            <Alert severity="warning">
-              {t("admin.info")}
-
-              <Link
-                href="../../Assets/documents/history.docx"
-                underline="none"
-                download
-              >
-                {t("admin.link")}
-              </Link>
-            </Alert>
-          </Stack>
-        </div>
         <HomeAdmin />
       </div>
     </div>

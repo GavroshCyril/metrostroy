@@ -14,8 +14,8 @@ import { update } from "../store/localizationSlice";
 
 const HeaderOptions = () => {
   const userState = useSelector(selectUserState);
-  const firstLetter = userState.name.charAt(0);
-  const secondLetter = userState.name.charAt(1);
+  const firstLetter = userState.name.toUpperCase().charAt(0);
+  const secondLetter = userState.name.toUpperCase().charAt(1);
   const fullName = userState.name;
   const initials = `${firstLetter}${secondLetter}`;
   const [t] = useTranslation();
@@ -82,7 +82,7 @@ const HeaderOptions = () => {
       )}
 
       {isLoggedIn ? (
-        <Tooltip title={ fullName }>
+        <Tooltip title={fullName}>
           <Avatar style={{ cursor: "pointer" }}>{initials}</Avatar>
         </Tooltip>
       ) : null}

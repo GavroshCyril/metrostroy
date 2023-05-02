@@ -25,6 +25,7 @@ import { StationsHeader } from "./StationsHeader";
 import { PictureRow } from "./PictureRow";
 import { DeleteStantion } from "./DeleteStantion";
 import { HomeSection } from "./Sections/HomeSection";
+import { NewsSection } from "./Sections/NewsSection";
 
 import { selectLines } from "../../store/linesSlice";
 import { useLines } from "../../hooks/useLines";
@@ -151,13 +152,14 @@ export const HomeAdmin = (props) => {
             <Tab label={t("nav.stage")} {...a11yProps(2)} />
             <Tab label={t("nav.kompozition")} {...a11yProps(3)} />
             <Tab label={t("nav.info")} {...a11yProps(4)} />
+            <Tab label={t("nav.news")} {...a11yProps(5)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
           <HomeSection />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Проекты минского метро
+          <HomeSection />
         </TabPanel>
         <TabPanel value={value} index={2}>
           Первая очередь
@@ -172,7 +174,7 @@ export const HomeAdmin = (props) => {
           История минского метро
         </TabPanel>
         <TabPanel value={value} index={6}>
-          Новости
+          <NewsSection />
         </TabPanel>
       </Box>
     </>
