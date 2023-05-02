@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./Rating.css";
 import { FaStar } from "react-icons/fa";
-import axios from "axios";
+import Axios from "axios";
 import {
   Stack,
   Button,
@@ -11,22 +12,42 @@ import {
   Typography,
   Rating,
 } from "@mui/material";
+import { selectUserState } from "../../store/userSlice";
+import { useReviews } from "../../hooks/useReviews";
 
 const colors = {
   orange: "rgb(250, 175, 0)",
   grey: "#a9a9a9",
 };
 
+
 function BasicRating() {
-  const [value, setValue] = React.useState(5);
+  // const [value, setValue] = React.useState(5);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [reviews, setReviews] = useState([]);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const userState = useSelector(selectUserState);
+  const onReviews = useReviews();
+  // userState.id
+  const addReview = () => {
+    Axios.post("http://localhost:3000/reviews", {
+      userId: userState.id.toString(),
+      review: content.toString(),
+      rating: currentValue.toString(),
+    }).then((res) => {
+
+      const res123 = onReviews()
+      // if (res.status === 200) {
+      //   setIsChanging(false);
+      //   setShouldReRender(true);
+      // }
+    });
+  };
 
   useEffect(() => {
-    axios
+    Axios
       .get("/reviews")
       .then((response) => {
         setReviews(response.data);
@@ -52,16 +73,17 @@ function BasicRating() {
 
   const handleAddReview = (event) => {
     event.preventDefault();
-    axios
-      .post("/reviews", { name, content })
-      .then((response) => {
-        setReviews([...reviews, { name, content }]);
-        setName("");
-        setContent("");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log('!!!!!!!!!!!!!')
+    // Axios
+    //   .post("/reviews", { name, content })
+    //   .then((response) => {
+    //     setReviews([...reviews, { name, content }]);
+    //     setName("");
+    //     setContent("");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
@@ -117,7 +139,7 @@ function BasicRating() {
       </Box>
 
       <Stack spacing={2} direction="row" /* justifyContent={"center"} */>
-        <Button type="submit" style={styles.button} variant="contained">
+        <Button type="submit" style={styles.button} variant="contained" onClick={() => addReview()}>
           Отправить
         </Button>
       </Stack>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./Contacts.css";
 import {
@@ -27,6 +27,8 @@ import Lang from "../../components/HeaderOptions";
 import ImagesListMuseum from "../../components/ImagineList/ImagesListMuseum";
 import SurveyComponent from "../../components/RatingComponent/SurveyComponent";
 import { isUserLoggedIn } from "../../store/userSlice";
+import { useReviews } from "../../hooks/useReviews";
+
 
 import SubmitRating from "../../components/RatingComponent/SubmitRating";
 
@@ -38,6 +40,13 @@ const classes = {
 
 const Contacts = () => {
   const [t] = useTranslation();
+  const onReviews = useReviews();
+
+  useEffect(() => {
+    const res = onReviews()
+    console.log("res", res)
+  })
+
 
   const isLoggedIn = useSelector(isUserLoggedIn);
   return (

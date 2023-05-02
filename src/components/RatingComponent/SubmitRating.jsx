@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./Rating.css";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
@@ -11,6 +12,8 @@ import {
   Typography,
   Rating,
 } from "@mui/material";
+import { selectReviews } from "../../store/reviewsSlice";
+// selectReviews
 
 const colors = {
   orange: "rgb(250, 175, 0)",
@@ -24,16 +27,19 @@ function SubmitRating() {
   const [reviews, setReviews] = useState([]);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const reviewsFromStore = useSelector(selectReviews);
+  console.log("reviewsFromStore", reviewsFromStore)
 
   useEffect(() => {
-    axios
-      .get("/api/reviews")
-      .then((response) => {
-        setReviews(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // console.log("reviewsFromStore", reviewsFromStore)
+    // axios
+    //   .get("/api/reviews")
+    //   .then((response) => {
+    //     setReviews(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, []);
 
   const stars = Array(5).fill(0);
@@ -87,54 +93,32 @@ function SubmitRating() {
       </Typography>
 
       <div className="submit-review-container">
-        <div className="submit-review">
-          <span className="submit-review-date">05.05.2023 09:20</span>
-          <div className="submit-review-rating">
-            <Typography fontWeight={500} variant="subtitle1" component="h2">
-              Кирилл
-            </Typography>
-            <Box
-              sx={{
-                "& > legend": { mt: 2 },
-              }}
-            >
-              <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
+        {reviewsFromStore.map((review) => {
+          return (<div className="submit-review">
+            <span className="submit-review-date">{review.date_at}</span>
+            <div className="submit-review-rating">
+              <Typography fontWeight={500} variant="subtitle1" component="h2">
+                {review.name}
+              </Typography>
+              <Box
+                sx={{
+                  "& > legend": { mt: 2 },
                 }}
-              />
-            </Box>
-          </div>
-          <div className="submit-review-text">
-            Мне все очень понравилось! Классный музей, интересно рассказывали
-            про создание музея!!! Супер!
-          </div>
-        </div>
-
-        <div className="submit-review">
-          <span className="submit-review-date">01.05.2023 08:40</span>
-          <div className="submit-review-rating">
-            <Typography fontWeight={500} variant="subtitle1" component="h2">
-              Карина
-            </Typography>
-            <Box
-              sx={{
-                "& > legend": { mt: 2 },
-              }}
-            >
-              <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-              />
-            </Box>
-          </div>
-          <div className="submit-review-text">Не понравилось</div>
-        </div>
+              >
+                <Rating
+                  name="simple-controlled"
+                  value={review.rating}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                />
+              </Box>
+            </div>
+            <div className="submit-review-text">
+              {review.review}
+            </div>
+          </div>)
+        })}
       </div>
 
       {/* <ul>
