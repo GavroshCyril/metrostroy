@@ -81,9 +81,9 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className="container">
-      <div className="sidebar" style={{ width: isOpen ? "180px" : "65px" }}>
-        <div style={{ marginLeft: isOpen ? "45%" : "32%" }} className="bars">
-          <MenuIcon onClick={toggle} />
+      <div className="sidebar" style={{ width: isOpen ? "180px" : "65px" }} >
+        <div className="link" onClick={toggle} >
+          <MenuIcon />
         </div>
 
         {resultRoutes.map((item, index) => (
@@ -91,12 +91,11 @@ const Sidebar = ({ children }) => {
             to={item.path}
             key={index}
             className="link"
-            activeclassName="active"
           >
             <div className="icon">{item.icon}</div>
             <div
               className="link_text"
-              style={{ display: isOpen ? "block" : "none" }}
+              style={{ opacity: isOpen ? "1" : "0", transition: "0.3s", marginTop: !isOpen ? "-25%" : null }}
             >
               {item.name}
             </div>

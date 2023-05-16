@@ -4,7 +4,7 @@ import SliderContent from "../SliderContent";
 import Dots from "../Dots";
 import Arrows from "../Arrows";
 // import sliderImage from "./sliderImageThird";
-import "../slider.css";
+import "../slider.module.css";
 
 import { selectLocalizedState, selectLocale } from "../../../store/localizationSlice";
 

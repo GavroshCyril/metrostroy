@@ -1,13 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./Resources.css";
 import { useTranslation } from "react-i18next";
 import Lang from "../../components/HeaderOptions";
 import { Stack, Link, Alert, Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import Timer from "../../components/Timer";
+import {useDispatch} from "react-redux";
+import {setHeaderState} from "../../store/headerSlice";
 
 const Resources = () => {
   const [t] = useTranslation();
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(setHeaderState({title: t("nav.info")}))
+  }, [t])
+
   return (
     <div className="ContactsWrapper">
       <div className="Resources">

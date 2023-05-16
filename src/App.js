@@ -27,17 +27,28 @@ import { isUserLoggedIn, isUserAdmin, logout } from "./store/userSlice";
 
 import NewsList from "./components/News/NewsList";
 import NewsDetail from "./components/News/NewsDetail";
+import {selectHeader} from "./store/headerSlice";
+import Lang from "./components/HeaderOptions";
+
 
 const App = () => {
   const isLoggedIn = useSelector(isUserLoggedIn);
   const isAdmin = useSelector(isUserAdmin);
+
+  const {title, image} = useSelector(selectHeader)
 
   return (
     <Suspense fallback="Loading...">
       <BrowserRouter>
         <TokenManager>
           <LocalizationProvider>
-            <Sidebar>
+            <Sidebar/>
+            <div className="MapImg">
+              <div className="Map-container" style={{backgroundImage: `${image}`}}>
+                <h2 className="title">{title}</h2>
+              </div>
+              <Lang />
+            </div>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/map" element={<Map />} />
@@ -61,7 +72,7 @@ const App = () => {
                 <Route path="/" exact component={NewsList} />
                 <Route path="/news/:id" component={NewsDetail} />
               </Routes>
-            </Sidebar>
+
           </LocalizationProvider>
         </TokenManager>
       </BrowserRouter>
