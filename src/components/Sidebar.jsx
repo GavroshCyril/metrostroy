@@ -12,6 +12,7 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { isUserLoggedIn, isUserAdmin } from "../store/userSlice";
+import {Box, useTheme} from "@mui/material";
 
 const Sidebar = ({ children }) => {
   const [t] = useTranslation();
@@ -78,10 +79,11 @@ const Sidebar = ({ children }) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const theme = useTheme();
 
   return (
     <div className="container">
-      <div className="sidebar" style={{ width: isOpen ? "180px" : "65px" }} >
+      <Box className="sidebar" sx={{ width: isOpen ? "194px" : "65px", backgroundColor:  theme.palette.primary.main}} >
         <div className="link" onClick={toggle} >
           <MenuIcon />
         </div>
@@ -95,13 +97,13 @@ const Sidebar = ({ children }) => {
             <div className="icon">{item.icon}</div>
             <div
               className="link_text"
-              style={{ opacity: isOpen ? "1" : "0", transition: "0.3s", marginTop: !isOpen ? "-25%" : null }}
+              style={{ opacity: isOpen ? "1" : "0", transition: "0.3s", height: !isOpen ? "1px" : '40px' }}
             >
               {item.name}
             </div>
           </NavLink>
         ))}
-      </div>
+      </Box>
       <main style={{ marginLeft: isOpen ? "180px" : "50px" }}>{children}</main>
     </div>
   );

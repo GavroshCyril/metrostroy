@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Media.css";
 import ImagesList from "../../components/ImagineList/ImagesList";
 import Alert from "@mui/material/Alert";
@@ -27,7 +27,7 @@ const Media = () => {
         <div className="description">
           <YoutubeEmbed embedId="K0ytyKc1vwE" />
           <p className="Media-paragraph">
-            <span> {t("search.let")} </span>
+            <span>{t("search.let")} </span>
             {t("search.description01")}
           </p>
         </div>
@@ -39,7 +39,7 @@ const Media = () => {
         <p className="Media-desc"> {t("search.description03")}</p>
         <p className="Media-desc"> {t("search.description04")}</p>
 
-        <Alert severity="info">
+        <Alert severity="info" sx={{marginTop: "10px"}}>
           <AlertTitle>{t("search.infoTitle")}</AlertTitle>
           {t("search.infoSubtitle")}
         </Alert>

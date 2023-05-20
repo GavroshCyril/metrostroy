@@ -5,7 +5,7 @@
 }
 
 .content-span {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .description {
@@ -16,15 +16,22 @@
 }
 
 .Media-paragraph {
-  max-width: 800px;
+  line-height: 26px !important;
+  width: 800px;
 }
 
 .Media-paragraph span {
-  font-size: 48px;
+  font-size: 50px;
+  margin-left: -4px;
+  margin-right: -13px;
+  line-height: 5px;
+  font-weight: bold;
 }
 
 .Media-desc {
-  margin: 20px 0;
+  line-height: 26px !important;
+
+  margin: 30px 0;
 }
 
 .links {

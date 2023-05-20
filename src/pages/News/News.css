@@ -43,26 +43,32 @@
   display: flex;
   margin: 0 15px;
   flex-wrap: wrap;
+  padding-top: 10px;
 }
 
 .Card {
-  margin: 0 5px;
+  margin: 0 10px;
   width: 420px;
-  height: 410px;
-  transition: 0.2s ease-in-out;
+  height: 450px;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   -ms-transition: 0.2s ease-in-out;
   -o-transition: 0.2s ease-in-out;
+  scale: 1;
+  transition: 1s;
+
 }
 
 .Card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transform: translateY(-20px);
+  /*transform: translateY(-20px);*/
+  scale: 1.05;
+  margin: 0 17px;
   -webkit-transform: translateY(-20px);
   -moz-transform: translateY(-20px);
   -ms-transform: translateY(-20px);
   -o-transform: translateY(-20px);
+
 }
 
 .input-lang {

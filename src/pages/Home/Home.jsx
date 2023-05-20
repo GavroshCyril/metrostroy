@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Home.css";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -8,16 +8,15 @@ import {
   CardMedia,
   Typography,
   CardActionArea,
-  Link,
+
   Stack,
   Button,
 } from "@mui/material";
-import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Lang from "../../components/HeaderOptions";
 import { selectLocalizedState } from "../../store/localizationSlice";
 import { selectLines } from "../../store/linesSlice";
-import { useLines } from "../../hooks/useLines";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -54,7 +53,7 @@ const Home = () => {
                     image={imageLink + line.line_picture}
                     alt="green iguana"
                   />
-                  <CardContent>
+                  <CardContent sx={{height: '160px'}}>
                     <Typography gutterBottom variant="h6" component="div">
                       {state[`${line.line_name}`]}
                     </Typography>
