@@ -29,6 +29,7 @@ import NewsList from "./components/News/NewsList";
 import NewsDetail from "./components/News/NewsDetail";
 import {selectHeader} from "./store/headerSlice";
 import Lang from "./components/HeaderOptions";
+import "./components/Slider/Slider.css"
 
 
 const App = () => {
@@ -43,8 +44,8 @@ const App = () => {
         <TokenManager>
           <LocalizationProvider>
             <Sidebar/>
-            <div className="MapImg">
-              <div className="Map-container" style={{backgroundImage: `${image}`}}>
+            <div style={{backgroundImage: `url(${image})`}}>
+              <div className="Map-container" >
                 <h2 className="title">{title}</h2>
               </div>
               <Lang />

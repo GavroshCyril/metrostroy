@@ -4,10 +4,12 @@ export const headerSlice = createSlice({
     name: "header",
     initialState: {
         title: '',
+        image: ''
     },
     reducers: {
         setHeaderState: (state, {payload}) => {
             state.title = payload.title;
+            state.image = payload.image;
         },
     },
 });

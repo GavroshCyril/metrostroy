@@ -15,7 +15,7 @@ const Map = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setHeaderState({title: t("map.title")}))
+        dispatch(setHeaderState({title: t("map.title"), image: "./Assets/Images/Vakzalnaja.jpg"}))
     }, [t])
   return (
     <div className="MapWrapper">

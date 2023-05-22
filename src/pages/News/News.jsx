@@ -1,17 +1,7 @@
-import React, { useEffect } from "react";
-import "./News.css";
+import React from "react";
+import "./News.module.css";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import {
-  Card,
-  CardContent,
-  Box,
-  Typography,
-  CardActions,
-  Link,
-  Stack,
-  Button,
-} from "@mui/material";
+
 import Lang from "../../components/HeaderOptions";
 import News from "../../components/News";
 

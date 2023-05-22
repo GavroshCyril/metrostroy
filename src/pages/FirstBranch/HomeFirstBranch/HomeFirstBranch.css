@@ -44,3 +44,9 @@
   top: 30px;
   right: 40px;
 }
+
+.HomeFirstBranch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

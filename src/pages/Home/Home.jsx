@@ -1,147 +1,44 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Home.css";
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  CardActionArea,
+import {useDispatch, useSelector} from "react-redux";
 
-  Stack,
-  Button,
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import logoMetro from "../../Assets/Images/minsk-metro-logo.png";
 import Lang from "../../components/HeaderOptions";
 import { selectLocalizedState } from "../../store/localizationSlice";
 import { selectLines } from "../../store/linesSlice";
+import Slide from "./Slide";
+import Button from "@mui/material/Button";
+import {setHeaderState} from "../../store/headerSlice";
+import {useTranslation} from "react-i18next";
 
 const Home = () => {
-  const [t] = useTranslation();
   const state = useSelector(selectLocalizedState);
   const linesState = useSelector(selectLines);
-  const navigate = useNavigate();
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  const dispatch = useDispatch()
+  const [t] = useTranslation();
+
+
+  useEffect(() => {
+    dispatch(setHeaderState({title: state.home_title, image: "../../Assets/Images/kavalskaya.jpg"}))
+  }, [t])
 
   return (
     <div className="Home">
       <div className="Home-container">
-        <div className="main-img">
-          <img src={logoMetro} className="logo" alt="Misk Metro Logo" />
-        </div>
-        <span className="Home-title">
-          {state.home_title} <br />
-          <span>{state.home_subtitle} </span>
-        </span>
         <Lang />
 
-        <div className="card-container">
-          {linesState.map((line) => {
-            const imageLink = "http://localhost:3000/station/image/";
-            return (
-              // <Link key={line.id} name={line.line_name} href={`/line/${line.line_name}`} underline="none" className="Link">
-              <Card
-                sx={{ maxWidth: 500 }}
-                className="Card"
-                onClick={() => navigate(`/line/${line.line_name}`)}
-              >
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    image={imageLink + line.line_picture}
-                    alt="green iguana"
-                  />
-                  <CardContent sx={{height: '160px'}}>
-                    <Typography gutterBottom variant="h6" component="div">
-                      {state[`${line.line_name}`]}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {state[`${line.line_description}`]}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <Stack className="card-btn" spacing={2} direction="row">
-                  <Button variant="outlined"> {t("more")}</Button>
-                </Stack>
-              </Card>
-
-              // </Link>
-            );
-          })}
-
-          {/* <Link href="/bluebranch" underline="none" className="Link">
-            <Card sx={{ maxWidth: 500 }} className="Card">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://metropoliten.by/upload/iblock/078/DSC_0144.jpg"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {t("home.moscowTitle")}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {t("home.moscowSubtitle")}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined"> {t("more")}</Button>
-              </Stack>
-            </Card>
-          </Link>
-
-          <Link href="/redbranch" underline="none">
-            <Card sx={{ maxWidth: 500 }} className="Card">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://metropoliten.by/upload/iblock/705/DSC_0802.jpg"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {t("home.avtozavodskayaTitle")}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {t("home.avtozavodskayaSubTitle")}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined">{t("more")}</Button>
-              </Stack>
-            </Card>
-          </Link>
-          <Link href="/greenbranch" underline="none">
-            <Card sx={{ maxWidth: 500 }} className="Card">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://metropoliten.by/upload/iblock/c72/ANT_4784-2.jpg"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {t("home.zelenoluzskayaTitle")}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {t("home.zelenoluzskayaSubTitle")}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <Stack className="card-btn" spacing={2} direction="row">
-                <Button variant="outlined">{t("more")}</Button>
-              </Stack>
-            </Card>
-          </Link> */}
+        <Button onClick={() => setActiveSlide(activeSlide - 1)}> Назад</Button>
+        <div className="slider">
+          <div className="slides-container" style={{paddingLeft: `${440 * activeSlide}px`}}>
+            {linesState.map((line) =>
+              <Slide key={line.title} line={line}/>
+            )}
+          </div>
         </div>
+        <Button onClick={() => setActiveSlide(activeSlide + 1)}> Вперёд</Button>
+
       </div>
     </div>
   );
