@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Stack, Avatar, Button, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import i18n from "../i18n";
@@ -54,6 +54,9 @@ const HeaderOptions = () => {
     console.log("dispatch logout");
     dispatch(logout());
   };
+
+
+
 
   return (
     <Stack className="input-lang" spacing={2} direction="row">

@@ -55,6 +55,7 @@
 }
 
 .card-btn {
+  position: relative;
   margin: 15px;
   width: 600px;
 }
@@ -65,3 +66,23 @@
     justify-content: center;
   }
 }
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* создает круглую форму */
+  position: relative;
+  background: #00B7FF;
+}
+
+.circle:before {
+  content: "";
+  position: absolute;
+  top: -10px; /* отступ окружности от круга */
+  left: -10px; /* отступ окружности от круга */
+  width: 30px; /* размер окружности */
+  height: 30px; /* размер окружности */
+  border: 5px solid #00B7FF; /* цвет окружности */
+  border-radius: 50%; /* создает круглую форму */
+}
+

@@ -1,15 +1,28 @@
-import React from 'react';
-import {Button, Card, CardActionArea, CardContent, CardMedia, Stack, Typography} from "@mui/material";
+import React, {useMemo} from 'react';
+import {Box, Button, Card, CardActionArea, CardContent, CardMedia, Stack, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectLocalizedState} from "../../store/localizationSlice";
 import {useTranslation} from "react-i18next";
 
 
-function Slide({line}) {
+function Slide({line = 'home_zelenoluzskayaTitle'}) {
   const navigate = useNavigate();
   const state = useSelector(selectLocalizedState);
   const [t] = useTranslation();
+
+  const color = useMemo(() => {
+    switch (line.line_name) {
+      case 'home_zelenoluzskayaTitle':
+        return "green"
+      case 'home_avtozavodskayaTitle':
+        return "red"
+      case 'home_zelenoluzskayaTitle':
+        return "blue"
+      default:
+        return "blue"
+    }
+  }, [line])
 
 
   return (
@@ -36,6 +49,8 @@ function Slide({line}) {
       </CardActionArea>
       <Stack className="card-btn" spacing={2} direction="row">
         <Button variant="outlined"> {t("more")}</Button>
+        <Box sx={{position: 'absolute', background: color, left: 'calc(30% - 25px)'}} className='dot'/>
+
       </Stack>
     </Card>
   );

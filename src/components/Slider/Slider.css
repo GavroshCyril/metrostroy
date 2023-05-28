@@ -1,9 +1,26 @@
 .slider {
-    width: 1320px;
-    height: 450px;
-    /*border: 1px solid red;*/
-    background: red;
+display: flex;
+    align-items: center;
+    width: 1340px;
+    height: 490px;
     overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.slider-wrapper {
+    height: 490px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.nav_btn {
+    z-index: 1;
+    height: 450px;
+    font-size: 50px;
+    font-weight: bold;
+
 }
 
 .slides-container {
@@ -23,19 +40,42 @@
 }
 
 .dots {
-    width: 500px;
+    width: 600px;
     margin: 50px;
-    height: 2px;
+    height: 3px;
     background-color: #00B7FF;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    z-index: 1;
 }
 
 .dot {
-    width: 30px;
-    height: 30px;
-    background-color: #00B7FF;
-    border-radius: 50%;
-    margin-top: -15px;
     cursor: pointer;
+    margin-top: -14px;
+    box-sizing: content-box;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* создает круглую форму */
+    position: relative;
+    background: inherit;
+    border: 7px solid white;
+
+}
+
+.dot:hover {
+    box-shadow: 1px 1px 3px gray;
+
+}
+
+.dot:before {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    top: -10px; /* отступ окружности от круга */
+    left: -10px; /* отступ окружности от круга */
+    width: 40px; /* размер окружности */
+    height: 40px; /* размер окружности */
+    background-color: inherit; /* цвет окружности */
+    z-index: -1;
+    border-radius: 50%; /* создает круглую форму */
 }

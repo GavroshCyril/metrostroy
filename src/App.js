@@ -22,7 +22,7 @@ import Frunzenskaya from "./pages/SecondBranch/Frunzenskaya";
 import Partizanskaya from "./pages/SecondBranch/Frunzenskaya";
 import { TokenManager } from "./common/TokenManager.jsx";
 import { LocalizationProvider } from "./common/LocalizationProvider.jsx";
-import Line from "./pages/Line";
+import LineStations from "./pages/LineStations/LineStations";
 import { isUserLoggedIn, isUserAdmin, logout } from "./store/userSlice";
 
 import NewsList from "./components/News/NewsList";
@@ -67,7 +67,7 @@ const App = () => {
                   <Route path="/admin" element={<Admin />} />
                 )}
 
-                <Route path="/line/:name" element={<Line />} />
+                <Route path="/line/:name" element={<LineStations />} />
                 <Route path="*" element={<Error />} />
 
                 <Route path="/" exact component={NewsList} />

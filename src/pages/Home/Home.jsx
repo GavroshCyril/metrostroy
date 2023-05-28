@@ -19,7 +19,7 @@ const Home = () => {
   const dispatch = useDispatch()
   const [t] = useTranslation();
 
-
+  console.log(linesState)
   useEffect(() => {
     dispatch(setHeaderState({title: state.home_title, image: "../../Assets/Images/kavalskaya.jpg"}))
   }, [t])
@@ -30,7 +30,7 @@ const Home = () => {
         <Lang />
 
         <Button onClick={() => setActiveSlide(activeSlide - 1)}> Назад</Button>
-        <div className="slider">
+        <div style={{height: "600px", width: '1320px'}}>
           <div className="slides-container" style={{paddingLeft: `${440 * activeSlide}px`}}>
             {linesState.map((line) =>
               <Slide key={line.title} line={line}/>
