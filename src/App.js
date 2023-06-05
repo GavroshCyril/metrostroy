@@ -44,12 +44,7 @@ const App = () => {
         <TokenManager>
           <LocalizationProvider>
             <Sidebar/>
-            <div style={{backgroundImage: `url(${image})`}}>
-              <div className="Map-container" >
-                <h2 className="title">{title}</h2>
-              </div>
-              <Lang />
-            </div>
+
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/map" element={<Map />} />

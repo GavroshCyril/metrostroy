@@ -31,12 +31,14 @@
 }
 
 .Map-info {
-  /* background: url("../../Assets/Images/shema.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; */
+  /*background: url("../../Assets/Images/shema.jpg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center center;*/
+
+  background-size: cover;
   display: flex;
   justify-content: center;
+
   
 }
 

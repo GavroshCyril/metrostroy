@@ -1,125 +1,119 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./Map.css";
 import { useTranslation } from "react-i18next";
 import MapImg from "../../Assets/Images/shemaMetro02.png";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import {useDispatch} from "react-redux";
-import {setHeaderState} from "../../store/headerSlice";
+import Lang from "../../components/HeaderOptions";
 /* import { Tooltip } from "react-tooltip"; */
 
 const Map = () => {
   const [t] = useTranslation();
 
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(setHeaderState({title: t("map.title"), image: "./Assets/Images/Vakzalnaja.jpg"}))
-    }, [t])
   return (
     <div className="MapWrapper">
-      {/*<div className="MapImg">*/}
-      {/*  <div className="Map-container">*/}
-      {/*    <h2 className="title">{t("map.title")}</h2>*/}
-      {/*  </div>*/}
-      {/*  <Lang />*/}
-      {/*</div>*/}
+      <div className="MapImg">
+        <div className="Map-container">
+          <h2 className="title">{t("map.title")}</h2>
+        </div>
+        <Lang />
+      </div>
 
-      {/*<div className="red" id="gorka">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="kuncauchczyna">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="sportivnaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="puchkinskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="molodeznaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="frunzenskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="nemiga">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="kupalovskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="pervomayskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="proletarskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="zavod">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="partizanskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="avtozavodskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="red" id="mogilevskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
+      <div className="red" id="gorka">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="kuncauchczyna">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="sportivnaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="puchkinskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="molodeznaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="frunzenskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="nemiga">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="kupalovskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="pervomayskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="proletarskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="zavod">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="partizanskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="avtozavodskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="red" id="mogilevskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
 
-      {/*<div className="blue" id="malinovka">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="petrovscina">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="michalovo">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="grushevka">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="kultury">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="oktyabrskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="pobedy">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="kolasa">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="cheluskincev">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="moskovskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="voshod">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="borisovskiy">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="blue" id="yryczje">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="green" id="yubileynaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="green" id="frantiszka">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="green" id="vokzalnaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
-      {/*<div className="green" id="kovalskaya">*/}
-      {/*  <a href="https://www.google.com/">1</a>*/}
-      {/*</div>*/}
+      <div className="blue" id="malinovka">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="petrovscina">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="michalovo">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="grushevka">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="kultury">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="oktyabrskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="pobedy">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="kolasa">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="cheluskincev">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="moskovskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="voshod">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="borisovskiy">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="blue" id="yryczje">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="green" id="yubileynaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="green" id="frantiszka">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="green" id="vokzalnaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
+      <div className="green" id="kovalskaya">
+        <a href="https://www.google.com/">1</a>
+      </div>
 
       {/*  <Tooltip className='tool' anchorSelect="#gorka" clickable>
         <img src="https://eng.belta.by/images/storage/news/with_archive/2020/000163_1602754662_134253_big.jpg" alt="react logo" style={{ width: '300px' }} />

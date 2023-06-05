@@ -10,6 +10,13 @@ import Slide from "./Slide";
 import Button from "@mui/material/Button";
 import {setHeaderState} from "../../store/headerSlice";
 import {useTranslation} from "react-i18next";
+import {CardActionArea} from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import {useNavigate} from "react-router-dom";
+import Stack from "@mui/material/Stack";
 
 const Home = () => {
   const state = useSelector(selectLocalizedState);
@@ -18,6 +25,7 @@ const Home = () => {
 
   const dispatch = useDispatch()
   const [t] = useTranslation();
+  const navigate = useNavigate();
 
   console.log(linesState)
   useEffect(() => {
@@ -28,16 +36,13 @@ const Home = () => {
     <div className="Home">
       <div className="Home-container">
         <Lang />
-
-        <Button onClick={() => setActiveSlide(activeSlide - 1)}> Назад</Button>
-        <div style={{height: "600px", width: '1320px'}}>
+        <div style={{height: "600px", width: '1320px', marginTop: '200px'}}>
           <div className="slides-container" style={{paddingLeft: `${440 * activeSlide}px`}}>
             {linesState.map((line) =>
               <Slide key={line.title} line={line}/>
             )}
           </div>
         </div>
-        <Button onClick={() => setActiveSlide(activeSlide + 1)}> Вперёд</Button>
 
       </div>
     </div>
