@@ -27,7 +27,8 @@ const Home = () => {
   const [t] = useTranslation();
   const navigate = useNavigate();
 
-  console.log(linesState)
+
+  console.log(state.home_title)
   useEffect(() => {
     dispatch(setHeaderState({title: state.home_title, image: "../../Assets/Images/kavalskaya.jpg"}))
   }, [t])
@@ -36,7 +37,14 @@ const Home = () => {
     <div className="Home">
       <div className="Home-container">
         <Lang />
-        <div style={{height: "600px", width: '1320px', marginTop: '200px'}}>
+        <div className="main-img">
+          <img src={logoMetro} className="logo" alt="Misk Metro Logo" />
+        </div>
+        <span className="Home-title">
+          {state.home_title} <br />
+          <span>{state.home_subtitle} </span>
+        </span>
+        <div style={{height: "600px", width: '1320px', marginTop: '20px'}}>
           <div className="slides-container" style={{paddingLeft: `${440 * activeSlide}px`}}>
             {linesState.map((line) =>
               <Slide key={line.title} line={line}/>

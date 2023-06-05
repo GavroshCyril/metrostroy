@@ -1,6 +1,8 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import { useSelector } from "react-redux";
 import {  useLocation } from 'react-router-dom';
+import Lang from "../../components/HeaderOptions";
+
 import "./index.css";
 
 
@@ -19,7 +21,6 @@ const LineStations = () => {
   })
 
   const stations = line ? line.stations : []
-
   const color = useMemo(() => {
     switch (currentLineName) {
       case 'home_zelenoluzskayaTitle':
@@ -31,23 +32,39 @@ const LineStations = () => {
     }
   }, [currentLineName])
 
+  const title = useMemo(() => {
+    switch (currentLineName) {
+      case 'home_zelenoluzskayaTitle':
+        return "Зеленолужская"
+      case 'home_avtozavodskayaTitle':
+        return "Автозаводская"
+      case 'home_moscowTitle':
+        return "Московская"
+    }
+  }, [currentLineName])
+
+  console.log(line)
+
+
   const dotClickHandler = (index) => setActiveSlide(index)
 
   const [activeSlide, setActiveSlide] = useState(0)
 
   return (
-    <div className="HomeFirstBranch">
-      {/*<Slider lineName={line && line.line_name}/>*/}
+    <div className="Home" >
+    <div className="Home-container">
 
-      {/*<Lang />*/}
+      <Lang />
 
-
-        <div className="dots" style={{background: color}}>
+        <span className="Home-title" style={{marginTop: "100px"}}>
+          {line && title}
+        </span>
+        <div className="dots" style={{background: color, marginTop: "50px"}}>
           {stations && stations.map((st, index) => (index < stations.length - 2 ? <Box  key={index} onClick={() => dotClickHandler(index)} className="dot"/> : null))}
         </div>
       <div className="slider-wrapper">
         <Button className="nav_btn" sx={{marginRight: '20px'}} onClick={() => dotClickHandler(activeSlide-1)}>&#5176;</Button>
-        <div className="slider">
+        <div className="slider" >
           <div className="slides-container" style={{marginLeft: `-${440 * activeSlide}px`}}>
             {stations && stations.map((station) => <LineSlide key={station.station_description} station={station}/>)}
           </div>
@@ -56,6 +73,7 @@ const LineStations = () => {
       </div>
 
 
+    </div>
     </div>
   );
 };
