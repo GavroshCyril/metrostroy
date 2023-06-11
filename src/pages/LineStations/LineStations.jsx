@@ -43,37 +43,30 @@ const LineStations = () => {
     }
   }, [currentLineName])
 
-  console.log(line)
-
-
   const dotClickHandler = (index) => setActiveSlide(index)
 
   const [activeSlide, setActiveSlide] = useState(0)
 
   return (
     <div className="Home" >
-    <div className="Home-container">
-
-      <Lang />
-
+      <div className="Home-container">
+        <Lang />
         <span className="Home-title" style={{marginTop: "100px"}}>
           {line && title}
         </span>
         <div className="dots" style={{background: color, marginTop: "50px"}}>
           {stations && stations.map((st, index) => (index < stations.length - 2 ? <Box  key={index} onClick={() => dotClickHandler(index)} className="dot"/> : null))}
         </div>
-      <div className="slider-wrapper">
-        <Button className="nav_btn" sx={{marginRight: '20px'}} onClick={() => dotClickHandler(activeSlide-1)}>&#5176;</Button>
-        <div className="slider" >
-          <div className="slides-container" style={{marginLeft: `-${440 * activeSlide}px`}}>
-            {stations && stations.map((station) => <LineSlide key={station.station_description} station={station}/>)}
+        <div className="slider-wrapper">
+          <Button className="nav_btn" sx={{marginRight: '20px'}} onClick={() => dotClickHandler(activeSlide-1)}>&#5176;</Button>
+          <div className="slider" >
+            <div className="slides-container" style={{marginLeft: `-${440 * activeSlide}px`}}>
+              {stations && stations.map((station) => <LineSlide key={station.station_description} station={station}/>)}
+            </div>
           </div>
+          <Button className="nav_btn" onClick={() => setActiveSlide(activeSlide < stations.length - 3 ? activeSlide + 1 : activeSlide)}>&#5171;</Button>
         </div>
-        <Button className="nav_btn" onClick={() => setActiveSlide(activeSlide < stations.length - 3 ? activeSlide + 1 : activeSlide)}>&#5171;</Button>
       </div>
-
-
-    </div>
     </div>
   );
 };

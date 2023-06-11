@@ -1,5 +1,5 @@
 .slider {
-display: flex;
+    display: flex;
     align-items: center;
     width: 1340px;
     height: 490px;
@@ -24,6 +24,7 @@ display: flex;
 }
 
 .slides-container {
+    max-width: min-content;
     min-width: 3000px;
     display: flex;
 }
@@ -31,6 +32,8 @@ display: flex;
 .Card {
     margin: 0 30px 0 0 ;
     width: 420px;
+    max-width: 420px;
+    min-width: 420px;
     height: 450px;
     transition: 0.2s ease-in-out;
     -webkit-transition: 0.2s ease-in-out;
@@ -59,7 +62,6 @@ display: flex;
     position: relative;
     background: inherit;
     border: 7px solid white;
-
 }
 
 .dot:hover {
@@ -78,4 +80,8 @@ display: flex;
     background-color: inherit; /* цвет окружности */
     z-index: -1;
     border-radius: 50%; /* создает круглую форму */
+}
+
+.dot:active:before {
+    scale: 0.95;
 }
