@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, { useMemo, useState} from "react";
 import { useSelector } from "react-redux";
 import {  useLocation } from 'react-router-dom';
 import Lang from "../../components/HeaderOptions";
@@ -27,7 +27,7 @@ const LineStations = () => {
         return "green"
       case 'home_avtozavodskayaTitle':
         return "red"
-      case 'home_zelenoluzskayaTitle':
+      case 'home_moscowTitle':
         return "blue"
     }
   }, [currentLineName])
@@ -55,7 +55,7 @@ const LineStations = () => {
           {line && title}
         </span>
         <div className="dots" style={{background: color, marginTop: "50px"}}>
-          {stations && stations.map((st, index) => (index < stations.length - 2 ? <Box  key={index} onClick={() => dotClickHandler(index)} className="dot"/> : null))}
+          {stations && stations.map((st, index) => (index < stations.length - 2 ? <Box  key={index} onClick={() => dotClickHandler(index)} className={`dot ${activeSlide === index && "active"}`}/> : null))}
         </div>
         <div className="slider-wrapper">
           <Button className="nav_btn" sx={{marginRight: '20px'}} onClick={() => dotClickHandler(activeSlide-1)}>&#5176;</Button>
